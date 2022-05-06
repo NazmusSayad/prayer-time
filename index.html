@@ -138,6 +138,7 @@
 
         <div class="sidebar__content">
           <form class="sidebar__form" onsubmit="sidebar_form_submit()">
+            <!-- Madhab -->
             <section class="madhab">
               <h3 class="madhab__heading">Madhab:</h3>
               <div class="madhab__list">
@@ -151,17 +152,22 @@
                 </div>
               </div>
             </section>
+
+            <!-- Calculation Methods -->
             <section class="calculation-method">
               <h3 class="calculation-method__heading">Calculation Method:</h3>
               <div class="calculation-method__list">
                 <!-- Append here using JS -->
               </div>
             </section>
+
+            <!-- Form buttons -->
             <section class="buttons">
               <button type="submit">save</button>
-              <!-- <button type="reset">reset</button> -->
             </section>
           </form>
+
+          <!-- Set Location Buttons -->
           <section class="sidebar__location">
             <h3 class="sidebar__location--heading">Location:</h3>
             <div class="sidebar__location--item">
@@ -171,7 +177,7 @@
               <button onclick="update_coordinates_ip()">Update coordinates using IP Address</button>
             </div>
             <div class="sidebar__location--item">
-              <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Set Satkhira(Dev Location)</button>
+              <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Set Satkhira(Dev's Location)</button>
             </div>
           </section>
         </div>

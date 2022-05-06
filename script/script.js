@@ -213,13 +213,15 @@ const update_coordinates_config = (latt, long) => {
   update_time_database();
 };
 const update_coordinates_location = () => {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      // If geolocation track succeed
-      update_coordinates_config(position.coords.latitude, position.coords.longitude);
-    },
-    () => alert("Geolocation service not working.")
-  );
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        // If geolocation track succeed
+        update_coordinates_config(position.coords.latitude, position.coords.longitude);
+      },
+      () => alert("Geolocation service not working.")
+    );
+  } else alert("Geolocation service not working.");
 };
 const update_coordinates_ip = () => {
   fetch("https://json.geoiplookup.io")
