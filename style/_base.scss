@@ -1,0 +1,20 @@
+$color-white: #eee;
+$color-dark: #272727;
+$color-blue: #6998aa;
+
+$color-today: #ececec;
+$color-extra: rgba($color-today, 0.9);
+
+$bg-color-today: rgba(#333, $alpha: 0.21);
+$bg-color-extra: rgba(#666, $alpha: 0.25);
+
+$bg-color-current: rgba(#78b478, $alpha: 0.65);
+$bg-color-next: rgba(#557899, $alpha: 0.65);
+
+@mixin custom-flex($count, $gap) {
+  .item {
+    flex: 100% / $count 0 1;
+    padding: $gap / 2;
+    max-width: $gap + 15.75rem;
+  }
+}

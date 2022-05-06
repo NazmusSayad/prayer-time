@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Website description." />
+    <meta name="keywords" content="Website" />
+    <meta name="author" content="Nazmus Sayad" />
+
+    <title>Salah Time</title>
+    <link rel="shortcut icon" href="media/favicon/favicon.png" type="image/x-icon" />
+
+    <!-- Stylesheet -->
+    <link href="./style/style.css" rel="stylesheet" />
+
+    <!-- Adhan.js -->
+    <script src="./data/Adhan.js"></script>
+
+    <!-- My Scripts -->
+    <script src="./script/script.js"></script>
+    <script src="./script/main.js"></script>
+    <script defer src="./script/element.js"></script>
+    <script defer src="./script/app.js"></script>
+    <script defer src="./script/clock.js"></script>
+  </head>
+  <body>
+    <!-- Prayer Times -->
+    <section id="prayerTimes">
+      <div class="-wrapper---">
+        <div class="item">
+          <article selector="fajr" name="fajr" time="today" prayer="">
+            <div class="time"></div>
+            <div class="name">Fajr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="sunrise" name="sunrise" time="today">
+            <div class="time"></div>
+            <div class="name">Sunrise</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="dhuhr" name="dhuhr" time="today" prayer="">
+            <div class="time"></div>
+            <div class="name">Dhuhr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="asr" name="asr" time="today" prayer="">
+            <div class="time"></div>
+            <div class="name">Asr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="maghrib" name="maghrib" time="today" prayer="">
+            <div class="time"></div>
+            <div class="name">Maghrib</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="isha" name="isha" time="today" prayer="">
+            <div class="time"></div>
+            <div class="name">Isha</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="fajr_2" name="fajr" time="extra" prayer="">
+            <div class="time"></div>
+            <div class="name">Fajr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="sunrise_2" name="sunrise" time="extra">
+            <div class="time"></div>
+            <div class="name">Sunrise</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="dhuhr_2" name="dhuhr" time="extra" prayer="">
+            <div class="time"></div>
+            <div class="name">Dhuhr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="asr_2" name="asr" time="extra" prayer="">
+            <div class="time"></div>
+            <div class="name">Asr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="maghrib_2" name="maghrib" time="extra" prayer="">
+            <div class="time"></div>
+            <div class="name">Maghrib</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item">
+          <article selector="isha_2" name="isha" time="extra" prayer="">
+            <div class="time"></div>
+            <div class="name">Isha</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clock -->
+    <section id="clock">
+      <article class="time">
+        <span class="time_h"></span><span class="colon">:</span><span class="time_m"></span><span class="colon">:</span><span class="time_s"></span>
+        <span class="time_t"></span>
+      </article>
+      <article class="date"></article>
+    </section>
+
+    <!-- Sidebar -->
+    <section id="sidebar" class="">
+      <div class="-wrapper--- sidebar">
+        <section class="sidebar__header">
+          <h1 class="sidebar__header--heading">Prayer Time</h1>
+          <div onclick="sidebar.hide()" class="close_slider">
+            <div class="leftright"></div>
+            <div class="rightleft"></div>
+          </div>
+        </section>
+
+        <div class="sidebar__content">
+          <form class="sidebar__form" onsubmit="sidebar_form_submit()">
+            <section class="madhab">
+              <h3 class="madhab__heading">Madhab:</h3>
+              <div class="madhab__list">
+                <div class="madhab__list--item">
+                  <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-0" value="Shafi" />
+                  <label for="madhab__list--item--radio-0">Shafi</label>
+                </div>
+                <div class="madhab__list--item">
+                  <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-1" value="Hanafi" checked />
+                  <label for="madhab__list--item--radio-1">Hanafi (default)</label>
+                </div>
+              </div>
+            </section>
+            <section class="calculation-method">
+              <h3 class="calculation-method__heading">Calculation Method:</h3>
+              <div class="calculation-method__list">
+                <!-- Append here using JS -->
+              </div>
+            </section>
+            <section class="buttons">
+              <button type="submit">save</button>
+              <!-- <button type="reset">reset</button> -->
+            </section>
+          </form>
+          <section class="sidebar__location">
+            <h3 class="sidebar__location--heading">Location:</h3>
+            <div class="sidebar__location--item">
+              <button onclick="update_coordinates_location()">Update coordinates using Geolocation</button>
+            </div>
+            <div class="sidebar__location--item">
+              <button onclick="update_coordinates_ip()">Update coordinates using IP Address</button>
+            </div>
+            <div class="sidebar__location--item">
+              <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Set Satkhira(Dev Location)</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Msg Box -->
+    <section id="message-box"></section>
+  </body>
+</html>

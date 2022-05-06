@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  user-select: none;
+  font-size: 62.5%;
+
+  @include laptop-s {
+    font-size: 59%;
+  }
+  @include tablet {
+    font-size: 55%;
+  }
+  @include phone {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.6rem;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url("../media/bg/body-bg-min.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  overflow: hidden;
+}
+
+textarea,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+.-wrapper--- {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+button {
+  background: none;
+  outline: 0;
+  border: 0;
+  font: inherit;
+  text-transform: capitalize;
+  font-size: 1.75rem;
+  padding: 0.6rem 1.75rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background: $color-blue;
+  color: $color-white;
+  font-weight: 500;
+  transition: background 0.3s;
+  &:hover {
+    background: darken($color-blue, 20%);
+  }
+}
