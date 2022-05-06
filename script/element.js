@@ -76,3 +76,4 @@ const element = {
   element.sidebar__form.querySelector(`.madhab .madhab__list--item [value="${config.madhab}"]`).click();
   element.sidebar__form.querySelector(`.calculation-method .calculation-method__list--item [value="${config.method}"]`).click();
 }
+

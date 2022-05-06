@@ -51,6 +51,48 @@
       box-shadow: 0 0 0.5rem #00000015;
 
       padding: 1.85rem 1rem;
+
+      &.current {
+        opacity: 1;
+        background: transparent !important;
+
+        position: relative;
+
+        .name {
+          font-size: 1.75rem;
+          text-decoration: underline;
+          opacity: 0.9;
+        }
+        .time {
+          font-size: 1.95rem;
+        }
+
+        &::before {
+          z-index: -1;
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          box-shadow: 0 0 0.5rem #00000025;
+          background: $bg-color-current !important;
+          border-radius: 0.5rem;
+
+          animation-name: current;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+        }
+      }
+      &.next {
+        opacity: 1;
+        background: $bg-color-next !important;
+        .remain {
+          display: block;
+        }
+      }
       @include laptop-s {
         padding: 1.8rem 0.95rem;
       }
@@ -82,40 +124,35 @@
 
         margin-top: 0.4rem;
       }
-
-      &.current {
-        opacity: 1;
-        background: $bg-color-current !important;
-      }
-      &.next {
-        opacity: 1;
-        background: $bg-color-next !important;
-        .remain {
-          display: block;
-        }
-      }
     }
   }
   &.tomorrow .-wrapper--- {
-    article[time="today"] {
-      background: $bg-color-today;
+    .item[time="today"] {
+      article {
+        background: $bg-color-today;
+      }
     }
-    article[time="extra"] {
-      opacity: 0.9;
-      background: $bg-color-extra;
-      color: $color-extra;
+    .item[time="extra"] {
+      article {
+        opacity: 0.9;
+        background: $bg-color-extra;
+        color: $color-extra;
+      }
     }
   }
   &.yesterday .-wrapper--- {
-    article[time="today"] {
-      opacity: 0.9;
-      background: $bg-color-extra;
-      color: $color-extra;
+    .item[time="today"] {
+      article {
+        opacity: 0.9;
+        background: $bg-color-extra;
+        color: $color-extra;
+      }
     }
-    article[time="extra"] {
-      background: $bg-color-today;
-
+    .item[time="extra"] {
       order: -1;
+      article {
+        background: $bg-color-today;
+      }
     }
   }
 }

@@ -267,3 +267,16 @@ const sidebar = {
     setTimeout(() => element.sidebar.removeAttribute("style"), 300);
   },
 };
+const fullscreenFn = () => {
+  event.preventDefault();
+
+  if (document.fullscreenEnabled) {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+      document.querySelector("html").removeAttribute("Style");
+    } else {
+      document.querySelector("html").requestFullscreen();
+      document.querySelector("html").style.cursor = "none";
+    }
+  }
+};

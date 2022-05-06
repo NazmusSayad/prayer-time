@@ -17,18 +17,10 @@
   }
 })();
 
-window.addEventListener("dblclick", () => {
-  event.preventDefault();
-
-  if (document.fullscreenEnabled) {
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else {
-      document.querySelector("html").requestFullscreen();
-    }
-  }
-});
+window.addEventListener("dblclick", fullscreenFn);
+window.addEventListener("keydown", fullscreenFn);
 window.addEventListener("contextmenu", () => {
   event.preventDefault();
   sidebar.show();
 });
+
