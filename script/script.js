@@ -150,7 +150,7 @@ const update_time_database = () => {
   update_nextPrayer_time();
 };
 const update_page = () => {
-  element.prayerTimes.className = config.extraTime_name;
+  element.prayerTimes.setAttribute("extraTimes", config.extraTime_name);
 
   get_prayerTIme_element("fajr").time.innerHTML = format_time(config.prayerTimes.today.fajr);
   get_prayerTIme_element("sunrise").time.innerHTML = format_time(config.prayerTimes.today.sunrise);
@@ -282,4 +282,23 @@ const fullscreenFn = () => {
       }
     }
   }
+};
+
+const currentPrayer_animation = {
+  enable: () => {
+    localStorage.setItem("currentPrayerAnimationEnabled", true);
+    element.prayerTimes.setAttribute("currentPrayerAnimationEnabled", true);
+    element.currentPrayerAnimationControl.innerHTML = "Disable Current Prayer Animaion";
+  },
+  disable: () => {
+    localStorage.setItem("currentPrayerAnimationEnabled", "");
+    element.prayerTimes.setAttribute("currentPrayerAnimationEnabled", "");
+    element.currentPrayerAnimationControl.innerHTML = "Enable Current Prayer Animaion";
+  },
+  toggle: function (event) {
+    const attribute = element.prayerTimes.getAttribute("currentPrayerAnimationEnabled");
+
+    if (attribute) this.disable();
+    else this.enable();
+  },
 };

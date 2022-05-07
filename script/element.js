@@ -3,6 +3,7 @@ const element = {
   prayerTimes: document.getElementById("prayerTimes"),
   sidebar: document.getElementById("sidebar"),
   sidebar__form: document.querySelector("#sidebar .sidebar__form"),
+  currentPrayerAnimationControl: document.getElementById("currentPrayerAnimationControl"),
 };
 
 {
@@ -76,4 +77,10 @@ const element = {
   // click on loaded settings
   element.sidebar__form.querySelector(`.madhab .madhab__list--item [value="${config.madhab}"]`).click();
   element.sidebar__form.querySelector(`.calculation-method .calculation-method__list--item [value="${config.method}"]`).click();
+}
+
+if (localStorage.getItem("currentPrayerAnimationEnabled") !== "") {
+  currentPrayer_animation.enable();
+} else {
+  currentPrayer_animation.disable();
 }

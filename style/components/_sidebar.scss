@@ -22,8 +22,12 @@
   }
   .sidebar {
     max-width: 600px;
+    height: 100%;
     color: $color-dark;
     background: $color-white;
+
+    display: flex;
+    flex-direction: column;
 
     opacity: 0;
     transform: scale(0);
@@ -31,7 +35,7 @@
     transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
     &__header,
     &__content {
-      padding: 3.5rem;
+      padding: 2.5rem 4rem;
     }
 
     &__header {
@@ -51,7 +55,10 @@
 
     &__content {
       overflow-y: auto;
-      height: calc(100vh - 5.8rem);
+    }
+
+    &__animation-control {
+      margin-bottom: 3rem;
     }
 
     .madhab,
@@ -76,10 +83,10 @@
       }
     }
     .madhab {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
     .buttons {
-      margin: 2.5rem 0 4rem;
+      margin: 2rem 0 4rem;
       button {
         &[type="reset"] {
           transition: color 0.3s, background 0.3s;

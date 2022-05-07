@@ -77,13 +77,9 @@
           width: 100%;
           height: 100%;
 
-          box-shadow: 0 0 0.5rem #00000025;
+          box-shadow: 0 0 0.75rem #00000020;
           background: $bg-color-current !important;
           border-radius: 0.5rem;
-
-          animation-name: current;
-          animation-duration: 2s;
-          animation-iteration-count: infinite;
         }
       }
       &.next {
@@ -126,7 +122,14 @@
       }
     }
   }
-  &.tomorrow .-wrapper--- {
+
+  &[currentprayeranimationenabled="true"] .-wrapper--- article.current::before {
+    animation-name: current;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  &[extraTimes="tomorrow"] .-wrapper--- {
     .item[time="today"] {
       article {
         background: $bg-color-today;
@@ -140,7 +143,7 @@
       }
     }
   }
-  &.yesterday .-wrapper--- {
+  &[extraTimes="yesterday"] .-wrapper--- {
     .item[time="today"] {
       article {
         opacity: 0.9;
@@ -156,3 +159,5 @@
     }
   }
 }
+
+//
