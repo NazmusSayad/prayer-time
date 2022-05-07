@@ -8,6 +8,7 @@ Assalamu Alaikum,
 - **Toggle Full Screen:** Double Click anywhere
 - **Toggle Cursor:** Ctrl+leftClick
 
+## 
 **Pros:**
 - [x] Minimalistic Clean UI
 - [x] Lightweight
