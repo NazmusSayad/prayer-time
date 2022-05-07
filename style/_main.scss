@@ -18,6 +18,9 @@ html {
   @include phone {
     font-size: 50%;
   }
+  &.cursorHide {
+    cursor: none;
+  }
 }
 
 body {

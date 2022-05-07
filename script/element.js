@@ -1,4 +1,5 @@
 const element = {
+  documentHTML: document.querySelector("html"),
   prayerTimes: document.getElementById("prayerTimes"),
   sidebar: document.getElementById("sidebar"),
   sidebar__form: document.querySelector("#sidebar .sidebar__form"),
@@ -76,4 +77,3 @@ const element = {
   element.sidebar__form.querySelector(`.madhab .madhab__list--item [value="${config.madhab}"]`).click();
   element.sidebar__form.querySelector(`.calculation-method .calculation-method__list--item [value="${config.method}"]`).click();
 }
-

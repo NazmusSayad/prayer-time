@@ -260,23 +260,26 @@ const sidebar_form_submit = function () {
 const sidebar = {
   show: function () {
     element.sidebar.style.display = "block";
-    setTimeout(() => element.sidebar.classList.add("show"), 0);
+    setTimeout(() => element.sidebar.classList.add("show"), 25);
   },
   hide: function () {
     element.sidebar.classList.remove("show");
     setTimeout(() => element.sidebar.removeAttribute("style"), 300);
   },
 };
+
 const fullscreenFn = () => {
   event.preventDefault();
 
-  if (document.fullscreenEnabled) {
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-      document.querySelector("html").removeAttribute("Style");
-    } else {
-      document.querySelector("html").requestFullscreen();
-      document.querySelector("html").style.cursor = "none";
+  if (event.altKey) {
+    window.open("#", "", "fullscreen=yes, scrollbars=auto");
+  } else {
+    if (document.fullscreenEnabled) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        element.documentHTML.requestFullscreen();
+      }
     }
   }
 };

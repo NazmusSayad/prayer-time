@@ -18,9 +18,22 @@
 })();
 
 window.addEventListener("dblclick", fullscreenFn);
-window.addEventListener("keydown", fullscreenFn);
-window.addEventListener("contextmenu", () => {
+
+window.addEventListener("click", (event) => {
+  if (event.ctrlKey) {
+    element.documentHTML.classList.toggle("cursorHide");
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerHeight === screen.height) {
+    element.documentHTML.classList.add("cursorHide");
+  } else {
+    element.documentHTML.classList.remove("cursorHide");
+  }
+});
+
+window.addEventListener("contextmenu", (event) => {
   event.preventDefault();
   sidebar.show();
 });
-
