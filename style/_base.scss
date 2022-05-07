@@ -9,7 +9,7 @@ $bg-color-today: rgba(#333, $alpha: 0.21);
 $bg-color-extra: rgba(#666, $alpha: 0.25);
 
 $bg-color-current: rgba(#78b478, $alpha: 0.65);
-$bg-color-next: rgba(#557899, $alpha: 0.65);
+$bg-color-next: rgba(#557899, $alpha: 0.45);
 
 @mixin custom-flex($count, $gap) {
   .item {
