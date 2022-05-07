@@ -8,7 +8,6 @@ Assalamu Alaikum,
 - **Toggle Full Screen:** Double Click anywhere
 - **Toggle Cursor:** Ctrl+leftClick
 
-# Pros & Cons
 **Pros:**
 - [x] Minimalistic Clean UI
 - [x] Lightweight
