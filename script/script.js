@@ -213,13 +213,10 @@ const update_coordinates_config = (latt, long) => {
   update_time_database();
 };
 const update_coordinates_location = () => {
-  document.body.innerHTML = "JSON.stringify('position')";
   if (navigator.geolocation) {
-    document.body.innerHTML = "JSON.stringify(position);";
     navigator.geolocation.getCurrentPosition(
       (position) => {
         // If geolocation track succeed
-        document.body.innerHTML = JSON.stringify(position);
         update_coordinates_config(position.coords.latitude, position.coords.longitude);
       },
       () => alert("Geolocation service not working.")

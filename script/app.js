@@ -36,6 +36,7 @@ window.addEventListener("contextmenu", (event) => {
   sidebar.show();
 });
 
-sidebar.show();
+// For Test -------------------------------------------------------------
 
-document.querySelector("#footer").scrollIntoView(true);
+/* sidebar.show();
+document.querySelector("#footer").scrollIntoView(true); */
