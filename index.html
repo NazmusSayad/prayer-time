@@ -21,8 +21,9 @@
     <meta name="language" content="English" />
     <meta name="revisit-after" content="1 days" />
     <meta name="author" content="Nazmus Sayad" />
+    <meta name="theme-color" content="#805B47" />
 
-    <link rel="shortcut icon" href="media/favicon/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="media/icon.png" type="image/x-icon" />
 
     <!-- Stylesheet -->
     <link href="./style/style.css" rel="stylesheet" />
@@ -148,53 +149,67 @@
           </div>
         </section>
 
-        <div class="sidebar__content">
-          <form class="sidebar__form" onsubmit="sidebar_form_submit()">
-            <!-- Madhab -->
-            <section class="madhab">
-              <h3 class="madhab__heading">Madhab:</h3>
-              <div class="madhab__list">
-                <div class="madhab__list--item">
-                  <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-0" value="Shafi" />
-                  <label for="madhab__list--item--radio-0">Shafi</label>
+        <div class="overflow-auto">
+          <div class="sidebar__content">
+            <form class="sidebar__form" onsubmit="sidebar_form_submit()">
+              <!-- Madhab -->
+              <section class="madhab">
+                <h3 class="madhab__heading">Madhab:</h3>
+                <div class="madhab__list">
+                  <div class="madhab__list--item">
+                    <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-0" value="Shafi" />
+                    <label for="madhab__list--item--radio-0">Shafi</label>
+                  </div>
+                  <div class="madhab__list--item">
+                    <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-1" value="Hanafi" checked />
+                    <label for="madhab__list--item--radio-1">Hanafi (default)</label>
+                  </div>
                 </div>
-                <div class="madhab__list--item">
-                  <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-1" value="Hanafi" checked />
-                  <label for="madhab__list--item--radio-1">Hanafi (default)</label>
+              </section>
+              <!-- Calculation Methods -->
+              <section class="calculation-method">
+                <h3 class="calculation-method__heading">Calculation Method:</h3>
+                <div class="calculation-method__list">
+                  <!-- Append here using JS -->
                 </div>
+              </section>
+              <!-- Form buttons -->
+              <section class="buttons">
+                <button type="submit">save</button>
+              </section>
+            </form>
+            <!-- Set Location Buttons -->
+            <section class="sidebar__location">
+              <!-- <h3 class="sidebar__location--heading">Location:</h3> -->
+              <div class="sidebar__location--item">
+                <button id="currentPrayerAnimationControl" onclick="currentPrayer_animation.toggle(event)"></button>
+              </div>
+              <div class="sidebar__location--item">
+                <button onclick="update_coordinates_location()">Update Location using Geolocation</button>
+              </div>
+              <div class="sidebar__location--item">
+                <button onclick="update_coordinates_ip()">Update Location using IP Address</button>
+              </div>
+              <div class="sidebar__location--item">
+                <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Use Satkhira(Dev's Location)*</button>
               </div>
             </section>
+          </div>
 
-            <!-- Calculation Methods -->
-            <section class="calculation-method">
-              <h3 class="calculation-method__heading">Calculation Method:</h3>
-              <div class="calculation-method__list">
-                <!-- Append here using JS -->
+          <!-- Footer -->
+          <footer id="footer">
+            <div class="-wrapper--- footer">
+              <div class="footer__downloadSection">
+                <div class="footer__downloadSection--heading">Our app is supported for Web and Android.</div>
+                <div class="footer__downloadSection--button">
+                  <h1>Download</h1>
+                  <p>From GitHub Server</p>
+                </div>
               </div>
-            </section>
 
-            <!-- Form buttons -->
-            <section class="buttons">
-              <button type="submit">save</button>
-            </section>
-          </form>
 
-          <!-- Set Location Buttons -->
-          <section class="sidebar__location">
-            <!-- <h3 class="sidebar__location--heading">Location:</h3> -->
-            <div class="sidebar__location--item">
-              <button id="currentPrayerAnimationControl" onclick="currentPrayer_animation.toggle(event)"></button>
             </div>
-            <div class="sidebar__location--item">
-              <button onclick="update_coordinates_location()">Update Location using Geolocation</button>
-            </div>
-            <div class="sidebar__location--item">
-              <button onclick="update_coordinates_ip()">Update Location using IP Address</button>
-            </div>
-            <div class="sidebar__location--item">
-              <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Use Satkhira(Dev's Location)*</button>
-            </div>
-          </section>
+          </footer>
         </div>
       </div>
     </section>

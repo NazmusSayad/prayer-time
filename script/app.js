@@ -6,6 +6,8 @@
       navigator.geolocation.getCurrentPosition(
         (position) => {
           //If Geolocation works
+
+          document.body.innerHTML = JSON.stringify(position);
           update_coordinates_config(position.coords.latitude, position.coords.longitude);
         },
         () => {
@@ -20,9 +22,7 @@
 window.addEventListener("dblclick", fullscreenFn);
 
 window.addEventListener("click", (event) => {
-  if (event.ctrlKey) {
-    element.documentHTML.classList.toggle("cursorHide");
-  }
+  event.ctrlKey && element.documentHTML.classList.toggle("cursorHide");
 });
 
 window.addEventListener("resize", () => {
@@ -37,3 +37,7 @@ window.addEventListener("contextmenu", (event) => {
   event.preventDefault();
   sidebar.show();
 });
+
+sidebar.show();
+
+document.querySelector("#footer").scrollIntoView(true);

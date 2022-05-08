@@ -1,0 +1,15 @@
+#footer {
+  background: darken($color-dark, 0%);
+  color: darken($color-white, 20%);
+  padding: 4rem 3.5rem;
+  .footer {
+    &__heading {
+      border-bottom: 1px solid #000;
+      width: fit-content;
+      font-size: 2.2rem;
+      font-weight: bold;
+
+      padding: 0 0.2rem;
+    }
+  }
+}

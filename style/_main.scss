@@ -28,7 +28,7 @@ body {
   font-size: 1.6rem;
   min-height: 100vh;
   width: 100vw;
-  background-image: url("../media/bg/body-bg-min.jpg");
+  background-image: url("../media/body-bg-min.jpg");
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
@@ -60,8 +60,40 @@ button {
   background: $color-blue;
   color: $color-white;
   font-weight: 500;
-  transition: background 0.3s;
+  transition: transform 0.075s ease-in-out, color 0.25s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateY(0);
+
   &:hover {
+    &::before {
+      width: 100%;
+      opacity: 1;
+    }
+    box-shadow: 0 0 5px #00000088;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 00%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     background: darken($color-blue, 20%);
+    z-index: -1;
+    opacity: 0;
+
+    transition: background 0.2s ease-in-out, width 0.35s ease-in-out, opacity 0.4s ease-in-out;
+  }
+
+  &:active {
+    transform: translateY(-0.2rem);
+    color: rgba($color-white, 0.6);
+    &::before {
+      background: lighten($color-blue, 10%);
+    }
   }
 }

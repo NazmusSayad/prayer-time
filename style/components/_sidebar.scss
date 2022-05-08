@@ -13,7 +13,8 @@
   transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
   &.show {
-    background: $color-dark;
+    background: darken($color-dark, 12%);
+
     opacity: 1;
     .sidebar {
       opacity: 1;
@@ -53,7 +54,7 @@
       }
     }
 
-    &__content {
+    .overflow-auto {
       overflow-y: auto;
     }
 

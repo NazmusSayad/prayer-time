@@ -217,6 +217,7 @@ const update_coordinates_location = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         // If geolocation track succeed
+        document.body.innerHTML = JSON.stringify(position);
         update_coordinates_config(position.coords.latitude, position.coords.longitude);
       },
       () => alert("Geolocation service not working.")
@@ -288,12 +289,12 @@ const currentPrayer_animation = {
   enable: () => {
     localStorage.setItem("currentPrayerAnimationEnabled", true);
     element.prayerTimes.setAttribute("currentPrayerAnimationEnabled", true);
-    element.currentPrayerAnimationControl.innerHTML = "Disable Current Prayer Animaion";
+    element.currentPrayerAnimationControl.innerHTML = "Disable Current Prayer Animation";
   },
   disable: () => {
     localStorage.setItem("currentPrayerAnimationEnabled", "");
     element.prayerTimes.setAttribute("currentPrayerAnimationEnabled", "");
-    element.currentPrayerAnimationControl.innerHTML = "Enable Current Prayer Animaion";
+    element.currentPrayerAnimationControl.innerHTML = "Enable Current Prayer Animation";
   },
   toggle: function (event) {
     const attribute = element.prayerTimes.getAttribute("currentPrayerAnimationEnabled");
