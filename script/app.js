@@ -7,7 +7,7 @@
         (position) => {
           //If Geolocation works
 
-          document.body.innerHTML = JSON.stringify(position);
+          // document.body.innerHTML = JSON.stringify(position);
           update_coordinates_config(position.coords.latitude, position.coords.longitude);
         },
         () => {
