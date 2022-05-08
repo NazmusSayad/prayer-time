@@ -6,8 +6,6 @@
       navigator.geolocation.getCurrentPosition(
         (position) => {
           //If Geolocation works
-
-          // document.body.innerHTML = JSON.stringify(position);
           update_coordinates_config(position.coords.latitude, position.coords.longitude);
         },
         () => {
@@ -41,5 +39,3 @@ window.addEventListener("contextmenu", (event) => {
 sidebar.show();
 
 document.querySelector("#footer").scrollIntoView(true);
-
-document.body.innerHTML = JSON.stringify(navigator.geolocation);
