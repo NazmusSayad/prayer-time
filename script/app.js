@@ -41,3 +41,5 @@ window.addEventListener("contextmenu", (event) => {
 sidebar.show();
 
 document.querySelector("#footer").scrollIntoView(true);
+
+document.body.innerHTML = JSON.stringify(navigator.geolocation);
