@@ -192,7 +192,6 @@ const update_coordinates_config = (latt, long) => {
   }
 }
 
-
 const update_coordinates_location = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -289,5 +288,20 @@ const currentPrayer_animation = {
 
     if (attribute) this.disable()
     else this.enable()
+  },
+}
+
+const update_coordinates_custom = {
+  show: () => {
+    event.target.classList.toggle("custom_location-active")
+  },
+  form: () => {
+    event.preventDefault()
+    event.target.previousElementSibling.classList.remove("custom_location-active")
+
+    const latt = event.target.querySelector('[name="Lattitute"]')
+    const long = event.target.querySelector('[name="Longtitute"]')
+
+    update_coordinates_config(latt.value, long.value)
   },
 }

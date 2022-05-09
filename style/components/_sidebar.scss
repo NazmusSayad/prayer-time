@@ -88,25 +88,41 @@
     }
     .buttons {
       margin: 2rem 0 4rem;
-      button {
-        &[type="reset"] {
-          transition: color 0.3s, background 0.3s;
-          color: lighten($color-dark, 10%);
-
-          background: transparent;
-
-          &:hover {
-            color: darken($color-dark, 20%);
-            background: darken($color-white, 5%);
-          }
-        }
-      }
     }
 
-    &__location {
+    #custom_location {
+      display: none;
+      background: darken($color-white, 10%);
+      padding: 1rem 2rem;
+      border-radius: 0 0 1rem 1rem;
+      margin-bottom: 1rem;
+      input {
+        width: 90%;
+        display: block;
+        margin: auto;
+        margin-bottom: 0.75rem;
+        outline: none;
+        border: none;
+        padding: .5rem;
+        border-radius: .5rem;
+      }
       button {
-        min-width: 36ch;
+        display: block;
+        margin: auto;
+        width: fit-content;
+      }
+    }
+    &__location {
+      min-width: 36ch;
+      width: fit-content;
+      button {
+        width: 100%;
         margin: 0.3rem 0;
+        &.custom_location-active {
+          & + #custom_location {
+            display: block;
+          }
+        }
       }
     }
 

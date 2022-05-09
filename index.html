@@ -191,8 +191,16 @@
                 <button onclick="update_coordinates_ip()">Update Location using IP Address</button>
               </div>
               <div class="sidebar__location--item">
-                <button onclick="update_coordinates_custom()">Use Custom Location</button>
+                <button onclick="update_coordinates_custom.show()">Use Custom Location</button>
+
+                <form onsubmit="update_coordinates_custom.form()" id="custom_location" class="sidebar__location--item">
+                  <input type="number" name="Lattitute" id="" placeholder="Lattitute" />
+                  <input type="number" name="Longtitute" id="" placeholder="Longtitute" />
+
+                  <button type="submit">Update</button>
+                </form>
               </div>
+
               <div class="sidebar__location--item">
                 <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Use Satkhira(Dev's Location)*</button>
               </div>
