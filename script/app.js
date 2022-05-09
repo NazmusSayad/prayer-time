@@ -1,42 +1,38 @@
-(() => {
-  if (config.coordinates.latt && config.coordinates.long) update_time_database(); // If coordinates are already exists
+;(() => {
+  if (config.coordinates.latt && config.coordinates.long) update_time_database() // If coordinates are already exists
   else {
     // basically when first time using
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          //If Geolocation works
-          update_coordinates_config(position.coords.latitude, position.coords.longitude);
-        },
-        () => {
-          //If Geolocation fail
-          update_coordinates_ip();
-        }
-      );
-    } else update_coordinates_ip(); // If Geolocation not supported
-  }
-})();
+    update_coordinates_ip()
 
-window.addEventListener("dblclick", fullscreenFn);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        //If Geolocation works
+        update_coordinates_config(position.coords.latitude, position.coords.longitude)
+      })
+    }
+  }
+})()
+
+window.addEventListener("dblclick", fullscreenFn)
 
 window.addEventListener("click", (event) => {
-  event.ctrlKey && element.documentHTML.classList.toggle("cursorHide");
-});
+  event.ctrlKey && element.documentHTML.classList.toggle("cursorHide")
+})
 
 window.addEventListener("resize", () => {
   if (window.innerHeight === screen.height) {
-    element.documentHTML.classList.add("cursorHide");
+    element.documentHTML.classList.add("cursorHide")
   } else {
-    element.documentHTML.classList.remove("cursorHide");
+    element.documentHTML.classList.remove("cursorHide")
   }
-});
+})
 
 window.addEventListener("contextmenu", (event) => {
-  event.preventDefault();
-  sidebar.show();
-});
+  event.preventDefault()
+  sidebar.show()
+})
 
 // For Test -------------------------------------------------------------
 
-/* sidebar.show();
-document.querySelector("#footer").scrollIntoView(true); */
+ sidebar.show();
+document.querySelector("#footer").scrollIntoView(true); 

@@ -25,4 +25,5 @@ const config = {
   method: localStorage.getItem("method") || "Karachi",
   madhab: localStorage.getItem("madhab") || "Hanafi",
   fajrLoaded: false,
-};
+  done: false,
+}

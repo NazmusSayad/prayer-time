@@ -198,14 +198,24 @@
 
           <!-- Footer -->
           <footer id="footer">
-            <div class="-wrapper--- footer">
+            <div class="footer">
               <div class="footer__downloadSection">
-                <div class="footer__downloadSection--heading">Our app is supported for Web and Android.</div>
-                <div class="footer__downloadSection--button">
-                  <h1>Download</h1>
-                  <p>From GitHub Server</p>
-                </div>
+                <div class="footer__downloadSection--heading scale">Our app is supported for Web and Android.</div>
+
+                <section class="footer__downloadSection--buttonBox">
+                  <div class="footer__downloadSection--button" onclick="window.open('https:\/\/github.com/NazmusSayad/prayer-time/raw/master/app-release.apk')">
+                    <h1>Download</h1>
+                    <p class="scale">Android App</p>
+                  </div>
+                  <div class="footer__downloadSection--button" onclick="window.open('https:\/\/namaj.vercel.app')">
+                    <h1 class="font-2_3rem">Visit Website</h1>
+                  </div>
+                </section>
               </div>
+            </div>
+
+            <div class="more">
+              <a target="_blank" class="scale" href="https://github.com/NazmusSayad/prayer-time">Checkout GitHub for more details</a>
             </div>
           </footer>
         </div>

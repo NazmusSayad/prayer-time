@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,300;1,400;1,700&display=swap");
+
+// font-family: "Roboto Condensed", sans-serif;
+
 * {
   margin: 0;
   padding: 0;
@@ -96,4 +100,7 @@ button {
       background: lighten($color-blue, 10%);
     }
   }
+}
+.font-ssp {
+  font-family: "Source Sans Pro", sans-serif;
 }

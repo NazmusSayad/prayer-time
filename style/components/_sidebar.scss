@@ -56,6 +56,7 @@
 
     .overflow-auto {
       overflow-y: auto;
+      overflow-x: hidden;
     }
 
     &__animation-control {
@@ -104,9 +105,6 @@
     }
 
     &__location {
-      &--heading {
-        margin-bottom: 1rem;
-      }
       button {
         min-width: 36ch;
         margin: 0.3rem 0;
