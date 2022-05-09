@@ -13,7 +13,7 @@
   transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
   &.show {
-    background: darken($color-dark, 12%);
+    background: darken($color-dark, 10%);
 
     opacity: 1;
     .sidebar {
@@ -56,7 +56,6 @@
 
     .overflow-auto {
       overflow-y: auto;
-      overflow-x: hidden;
     }
 
     &__animation-control {

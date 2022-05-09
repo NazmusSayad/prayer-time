@@ -191,6 +191,9 @@
                 <button onclick="update_coordinates_ip()">Update Location using IP Address</button>
               </div>
               <div class="sidebar__location--item">
+                <button onclick="update_coordinates_custom()">Use Custom Location</button>
+              </div>
+              <div class="sidebar__location--item">
                 <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Use Satkhira(Dev's Location)*</button>
               </div>
             </section>
@@ -200,22 +203,17 @@
           <footer id="footer">
             <div class="footer">
               <div class="footer__downloadSection">
-                <div class="footer__downloadSection--heading scale">Our app is supported for Web and Android.</div>
-
-                <section class="footer__downloadSection--buttonBox">
-                  <div class="footer__downloadSection--button" onclick="window.open('https:\/\/github.com/NazmusSayad/prayer-time/raw/master/app-release.apk')">
-                    <h1>Download</h1>
-                    <p class="scale">Android App</p>
-                  </div>
-                  <div class="footer__downloadSection--button" onclick="window.open('https:\/\/namaj.vercel.app')">
-                    <h1 class="font-2_3rem">Visit Website</h1>
-                  </div>
-                </section>
+                <a target="_blank" class="footer__downloadSection--item" href="https://github.com/NazmusSayad/prayer-time/raw/master/prayer-time.apk">
+                  Download <span class="scale">Android App</span>
+                </a>
+                or <a target="_blank" class="footer__downloadSection--item" href="https://namaj.vercel.app">Visit Website</a>
               </div>
-            </div>
 
-            <div class="more">
-              <a target="_blank" class="scale" href="https://github.com/NazmusSayad/prayer-time">Checkout GitHub for more details</a>
+              <div class="more">
+                Checkout
+                <a target="_blank" class="scale" href="https://github.com/NazmusSayad/prayer-time">GitHub</a>
+                for more details.
+              </div>
             </div>
           </footer>
         </div>

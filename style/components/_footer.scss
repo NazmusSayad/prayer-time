@@ -1,61 +1,24 @@
 #footer {
   background: darken($color-dark, 0%);
   color: darken($color-white, 20%);
-
+  text-align: center;
+  padding: 5rem 0;
+  font-size: 1.7rem;
   .footer {
-    padding: 5rem 0 4rem;
-    &__downloadSection {
-      text-align: center;
-
-      &--buttonBox {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        padding: 1rem 3%;
-      }
-
-      &--button {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1.25rem 2.25rem;
-        flex: 1;
-        margin: 3%;
-        border-radius: 0.5rem;
-
-        background: rgb(120, 121, 136);
-        color: $color-white;
-
-        transition: 0.3s;
-
-        cursor: pointer;
-        &:hover {
-          background: $color-blue;
-          color: $color-white;
-        }
-        p {
-          font-size: 1.25rem;
-          opacity: 0.6;
-          margin-bottom: -0.2rem;
-        }
-      }
-    }
+    transform: scaleX(1.1);
+    width: fit-content;
+    margin: auto;
   }
-  .more {
-    text-align: center;
-    padding: 1.5rem;
-    background: darken($color-dark, 5%);
-    font-size: 1.65rem;
-    a {
-      display: inline-block;
+  a {
+    color: inherit;
+    display: inline-block;
+    transition: color 0.1s ease-in-out;
+
+    &:hover {
       color: $color-blue;
     }
   }
-  .font-2_3rem {
-    font-size: 2.3rem;
-  }
-  .scale {
-    transform: scaleX(1.1);
+  .more {
+    margin-top: 2rem;
   }
 }
