@@ -5,11 +5,13 @@
   padding: 5rem 0;
   font-size: 1.7rem;
   margin-top: 5rem;
+
   .footer {
     transform: scaleX(1.1);
     width: fit-content;
     margin: auto;
   }
+
   a {
     color: inherit;
     display: inline-block;
@@ -19,6 +21,7 @@
       color: $color-blue;
     }
   }
+
   .more {
     margin-top: 2rem;
   }

@@ -31,7 +31,3 @@ window.addEventListener("contextmenu", (event) => {
   event.preventDefault()
   sidebar.show()
 })
-
-// For Test -------------------------------------------------------------
-
-// sidebar.show()

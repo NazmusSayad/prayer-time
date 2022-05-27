@@ -5,17 +5,15 @@
   position: fixed;
   top: 0;
   left: 50%;
-
   background: transparent;
-
   opacity: 0;
   transform: translateX(-50%);
   transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
   &.show {
     background: darken($color-dark, 10%);
-
     opacity: 1;
+
     .sidebar {
       opacity: 1;
       transform: scale(1);
@@ -26,14 +24,13 @@
     height: 100%;
     color: $color-dark;
     background: $color-white;
-
+    cursor: pointer;
     display: flex;
     flex-direction: column;
-
     opacity: 0;
     transform: scale(0);
-
     transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+
     &__header,
     &__content {
       padding: 2.5rem 4rem;
@@ -43,12 +40,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       font-weight: 100;
-
       padding-top: 1rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid #ccc;
+
       &--heading {
         font-size: 2.25rem;
       }
@@ -67,6 +63,7 @@
       &__heading {
         margin-bottom: 1rem;
       }
+
       &__list {
         &--item {
           cursor: pointer;
@@ -79,6 +76,7 @@
           }
         }
       }
+
       input[type="radio"] {
         margin-right: 0.6rem;
       }
@@ -86,6 +84,7 @@
     .madhab {
       margin-bottom: 2.5rem;
     }
+
     .buttons {
       margin: 2rem 0 4rem;
     }
@@ -96,6 +95,7 @@
       padding: 1rem 2rem;
       border-radius: 0 0 1rem 1rem;
       margin-bottom: 1rem;
+
       input {
         width: 90%;
         display: block;
@@ -103,9 +103,10 @@
         margin-bottom: 0.75rem;
         outline: none;
         border: none;
-        padding: .5rem;
-        border-radius: .5rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
       }
+
       button {
         display: block;
         margin: auto;
@@ -115,13 +116,12 @@
     &__location {
       min-width: 36ch;
       width: fit-content;
+
       button {
         width: 100%;
         margin: 0.3rem 0;
-        &.custom_location-active {
-          & + #custom_location {
-            display: block;
-          }
+        &.custom_location-active + #custom_location {
+          display: block;
         }
       }
     }
@@ -136,7 +136,6 @@
       width: $size + ($padding * 2);
       height: $size + ($padding * 2);
       cursor: pointer;
-
       background: #00000000;
       transition: background 0.3s ease-in-out, opacity 0.2s ease-in-out;
       border-radius: 50%;
@@ -167,13 +166,16 @@
       &:hover {
         background: #ccc;
       }
+
       &:active {
         opacity: 0.75;
       }
+
       &:hover .leftright {
         transform: rotate(-45deg);
         background-color: $tomatored;
       }
+
       &:hover .rightleft {
         transform: rotate(45deg);
         background-color: $tomatored;
