@@ -11,7 +11,15 @@
 html {
   scroll-behavior: smooth;
   user-select: none;
-  font-size: 62.5%;
+  font-size: 62%;
+
+  @media only screen and (min-width: 156.25rem) {
+    font-size: calc(62% + 0.2vw);
+  }
+
+  @media only screen and (min-width: 120rem) {
+    font-size: calc(62% + 0.125vw);
+  }
 
   @include laptop-s {
     font-size: 59%;
@@ -47,11 +55,10 @@ input {
 
 .-wrapper--- {
   width: 100%;
-  max-width: 1440px;
+  max-width: 144rem;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 button {
   background: none;
