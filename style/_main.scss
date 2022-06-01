@@ -11,24 +11,24 @@
 html {
   scroll-behavior: smooth;
   user-select: none;
-  font-size: 62%;
 
+  font-size: calc(45% + 0.175vw);
   @media only screen and (min-width: 156.25rem) {
-    font-size: calc(62% + 0.2vw);
+    font-size: calc(45% + 0.3vw);
   }
 
   @media only screen and (min-width: 120rem) {
-    font-size: calc(62% + 0.125vw);
+    font-size: calc(45% + 0.24vw);
   }
 
   @include laptop-s {
-    font-size: 59%;
+    font-size: calc(45% + 0.15vw);
   }
   @include tablet {
-    font-size: 55%;
+    font-size: calc(45% + 0.125vw);
   }
   @include phone {
-    font-size: 50%;
+    font-size: calc(45% + 0.1vw);
   }
   &.cursorHide {
     cursor: none;
@@ -110,6 +110,7 @@ button {
     }
   }
 }
+
 .font-ssp {
   font-family: "Source Sans Pro", sans-serif;
 }
