@@ -11,6 +11,7 @@
 html {
   scroll-behavior: smooth;
   user-select: none;
+  touch-action: none;
 
   font-size: calc(45% + 0.175vw);
   @media only screen and (min-width: 156.25rem) {
