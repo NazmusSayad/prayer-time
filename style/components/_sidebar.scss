@@ -1,188 +1,188 @@
 #sidebar {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  background: transparent;
-  opacity: 0;
-  transform: translateX(-50%);
-  transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
+   display: none;
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 50%;
+   background: transparent;
+   opacity: 0;
+   transform: translateX(-50%);
+   transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-  &.show {
-    background: darken($color-dark, 10%);
-    opacity: 1;
-
-    .sidebar {
+   &.show {
+      background: darken($color-dark, 10%);
       opacity: 1;
-      transform: scale(1);
-    }
-  }
 
-  .sidebar {
-    max-width: 600px;
-    height: 100%;
-    color: $color-dark;
-    background: $color-white;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
-
-    &__header,
-    &__content {
-      padding: 2.5rem 4rem;
-    }
-
-    &__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 100;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #ccc;
-
-      &--heading {
-        font-size: 2.25rem;
+      .sidebar {
+         opacity: 1;
+         transform: scale(1);
       }
-    }
+   }
 
-    .overflow-auto {
-      overflow-y: auto;
-    }
-
-    &__animation-control {
-      margin-bottom: 3rem;
-    }
-
-    .madhab,
-    .calculation-method {
-      &__heading {
-        margin-bottom: 1rem;
-      }
-
-      &__list {
-        &--item {
-          cursor: pointer;
-          margin-bottom: 0.4rem;
-          width: fit-content;
-
-          input,
-          label {
-            cursor: inherit;
-          }
-        }
-      }
-
-      input[type="radio"] {
-        margin-right: 0.6rem;
-      }
-    }
-
-    .madhab {
-      margin-bottom: 2.5rem;
-    }
-
-    .buttons {
-      margin: 2rem 0 4rem;
-    }
-
-    #custom_location {
-      display: none;
-      background: darken($color-white, 10%);
-      padding: 1rem 2rem;
-      border-radius: 0 0 1rem 1rem;
-      margin-bottom: 1rem;
-
-      input {
-        width: 90%;
-        display: block;
-        margin: auto;
-        margin-bottom: 0.75rem;
-        outline: none;
-        border: none;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-      }
-
-      button {
-        display: block;
-        margin: auto;
-        width: fit-content;
-      }
-    }
-
-    &__location {
-      min-width: 36ch;
-      width: fit-content;
-
-      button {
-        width: 100%;
-        margin: 0.3rem 0;
-        &.custom_location-active + #custom_location {
-          display: block;
-        }
-      }
-    }
-
-    .close_slider {
-      $softorange: $color-dark;
-      $tomatored: #f25c66;
-      $size: 2.2rem;
-      $padding: 0.75rem;
-      $height: 0.3rem;
-      position: relative;
-      width: $size + ($padding * 2);
-      height: $size + ($padding * 2);
+   .sidebar {
+      max-width: 600px;
+      height: 100%;
+      color: $color-dark;
+      background: $color-white;
       cursor: pointer;
-      background: #00000000;
-      transition: background 0.3s ease-in-out, opacity 0.2s ease-in-out;
-      border-radius: 50%;
-      padding: $padding;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
 
-      .leftright {
-        height: $height;
-        width: $size;
-        position: absolute;
-        margin-top: ($size / 2) - ($height / 2);
-        background-color: $softorange;
-        border-radius: 2px;
-        transform: rotate(45deg);
-        transition: all 0.3s ease-in;
+      &__header,
+      &__content {
+         padding: 2.5rem 4rem;
       }
 
-      .rightleft {
-        height: $height;
-        width: $size;
-        position: absolute;
-        margin-top: ($size / 2) - ($height / 2);
-        background-color: $softorange;
-        border-radius: 2px;
-        transform: rotate(-45deg);
-        transition: all 0.3s ease-in;
+      &__header {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         font-weight: 100;
+         padding-top: 1rem;
+         padding-bottom: 1rem;
+         border-bottom: 1px solid #ccc;
+
+         &--heading {
+            font-size: 2.25rem;
+         }
       }
 
-      &:hover {
-        background: #ccc;
+      .overflow-auto {
+         overflow-y: auto;
       }
 
-      &:active {
-        opacity: 0.75;
+      &__animation-control {
+         margin-bottom: 3rem;
       }
 
-      &:hover .leftright {
-        transform: rotate(-45deg);
-        background-color: $tomatored;
+      .madhab,
+      .calculation-method {
+         &__heading {
+            margin-bottom: 1rem;
+         }
+
+         &__list {
+            &--item {
+               cursor: pointer;
+               margin-bottom: 0.4rem;
+               width: fit-content;
+
+               input,
+               label {
+                  cursor: inherit;
+               }
+            }
+         }
+
+         input[type="radio"] {
+            margin-right: 0.6rem;
+         }
       }
 
-      &:hover .rightleft {
-        transform: rotate(45deg);
-        background-color: $tomatored;
+      .madhab {
+         margin-bottom: 2.5rem;
       }
-    }
-  }
+
+      .buttons {
+         margin: 2rem 0 4rem;
+      }
+
+      #custom_location {
+         display: none;
+         background: darken($color-white, 10%);
+         padding: 1rem 2rem;
+         border-radius: 0 0 1rem 1rem;
+         margin-bottom: 1rem;
+
+         input {
+            width: 90%;
+            display: block;
+            margin: auto;
+            margin-bottom: 0.75rem;
+            outline: none;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+         }
+
+         button {
+            display: block;
+            margin: auto;
+            width: fit-content;
+         }
+      }
+
+      &__location {
+         min-width: 36ch;
+         width: fit-content;
+
+         button {
+            width: 100%;
+            margin: 0.3rem 0;
+            &.custom_location-active + #custom_location {
+               display: block;
+            }
+         }
+      }
+
+      .close_slider {
+         $softorange: $color-dark;
+         $tomatored: #f25c66;
+         $size: 2.2rem;
+         $padding: 0.75rem;
+         $height: 0.3rem;
+         position: relative;
+         width: $size + ($padding * 2);
+         height: $size + ($padding * 2);
+         cursor: pointer;
+         background: #00000000;
+         transition: background 0.3s ease-in-out, opacity 0.2s ease-in-out;
+         border-radius: 50%;
+         padding: $padding;
+
+         .leftright {
+            height: $height;
+            width: $size;
+            position: absolute;
+            margin-top: ($size / 2) - ($height / 2);
+            background-color: $softorange;
+            border-radius: 2px;
+            transform: rotate(45deg);
+            transition: all 0.3s ease-in;
+         }
+
+         .rightleft {
+            height: $height;
+            width: $size;
+            position: absolute;
+            margin-top: ($size / 2) - ($height / 2);
+            background-color: $softorange;
+            border-radius: 2px;
+            transform: rotate(-45deg);
+            transition: all 0.3s ease-in;
+         }
+
+         &:hover {
+            background: #ccc;
+         }
+
+         &:active {
+            opacity: 0.75;
+         }
+
+         &:hover .leftright {
+            transform: rotate(-45deg);
+            background-color: $tomatored;
+         }
+
+         &:hover .rightleft {
+            transform: rotate(45deg);
+            background-color: $tomatored;
+         }
+      }
+   }
 }

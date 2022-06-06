@@ -1,28 +1,28 @@
 #footer {
-  background: darken($color-dark, 0%);
-  color: darken($color-white, 20%);
-  text-align: center;
-  padding: 5rem 0;
-  font-size: 1.55rem;
-  margin-top: 5rem;
+   background: darken($color-dark, 0%);
+   color: darken($color-white, 20%);
+   text-align: center;
+   padding: 5rem 0;
+   font-size: 1.55rem;
+   margin-top: 5rem;
 
-  .footer {
-    transform: scaleX(1.1);
-    width: fit-content;
-    margin: auto;
-  }
+   .footer {
+      transform: scaleX(1.1);
+      width: fit-content;
+      margin: auto;
+   }
 
-  a {
-    color: inherit;
-    display: inline-block;
-    transition: color 0.1s ease-in-out;
+   a {
+      color: inherit;
+      display: inline-block;
+      transition: color 0.1s ease-in-out;
 
-    &:hover {
-      color: $color-blue;
-    }
-  }
+      &:hover {
+         color: $color-blue;
+      }
+   }
 
-  .more {
-    margin-top: 2rem;
-  }
+   .more {
+      margin-top: 2rem;
+   }
 }
