@@ -1,236 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <title>Salah Time</title>
+    <title>Salah Time</title>
 
-      <meta name="title" content="Salah Time" />
-      <meta
-         name="description"
-         content="Assalamu Alaikum. This is will help you to get the accurate time for salah from all over the world. Jazakumullahu khayran."
-      />
-      <meta
-         name="keywords"
-         content="islamic,muslim,salah,salat,namaj,arab,prayer,salah time,prayer time, salahtime,namaj,namaj time,best salah time,best salah time site,best prayer time site,website,document,webapp,web,app,NazmusSayad,Sayad,Nazmus,Satkhira,Prayer Time Bangladesh,Namaj Time,Simple Prayer Time app, Minimalistic prayer salah namaj salat time app,best app,best site,best website"
-      />
-      <meta name="robots" content="index, follow" />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="English" />
-      <meta name="revisit-after" content="1 days" />
-      <meta name="author" content="Nazmus Sayad" />
-      <meta name="theme-color" content="#343B48" />
+    <meta name="title" content="Salah Time" />
+    <meta
+      name="description"
+      content="Assalamu Alaikum. This is will help you to get the accurate time for salah from all over the world. Jazakumullahu khayran."
+    />
+    <meta
+      name="keywords"
+      content="islamic,muslim,salah,salat,namaj,arab,prayer,salah time,prayer time, salahtime,namaj,namaj time,best salah time,best salah time site,best prayer time site,website,document,webapp,web,app,NazmusSayad,Sayad,Nazmus,Satkhira,Prayer Time Bangladesh,Namaj Time,Simple Prayer Time app, Minimalistic prayer salah namaj salat time app,best app,best site,best website"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="author" content="Nazmus Sayad" />
+    <meta name="theme-color" content="#343B48" />
 
-      <link rel="shortcut icon" href="media/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="media/icon.png" type="image/x-icon" />
 
-      <!-- Stylesheet -->
-      <link href="./style/style.css" rel="stylesheet" />
+    <!-- Stylesheet -->
+    <link href="./style/style.css" rel="stylesheet" />
 
-      <!-- Adhan.js -->
-      <script src="./data/Adhan.js"></script>
+    <!-- Adhan.js -->
+    <script src="./data/Adhan.js"></script>
 
-      <!-- My Scripts -->
-      <script src="./script/script.js"></script>
-      <script src="./script/main.js"></script>
-      <script defer src="./script/element.js"></script>
-      <script defer src="./script/app.js"></script>
-      <script defer src="./script/clock.js"></script>
-   </head>
-   <body>
-      <!-- Prayer Times -->
-      <section id="prayerTimes">
-         <div class="-wrapper---">
-            <div class="item" time="today">
-               <article selector="fajr" name="fajr" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Fajr</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="today">
-               <article selector="sunrise" name="sunrise">
-                  <div class="time"></div>
-                  <div class="name">Sunrise</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="today">
-               <article selector="dhuhr" name="dhuhr" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Dhuhr</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="today">
-               <article selector="asr" name="asr" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Asr</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="today">
-               <article selector="maghrib" name="maghrib" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Maghrib</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="today">
-               <article selector="isha" name="isha" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Isha</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="extra">
-               <article selector="fajr_2" name="fajr" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Fajr</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="extra">
-               <article selector="sunrise_2" name="sunrise">
-                  <div class="time"></div>
-                  <div class="name">Sunrise</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="extra">
-               <article selector="dhuhr_2" name="dhuhr" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Dhuhr</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="extra">
-               <article selector="asr_2" name="asr" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Asr</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="extra">
-               <article selector="maghrib_2" name="maghrib" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Maghrib</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-            <div class="item" time="extra">
-               <article selector="isha_2" name="isha" prayer="">
-                  <div class="time"></div>
-                  <div class="name">Isha</div>
-                  <div class="remain"></div>
-               </article>
-            </div>
-         </div>
-      </section>
+    <!-- My Scripts -->
+    <script src="./script/script.js"></script>
+    <script src="./script/main.js"></script>
+    <script defer src="./script/element.js"></script>
+    <script defer src="./script/app.js"></script>
+    <script defer src="./script/clock.js"></script>
+  </head>
+  <body>
+    <!-- Prayer Times -->
+    <section id="prayerTimes">
+      <div class="-wrapper---">
+        <div class="item" time="today">
+          <article selector="fajr" name="fajr" prayer="">
+            <div class="time"></div>
+            <div class="name">Fajr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="today">
+          <article selector="sunrise" name="sunrise">
+            <div class="time"></div>
+            <div class="name">Sunrise</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="today">
+          <article selector="dhuhr" name="dhuhr" prayer="">
+            <div class="time"></div>
+            <div class="name">Dhuhr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="today">
+          <article selector="asr" name="asr" prayer="">
+            <div class="time"></div>
+            <div class="name">Asr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="today">
+          <article selector="maghrib" name="maghrib" prayer="">
+            <div class="time"></div>
+            <div class="name">Maghrib</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="today">
+          <article selector="isha" name="isha" prayer="">
+            <div class="time"></div>
+            <div class="name">Isha</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="extra">
+          <article selector="fajr_2" name="fajr" prayer="">
+            <div class="time"></div>
+            <div class="name">Fajr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="extra">
+          <article selector="sunrise_2" name="sunrise">
+            <div class="time"></div>
+            <div class="name">Sunrise</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="extra">
+          <article selector="dhuhr_2" name="dhuhr" prayer="">
+            <div class="time"></div>
+            <div class="name">Dhuhr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="extra">
+          <article selector="asr_2" name="asr" prayer="">
+            <div class="time"></div>
+            <div class="name">Asr</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="extra">
+          <article selector="maghrib_2" name="maghrib" prayer="">
+            <div class="time"></div>
+            <div class="name">Maghrib</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+        <div class="item" time="extra">
+          <article selector="isha_2" name="isha" prayer="">
+            <div class="time"></div>
+            <div class="name">Isha</div>
+            <div class="remain"></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <!-- Clock -->
-      <section id="clock">
-         <article class="time">
-            <span class="time_h"></span><span class="colon">:</span><span class="time_m"></span><span class="colon">:</span
-            ><span class="time_s"></span>
-            <span class="time_t"></span>
-         </article>
-         <article class="date"></article>
-      </section>
+    <!-- Clock -->
+    <section id="clock">
+      <article class="time">
+        <span class="time_h"></span><span class="colon">:</span><span class="time_m"></span><span class="colon">:</span
+        ><span class="time_s"></span>
+        <span class="time_t"></span>
+      </article>
+      <article class="date"></article>
+    </section>
 
-      <!-- Sidebar -->
-      <section id="sidebar">
-         <div class="-wrapper--- sidebar">
-            <section class="sidebar__header">
-               <h1 class="sidebar__header--heading">Prayer Time</h1>
-               <div onclick="sidebar.hide()" class="close_slider">
-                  <div class="leftright"></div>
-                  <div class="rightleft"></div>
-               </div>
-            </section>
+    <!-- Sidebar -->
+    <section id="sidebar">
+      <div class="-wrapper--- sidebar">
+        <section class="sidebar__header">
+          <h1 class="sidebar__header--heading">Prayer Time</h1>
+          <div onclick="sidebar.hide()" class="close_slider">
+            <div class="leftright"></div>
+            <div class="rightleft"></div>
+          </div>
+        </section>
 
-            <div class="overflow-auto">
-               <div class="sidebar__content">
-                  <form class="sidebar__form" onsubmit="sidebar_form_submit()">
-                     <!-- Madhab -->
-                     <section class="madhab">
-                        <h3 class="madhab__heading">Madhab:</h3>
-                        <div class="madhab__list">
-                           <div class="madhab__list--item">
-                              <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-0" value="Shafi" />
-                              <label for="madhab__list--item--radio-0">Shafi</label>
-                           </div>
-                           <div class="madhab__list--item">
-                              <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-1" value="Hanafi" checked />
-                              <label for="madhab__list--item--radio-1">Hanafi (default)</label>
-                           </div>
-                        </div>
-                     </section>
-                     <!-- Calculation Methods -->
-                     <section class="calculation-method">
-                        <h3 class="calculation-method__heading">Calculation Method:</h3>
-                        <div class="calculation-method__list">
-                           <!-- Append here using JS -->
-                        </div>
-                     </section>
-                     <!-- Form buttons -->
-                     <section class="buttons">
-                        <button type="submit">save</button>
-                     </section>
-                  </form>
-                  <!-- Set Location Buttons -->
-                  <section class="sidebar__location">
-                     <!-- <h3 class="sidebar__location--heading">Location:</h3> -->
-                     <div class="sidebar__location--item">
-                        <button id="currentPrayerAnimationControl" onclick="currentPrayer_animation.toggle(event)"></button>
-                     </div>
-                     <div class="sidebar__location--item">
-                        <button onclick="update_coordinates_location()">Update Location using Geolocation</button>
-                     </div>
-                     <div class="sidebar__location--item">
-                        <button onclick="update_coordinates_ip()">Update Location using IP Address</button>
-                     </div>
-                     <div class="sidebar__location--item">
-                        <button onclick="update_coordinates_custom.show()">Use Custom Location</button>
-
-                        <form onsubmit="update_coordinates_custom.form()" id="custom_location" class="sidebar__location--item">
-                           <input type="number" name="Lattitute" id="" placeholder="Lattitute" />
-                           <input type="number" name="Longtitute" id="" placeholder="Longtitute" />
-
-                           <button type="submit">Update</button>
-                        </form>
-                     </div>
-
-                     <div class="sidebar__location--item">
-                        <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">Use Satkhira(Dev's Location)*</button>
-                     </div>
-                  </section>
-               </div>
-
-               <!-- Footer -->
-               <footer id="footer">
-                  <div class="footer">
-                     <div class="footer__downloadSection">
-                        <a
-                           target="_blank"
-                           class="footer__downloadSection--item"
-                           href="https://github.com/NazmusSayad/prayer-time/raw/master/prayer-time.apk"
-                        >
-                           Download <span class="scale">Android App</span>
-                        </a>
-                        or <a target="_blank" class="footer__downloadSection--item" href="https://namaz.vercel.app">Visit Website</a>
-                     </div>
-
-                     <div class="more">
-                        Checkout
-                        <a target="_blank" class="scale" href="https://github.com/NazmusSayad/prayer-time">GitHub</a>
-                        for more details.
-                     </div>
+        <div class="overflow-auto">
+          <div class="sidebar__content">
+            <form class="sidebar__form" onsubmit="sidebar_form_submit()">
+              <!-- Madhab -->
+              <section class="madhab">
+                <h3 class="madhab__heading">Madhab:</h3>
+                <div class="madhab__list">
+                  <div class="madhab__list--item">
+                    <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-0" value="Shafi" />
+                    <label for="madhab__list--item--radio-0">Shafi</label>
                   </div>
-               </footer>
+                  <div class="madhab__list--item">
+                    <input type="radio" name="madhab__list--item" id="madhab__list--item--radio-1" value="Hanafi" checked />
+                    <label for="madhab__list--item--radio-1">Hanafi (default)</label>
+                  </div>
+                </div>
+              </section>
+              <!-- Calculation Methods -->
+              <section class="calculation-method">
+                <h3 class="calculation-method__heading">Calculation Method:</h3>
+                <div class="calculation-method__list">
+                  <!-- Append here using JS -->
+                </div>
+              </section>
+              <!-- Form buttons -->
+              <section class="buttons">
+                <button type="submit">save</button>
+              </section>
+            </form>
+            <!-- Set Location Buttons -->
+            <section class="sidebar__location">
+              <!-- <h3 class="sidebar__location--heading">Location:</h3> -->
+              <div class="sidebar__location--item">
+                <button id="currentPrayerAnimationControl" onclick="currentPrayer_animation.toggle(event)"></button>
+              </div>
+              <div class="sidebar__location--item">
+                <button onclick="update_coordinates_location()">Update Location using Geolocation</button>
+              </div>
+              <div class="sidebar__location--item">
+                <button onclick="update_coordinates_ip()">Update Location using IP Address</button>
+              </div>
+              <div class="sidebar__location--item">
+                <button onclick="update_coordinates_custom.show()">Use Custom Location</button>
+
+                <form onsubmit="update_coordinates_custom.form()" id="custom_location" class="sidebar__location--item">
+                  <input type="number" name="Lattitute" id="" placeholder="Lattitute" />
+                  <input type="number" name="Longtitute" id="" placeholder="Longtitute" />
+
+                  <button type="submit">Update</button>
+                </form>
+              </div>
+
+              <div class="sidebar__location--item">
+                <button onclick="if(prompt('Enter Password:')==='satkhira')set_teatulia()">
+                  Use Satkhira(Dev's Location)*
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <!-- Footer -->
+          <footer id="footer">
+            <div class="footer">
+              <div class="footer__downloadSection">
+                <a
+                  target="_blank"
+                  class="footer__downloadSection--item"
+                  href="https://github.com/NazmusSayad/prayer-time/raw/master/prayer-time.apk"
+                >
+                  Download <span class="scale">Android App</span>
+                </a>
+                or <a target="_blank" class="footer__downloadSection--item" href="https://namaz.vercel.app">Visit Website</a>
+              </div>
+
+              <div class="more">
+                Checkout
+                <a target="_blank" class="scale" href="https://github.com/NazmusSayad/prayer-time">GitHub</a>
+                for more details.
+              </div>
             </div>
-         </div>
-      </section>
-   </body>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

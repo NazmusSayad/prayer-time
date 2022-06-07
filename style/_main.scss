@@ -3,115 +3,115 @@
 // font-family: "Roboto Condensed", sans-serif;
 
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-   scroll-behavior: smooth;
-   user-select: none;
-   touch-action: none;
+  scroll-behavior: smooth;
+  user-select: none;
+  touch-action: none;
 
-   font-size: calc(45% + 0.175vw);
-   @media only screen and (min-width: 156.25rem) {
-      font-size: calc(45% + 0.3vw);
-   }
+  font-size: calc(45% + 0.175vw);
+  @media only screen and (min-width: 156.25rem) {
+    font-size: calc(45% + 0.3vw);
+  }
 
-   @media only screen and (min-width: 120rem) {
-      font-size: calc(45% + 0.24vw);
-   }
+  @media only screen and (min-width: 120rem) {
+    font-size: calc(45% + 0.24vw);
+  }
 
-   @include laptop-s {
-      font-size: calc(45% + 0.15vw);
-   }
-   @include tablet {
-      font-size: calc(45% + 0.125vw);
-   }
-   @include phone {
-      font-size: calc(45% + 0.1vw);
-   }
-   &.cursorHide {
-      cursor: none;
-   }
+  @include laptop-s {
+    font-size: calc(45% + 0.15vw);
+  }
+  @include tablet {
+    font-size: calc(45% + 0.125vw);
+  }
+  @include phone {
+    font-size: calc(45% + 0.1vw);
+  }
+  &.cursorHide {
+    cursor: none;
+  }
 }
 
 body {
-   font-family: "Roboto Condensed", sans-serif;
-   font-size: 1.6rem;
-   min-height: 100vh;
-   width: 100vw;
-   background-image: url("../media/bg.jpg");
-   background-repeat: no-repeat;
-   background-position: right;
-   background-size: cover;
-   overflow: hidden;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.6rem;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("../media/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  overflow: hidden;
 }
 
 textarea,
 input {
-   font: inherit;
-   color: inherit;
+  font: inherit;
+  color: inherit;
 }
 
 .-wrapper--- {
-   width: 100%;
-   max-width: 144rem;
-   margin-left: auto;
-   margin-right: auto;
+  width: 100%;
+  max-width: 144rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button {
-   background: none;
-   outline: 0;
-   border: 0;
-   font: inherit;
-   text-transform: capitalize;
-   font-size: 1.75rem;
-   padding: 0.6rem 1.75rem;
-   cursor: pointer;
-   border-radius: 0.5rem;
-   background: $color-blue;
-   color: $color-white;
-   font-weight: 500;
-   transition: transform 0.075s ease-in-out, color 0.25s ease-in-out, box-shadow 0.3s ease-in-out;
-   position: relative;
-   overflow: hidden;
-   z-index: 1;
-   transform: translateY(0);
+  background: none;
+  outline: 0;
+  border: 0;
+  font: inherit;
+  text-transform: capitalize;
+  font-size: 1.75rem;
+  padding: 0.6rem 1.75rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background: $color-blue;
+  color: $color-white;
+  font-weight: 500;
+  transition: transform 0.075s ease-in-out, color 0.25s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateY(0);
 
-   &:hover {
-      &::before {
-         width: 100%;
-         opacity: 1;
-      }
-      box-shadow: 0 0 5px #00000088;
-   }
+  &:hover {
+    &::before {
+      width: 100%;
+      opacity: 1;
+    }
+    box-shadow: 0 0 5px #00000088;
+  }
 
-   &::before {
-      content: "";
-      display: block;
-      width: 00%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background: darken($color-blue, 20%);
-      z-index: -1;
-      opacity: 0;
+  &::before {
+    content: "";
+    display: block;
+    width: 00%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: darken($color-blue, 20%);
+    z-index: -1;
+    opacity: 0;
 
-      transition: background 0.2s ease-in-out, width 0.35s ease-in-out, opacity 0.4s ease-in-out;
-   }
+    transition: background 0.2s ease-in-out, width 0.35s ease-in-out, opacity 0.4s ease-in-out;
+  }
 
-   &:active {
-      transform: translateY(-0.2rem);
-      color: rgba($color-white, 0.6);
-      &::before {
-         background: lighten($color-blue, 10%);
-      }
-   }
+  &:active {
+    transform: translateY(-0.2rem);
+    color: rgba($color-white, 0.6);
+    &::before {
+      background: lighten($color-blue, 10%);
+    }
+  }
 }
 
 .font-ssp {
-   font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }

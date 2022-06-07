@@ -1,33 +1,33 @@
 #clock {
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   color: #ccc;
-   font-weight: 500;
-   font-size: 1.7rem;
-   text-align: center;
-   opacity: 0.95;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #ccc;
+  font-weight: 500;
+  font-size: 1.7rem;
+  text-align: center;
+  opacity: 0.95;
 
-   .date {
-      margin-top: 0.3rem;
-      margin-bottom: 1.5rem;
-   }
+  .date {
+    margin-top: 0.3rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 #clock {
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   color: #ccc;
-   font-weight: 500;
-   font-size: clamp(1.85rem, (12px + (1.3vh - 1vw)), 2.3rem);
-   text-align: center;
-   opacity: 0.95;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #ccc;
+  font-weight: 500;
+  font-size: clamp(1.85rem, (12px + (1.3vh - 1vw)), 2.3rem);
+  text-align: center;
+  opacity: 0.95;
 
-   .date {
-      margin-top: 0.3rem;
-      margin-bottom: 1.5rem;
-   }
+  .date {
+    margin-top: 0.3rem;
+    margin-bottom: 1.5rem;
+  }
 }
