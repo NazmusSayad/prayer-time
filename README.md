@@ -16,8 +16,7 @@ Assalamu Alaikum,
 
 - [x] Minimalistic Clean UI
 - [x] Lightweight
-- [x] All times are perfect
-- [x] Time management is perfect
+- [x] Accurate times
 - [x] Available for Android
 
 **Cons:**
