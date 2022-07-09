@@ -22,7 +22,10 @@
   width: 100%;
   color: #ccc;
   font-weight: 500;
-  font-size: clamp(1.85rem, (12px + (1.3vh - 1vw)), 2.3rem);
+  --min: 1.85rem;
+  --clamp: (1.2rem + (1.2vh - 1vw));
+  --max: 2rem;
+  font-size: clamp(var(--min), var(--clamp), var(--max));
   text-align: center;
   opacity: 0.95;
 
