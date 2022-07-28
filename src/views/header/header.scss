@@ -1,5 +1,19 @@
+@use '../' as *;
+
 #header {
-  padding: 2.5rem 4rem 2rem;
+  padding: 2.5rem 4rem;
+  @include break($xlarge) {
+    padding-inline: 3.5rem;
+  }
+  @include break($large) {
+    padding: 2rem 3rem;
+  }
+  @include break($medium) {
+    padding: 1.75rem 2.5rem;
+  }
+  @include break($small) {
+    padding: 1.5rem 2rem;
+  }
 
   .header {
     display: flex;
