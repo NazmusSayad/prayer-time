@@ -1,0 +1,10 @@
+@use '../' as *;
+
+#clock {
+  color: $color-white;
+  margin-bottom: 1.75rem;
+
+  .clock {
+    text-align: center;
+  }
+}

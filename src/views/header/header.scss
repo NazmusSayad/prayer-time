@@ -1,0 +1,44 @@
+#header {
+  padding: 2.5rem 4rem 2rem;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      border: 0;
+      outline: 0;
+      background: none;
+      opacity: 0.6;
+      transition: opacity 0.15s ease-in-out;
+      width: 2rem;
+      aspect-ratio: 1;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      svg {
+        height: 100%;
+        width: 100%;
+
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &__full-screen {
+      button {
+        display: none;
+      }
+
+      .expand {
+        display: block;
+      }
+    }
+
+    &__settings {
+    }
+  }
+}

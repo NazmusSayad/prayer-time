@@ -1,0 +1,111 @@
+@use '../' as *;
+
+@mixin custom-flex($count, $gap) {
+  flex: calc((100% / $count) - $gap) 0 1;
+  margin: calc($gap / 2);
+  max-width: calc($gap + 15rem);
+}
+
+#prayer {
+  padding: 2.5rem 4.5rem 2rem;
+  @include break($xlarge) {
+    padding: 2.5rem 3.75rem 2rem;
+  }
+  @include break($large) {
+    padding: 2.5rem 3rem 2rem;
+  }
+  @include break($medium) {
+    padding: 2.5rem 2rem 2rem;
+  }
+  @include break($small) {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+
+  .prayer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10vh;
+
+    &__item {
+      color: $color-white;
+      flex: 0 1;
+      text-align: center;
+      padding: 1.85rem 1rem;
+      backdrop-filter: blur(0.7rem);
+      box-shadow: 0 0 0.5rem rgb(0 0 0 / 8%);
+      border-radius: 0.5rem;
+      opacity: 0.95;
+      position: relative;
+
+      @include custom-flex(7, 1.65rem);
+      @include break($xlarge) {
+        padding: 1.8rem 0.95rem;
+        @include custom-flex(6, 1.45rem);
+      }
+      @include break($large) {
+        padding: 1.7rem 0.9rem;
+        @include custom-flex(5, 1.33rem);
+      }
+      @include break($medium) {
+        padding: 1.6rem 0.85rem;
+        @include custom-flex(4, 1.25rem);
+      }
+      @include break($small) {
+        padding: 1.5rem 0.8rem;
+        @include custom-flex(3, 1rem);
+      }
+
+      &--name {
+        text-transform: capitalize;
+        font-size: 1.45rem;
+      }
+
+      &--remain {
+        display: none;
+      }
+
+      &.current {
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background: $bg-color-current !important;
+          border-radius: inherit;
+          box-shadow: inherit;
+          animation: current-prayer 2s infinite;
+        }
+      }
+
+      &.next {
+        background: $bg-color-next !important;
+
+        .remain {
+          display: block;
+        }
+      }
+    }
+
+    .main,
+    &[time='extra'] .extra {
+      opacity: 0.9;
+      background-color: $bg-color-today;
+      color: $color-today;
+      order: -1;
+    }
+
+    .extra,
+    &[time='extra'] .main {
+      opacity: 0.8;
+      background-color: $bg-color-extra;
+      color: $color-extra;
+      order: 0;
+    }
+  }
+}
