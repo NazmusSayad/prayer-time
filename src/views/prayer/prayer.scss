@@ -3,6 +3,7 @@
 @mixin custom-flex($count, $gap) {
   flex: calc((100% / $count) - $gap) 0 1;
   margin: calc($gap / 2);
+  min-width: fit-content;
   max-width: calc($gap + 15rem);
 }
 
@@ -26,23 +27,29 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-top: -10vh;
+    margin-bottom: 8vh;
 
     &__item {
-      color: $color-white;
-      flex: 0 1;
       text-align: center;
       padding: 1.85rem 1rem;
       backdrop-filter: blur(0.7rem);
       box-shadow: 0 0 0.5rem rgb(0 0 0 / 8%);
       border-radius: 0.5rem;
-      opacity: 0.95;
       position: relative;
+      opacity: 0.9;
+      background-color: $bg-color-today;
+      color: $color-today;
 
-      @include custom-flex(7, 1.65rem);
+      &[id$='2'] {
+        opacity: 0.8;
+        background-color: $bg-color-extra;
+        color: $color-extra;
+      }
+
+      @include custom-flex(6, 1.65rem);
       @include break($xlarge) {
         padding: 1.8rem 0.95rem;
-        @include custom-flex(6, 1.45rem);
+        @include custom-flex(5, 1.45rem);
       }
       @include break($large) {
         padding: 1.7rem 0.9rem;
@@ -87,22 +94,6 @@
           display: block;
         }
       }
-    }
-
-    .main,
-    &[time='extra'] .extra {
-      opacity: 0.9;
-      background-color: $bg-color-today;
-      color: $color-today;
-      order: -1;
-    }
-
-    .extra,
-    &[time='extra'] .main {
-      opacity: 0.8;
-      background-color: $bg-color-extra;
-      color: $color-extra;
-      order: 0;
     }
   }
 }

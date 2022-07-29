@@ -1,31 +1,52 @@
+import { convertMstoHHMMSS } from '../../utils/utils'
 import Views from '../Views'
 import containerMarkup from './prayer-container.html'
 import prayerItemMarkup from './prayer.html'
 import './prayer.scss'
 
-const prayerList = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha']
-
 class Prayer extends Views {
   _element = HTML(containerMarkup)
-
-  #fillContainer = () => {
-    const container = this._element.qs('.prayer')
-
-    ;['main', 'extra'].forEach(time => {
-      prayerList.forEach(item => {
-        const prayerItemElement = HTML(prayerItemMarkup)
-        prayerItemElement.classList.add(time)
-        prayerItemElement.setAttribute(`name`, item)
-        prayerItemElement.qs('.name').innerHTML = item
-
-        container.appendChild(prayerItemElement)
-      })
-    })
-  }
+  #container = this._element.qs('.prayer')
 
   constructor() {
     super()
-    this.#fillContainer()
+  }
+
+  fillContainer = list => {
+    this.#container.innerHTML = ''
+
+    list.forEach(({ id, name, time }) => {
+      const prayerItemElement = HTML(prayerItemMarkup)
+      prayerItemElement.id = id
+      prayerItemElement.qs('.name').innerHTML = name
+      prayerItemElement.qs('.time').innerHTML = time.toLocaleTimeString().replace(':00 ', ' ')
+
+      this.#container.appendChild(prayerItemElement)
+    })
+  }
+
+  updateCurrentPrayer(currentPrayer) {
+    this.#container.qsa('.current').forEach(element => {
+      element?.classList?.remove(`current`)
+    })
+
+    if (currentPrayer === 'sunrise') return
+    this.#container.qs('#' + currentPrayer).classList.add(`current`)
+  }
+
+  updateNextPrayer(nextPrayer) {
+    this.#container.qsa('.next').forEach(element => {
+      element?.classList?.remove(`next`)
+    })
+
+    this.#container.qs('#' + nextPrayer).classList.add(`next`)
+  }
+
+  updateNextPrayerTime(diff) {
+    const nextPrayerElement = this.#container.qs('.next')
+    const remainElement = nextPrayerElement.qs('.remain')
+
+    remainElement.innerHTML = convertMstoHHMMSS(diff + 100)
   }
 }
 

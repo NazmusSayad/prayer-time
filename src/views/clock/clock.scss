@@ -6,5 +6,11 @@
 
   .clock {
     text-align: center;
+
+    &__time {
+      display: flex;
+      width: fit-content;
+      margin: auto;
+    }
   }
 }
