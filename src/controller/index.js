@@ -8,7 +8,10 @@ import {
   initPrayer,
   updateNextPrayerTime,
   updateCurrentAndNextPrayer,
+  fullScreen,
+  showFullScreen,
 } from './controller.js'
+import headerView from '../views/header/header-view.js'
 
 const startClock = () => {
   const date = new Date()
@@ -39,6 +42,12 @@ const startClock = () => {
     }
   }
 }
+
+// Init handlers
+;(() => {
+  headerView.addFullScreenHandler(fullScreen)
+  headerView.addSettingsHandler(showFullScreen)
+})()
 
 // Init time
 ;(() => {

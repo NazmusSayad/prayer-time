@@ -1,1 +1,7 @@
-@use "../" as *;
+@use '../' as *;
+
+#settings {
+  position: fixed;
+  inset: 0;
+  display: none;
+}

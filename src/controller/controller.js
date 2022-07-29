@@ -3,10 +3,12 @@ import * as Model from '../model/model.js'
 import headerView from '../views/header/header-view.js'
 import prayerView from '../views/prayer/prayer-view.js'
 import clockView from '../views/clock/clock-view.js'
+import settingsView from '../views/settings/settings-view.js'
 
 headerView.render()
 prayerView.render()
 clockView.render()
+settingsView.render()
 
 export const secUpdater = sec => {
   clockView.updateSecond(sec)
@@ -19,6 +21,11 @@ export const hourUpdater = hour => {
 }
 export const dayUpdater = day => {
   clockView.updateDay(day)
+}
+
+export const fullScreen = () => {}
+export const showFullScreen = () => {
+  settingsView.show()
 }
 
 export const initPrayer = () => {

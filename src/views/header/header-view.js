@@ -16,6 +16,16 @@ class HeaderView extends Views {
   constructor() {
     super()
   }
+
+  addSettingsHandler(callback) {
+    const button = this._element.qs('.header__settings button')
+    button.onclick = callback
+  }
+
+  addFullScreenHandler(callback) {
+    const button = this._element.qs('.header__full-screen button')
+    button.onclick = callback
+  }
 }
 
 export default new HeaderView()
