@@ -2,6 +2,128 @@
 
 #settings {
   position: fixed;
-  inset: 0;
-  display: none;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: transparent; //*
+  bottom: 100vh; //*
+  transition: background-color 0.5s ease-in-out; //*
+
+  &.show {
+    bottom: 0;
+    background-color: #00000099;
+  }
+
+  &.close {
+    background-color: transparent;
+  }
+
+  .settings {
+    height: calc(100vh - 10vmin);
+    width: 90%;
+    max-width: 550px;
+    position: absolute;
+    background: #aaa;
+    overflow: hidden;
+    top: -50vh;
+    left: 50%;
+    opacity: 0;
+    border-radius: 0.5rem;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 1.5rem 0.3rem #000000aa;
+
+    @include break($small) {
+      height: calc(100vh - 5vmin);
+      width: 95%;
+    }
+
+    @include break(31.25rem) {
+      height: 100vh;
+      width: 100%;
+      border-radius: 0;
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #00000010;
+      padding: 1rem 1.5rem;
+      $icon-color: #333;
+
+      &--icon {
+        svg {
+          height: 2rem;
+          aspect-ratio: 1;
+
+          path {
+            fill: $icon-color;
+          }
+        }
+      }
+
+      &--button {
+        $height: 0.3rem;
+        $width: 1.9rem;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        width: $width;
+        aspect-ratio: 1;
+        position: relative;
+        border-radius: 50%;
+        background: #0000000d;
+        transition: background 0.2s ease-in-out;
+        box-sizing: content-box;
+        padding: 0.6rem;
+
+        &:hover,
+        &:focus {
+          background: #00000015;
+        }
+
+        div {
+          background: $icon-color;
+          width: inherit;
+          height: $height;
+          position: absolute;
+          top: calc(50% - ($height / 2));
+          left: calc(50% - ($width / 2));
+          transition: 0.2s ease-in-out;
+
+          &:first-child {
+            transform: rotate(45deg);
+          }
+
+          &:last-child {
+            transform: rotate(-45deg);
+          }
+        }
+
+        &:hover div {
+          background: rgb(128, 43, 43);
+        }
+      }
+    }
+
+    &__form {
+    }
+  }
+
+  $responsive-transition: height, width, border-radius;
+
+  &.show .settings {
+    transition: 0.5s ease-in-out;
+    transition-property: top, opacity, $responsive-transition;
+    top: 50%;
+    opacity: 1;
+  }
+
+  &.close .settings {
+    transition: 0.5s ease-in-out;
+    transition-property: transform, opacity, $responsive-transition;
+    transform-origin: top right;
+    transform: translate(-50%, -50%) scale(0) rotate(-100deg);
+    opacity: 0;
+  }
 }

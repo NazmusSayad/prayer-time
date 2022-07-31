@@ -29,3 +29,7 @@ $background-overlay: #1d1d2086;
   flex-direction: column;
   justify-content: space-between;
 }
+
+button:focus-visible {
+  box-shadow: 0 0 0.2rem 0.2rem lightblue;
+}

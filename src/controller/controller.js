@@ -23,7 +23,15 @@ export const dayUpdater = day => {
   clockView.updateDay(day)
 }
 
-export const fullScreen = () => {}
+export const fullScreen = () => {
+  if (document.fullscreenElement) {
+    document.exitFullscreen()
+    headerView.showExpandFullScreenControlButton()
+  } else {
+    document.qs('html').requestFullscreen()
+    headerView.showCompressFullScreenControlButton()
+  }
+}
 export const showFullScreen = () => {
   settingsView.show()
 }

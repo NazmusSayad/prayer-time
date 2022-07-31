@@ -12,6 +12,3 @@ export default {
 
   prayerLoaded: false,
 }
-
-console.log(innerHeight)
-console.log(document.documentElement.clientHeight)

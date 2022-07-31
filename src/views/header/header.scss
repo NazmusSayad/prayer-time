@@ -23,18 +23,21 @@
       border: 0;
       outline: 0;
       background: none;
-      opacity: 0.6;
+      opacity: 0.5;
       transition: opacity 0.15s ease-in-out;
-      width: 2rem;
+      width: 2.75rem;
       aspect-ratio: 1;
+      padding: 0.4rem;
+      border-radius: 50%;
 
       &:hover {
-        opacity: 0.9;
+        opacity: 0.8;
       }
 
       svg {
         height: 100%;
         width: 100%;
+        border-radius: 50%;
 
         path {
           fill: #fff;
@@ -43,11 +46,18 @@
     }
 
     &__full-screen {
-      button {
+      .expand,
+      .compress {
+        height: 100%;
+        width: 100%;
         display: none;
       }
 
-      .expand {
+      &[fullscreen] .compress {
+        display: block;
+      }
+
+      &:not([fullscreen]) .expand {
         display: block;
       }
     }
