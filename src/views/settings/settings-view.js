@@ -18,11 +18,13 @@ class Settings extends Views {
 
   addCloseHandler() {
     const button = this._element.qs(`#settings-close-button`)
+
     button.onclick = () => {
       this._element.classList.add(`close`)
-      setTimeout(() => {
-        this._element.className = ''
-      }, 500)
+      const settings = document.qs('html').getAttribute(`settings-settingscloseanimation`)
+      if (settings === 'true') {
+        setTimeout(() => (this._element.className = ''), 500)
+      } else this._element.className = ''
     }
   }
 }
