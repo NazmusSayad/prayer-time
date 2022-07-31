@@ -8,18 +8,18 @@
 }
 
 #prayer {
-  padding: 2.5rem 4.5rem 2rem;
+  padding: 2.5rem 7% 2rem;
   @include break($xlarge) {
-    padding: 2.5rem 3.75rem 2rem;
+    padding: 2.5rem 6% 2rem;
   }
   @include break($large) {
-    padding: 2.5rem 3rem 2rem;
+    padding: 2.5rem 5% 2rem;
   }
   @include break($medium) {
-    padding: 2.5rem 2rem 2rem;
+    padding: 2.5rem 4% 2rem;
   }
   @include break($small) {
-    padding: 2.5rem 1.5rem 2rem;
+    padding: 2.5rem 3% 2rem;
   }
 
   .prayer {
@@ -39,6 +39,7 @@
       opacity: 0.9;
       background-color: $bg-color-today;
       color: $color-today;
+      line-height: 1;
 
       &[id$='2'] {
         opacity: 0.8;
@@ -64,9 +65,15 @@
         @include custom-flex(3, 1rem);
       }
 
+      &--time {
+      }
+
       &--name {
         text-transform: capitalize;
         font-size: 1.45rem;
+        margin-top: 0.4em;
+        opacity: 0.775;
+        transform: scaleX(1.1);
       }
 
       &--remain {
@@ -74,23 +81,52 @@
       }
 
       &.current {
+        opacity: 1;
+        padding-block: 2rem;
+        background: transparent;
+
+        .time {
+          font-size: 1.7rem;
+        }
+
+        .name {
+          font-size: 1.55rem;
+          opacity: 0.9;
+          text-decoration: underline;
+        }
+
         &::before {
           content: '';
           display: block;
           position: absolute;
           z-index: -1;
           inset: 0;
-          background: $bg-color-current !important;
+          background: $bg-color-current;
           border-radius: inherit;
           box-shadow: inherit;
-          animation: current-prayer 2s infinite;
+
+          @include currentPrayerAnimation {
+            animation: current-prayer 2s infinite;
+          }
         }
       }
 
       &.next {
-        background: $bg-color-next !important;
+        background: $bg-color-next;
+
+        .time {
+          font-size: 1.7rem;
+        }
+
+        .name {
+          margin-top: 0.4em;
+          font-size: 1.55rem;
+          opacity: 0.9;
+        }
 
         .remain {
+          margin-top: 0.5em;
+          color: paleturquoise;
           display: block;
         }
       }

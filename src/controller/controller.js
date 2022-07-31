@@ -4,6 +4,7 @@ import headerView from '../views/header/header-view.js'
 import prayerView from '../views/prayer/prayer-view.js'
 import clockView from '../views/clock/clock-view.js'
 import settingsView from '../views/settings/settings-view.js'
+import settingsControl from '../views/settings/settings-control.js'
 
 headerView.render()
 prayerView.render()
@@ -23,6 +24,60 @@ export const dayUpdater = day => {
   clockView.updateDay(day)
 }
 
+export const startClock = () => {
+  const date = new Date()
+
+  const sec = date.getSeconds()
+  secUpdater(sec)
+  STATE.prayerLoaded && updateNextPrayerTime()
+
+  if (!sec) {
+    const fajrNext = STATE.prayerTimesList['fajr2']
+    if (fajrNext <= date) {
+      initPrayer()
+    }
+
+    const min = date.getMinutes()
+    minUpdater(min)
+    STATE.prayerLoaded && updateCurrentAndNextPrayer()
+    STATE.prayerLoaded && updateNextPrayerTime()
+
+    if (!min) {
+      const hour = date.getHours()
+      hourUpdater(hour)
+
+      if (!hour) {
+        dayUpdater(date)
+        initPrayer()
+      }
+    }
+  }
+}
+
+// ----------------------------------
+
+export const updateLoadedConfig = () => {
+  if (STATE.Settings.currentPrayerAnimation) {
+    settingsControl.currentPrayerAnimation.enable()
+  } else {
+    settingsControl.currentPrayerAnimation.disable()
+  }
+
+  if (STATE.Settings.settingsOpenAnimation) {
+    settingsControl.settingsOpenAnimation.enable()
+  } else {
+    settingsControl.settingsOpenAnimation.disable()
+  }
+
+  if (STATE.Settings.settingsCloseAnimation) {
+    settingsControl.settingsCloseAnimation.enable()
+  } else {
+    settingsControl.settingsCloseAnimation.disable()
+  }
+}
+
+// ----------------------------------
+
 export const fullScreen = () => {
   if (document.fullscreenElement) {
     document.exitFullscreen()
@@ -32,9 +87,12 @@ export const fullScreen = () => {
     headerView.showCompressFullScreenControlButton()
   }
 }
+
 export const showFullScreen = () => {
   settingsView.show()
 }
+
+// ----------------------------------
 
 export const initPrayer = () => {
   const prayerTimeManager = Model.getPrayerTimesList()

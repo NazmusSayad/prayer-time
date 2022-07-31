@@ -1,17 +1,19 @@
-<section id="settings">
+<section id="settings" class="show">
   <div class="-- settings">
     <div class="settings__header">
       <div class="settings__header--icon">{settings}</div>
 
-      <button id="settings-close-button"
-        onclick="this.parentElement.parentElement.parentElement.className += ' close'"
-        class="settings__header--button"
-      >
+      <button id="settings-close-button" class="settings__header--button">
         <div></div>
         <div></div>
       </button>
     </div>
 
-    <form class="settings__form"></form>
+    <form class="settings__form">
+      <div class="settings__form--buttons">
+        <button type="reset">Reset</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
   </div>
 </section>

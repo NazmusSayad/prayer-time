@@ -1,19 +1,16 @@
 import * as Adhan from 'adhan'
 import STATE from './STATE'
 
-const saveUserLocation = ({ latitude, longitude }) => {
-  STATE.UserLocation = { latitude, longitude }
-  localStorage.setItem(`location`, JSON.stringify(STATE.UserLocation))
+export const saveUserConfig = () => {
+  localStorage.setItem('prayer-time-settings', JSON.stringify(STATE.Settings))
 }
 
-const getPrayerTime = date => {
-  const coordinates = new Adhan.Coordinates(
-    STATE.UserLocation.latitude,
-    STATE.UserLocation.longitude
-  )
+export const loadUserConfig = () => {
+  const localSettings = localStorage.getItem(`prayer-time-settings`)
 
-  const params = Adhan.CalculationMethod.Karachi()
-  return new Adhan.PrayerTimes(coordinates, date, params)
+  const loadedSettings = JSON.parse(localSettings) || {}
+
+  Object.assign(STATE.Settings, loadedSettings)
 }
 
 const makeUniquePrayerList = (main, extra) => {
@@ -36,15 +33,17 @@ const makeUniquePrayerList = (main, extra) => {
   ]
 }
 
-export const loadUserConfig = () => {
-  const localLocation = localStorage.getItem(`location`)
-  const localSettings = localStorage.getItem(`settings`)
+const getPrayerTime = date => {
+  const coordinates = new Adhan.Coordinates(
+    STATE.Settings.location.latitude,
+    STATE.Settings.location.longitude
+  )
 
-  STATE.UserLocation = JSON.parse(localLocation)
-  STATE.Settings = JSON.parse(localSettings)
+  const params = Adhan.CalculationMethod.Karachi()
+  return new Adhan.PrayerTimes(coordinates, date, params)
 }
 
-export const getAndSaveLocationByGeolocation = async () => {
+export const getUserLocationByGPS = async () => {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -53,7 +52,6 @@ export const getAndSaveLocationByGeolocation = async () => {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           }
-          saveUserLoation(location)
           resolve(location)
         },
         () => reject()
@@ -62,9 +60,9 @@ export const getAndSaveLocationByGeolocation = async () => {
   })
 }
 
-export const getAndSaveUserLocationByIp = async () => {
+export const getUserLocationByIp = async () => {
   const { longitude, latitude } = await fetchJSON('https://json.geoiplookup.io')
-  saveUserLocation({ latitude, longitude })
+  return { longitude, latitude }
 }
 
 export const getPrayerTimesList = () => {

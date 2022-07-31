@@ -11,7 +11,7 @@
 
   &.show {
     bottom: 0;
-    background-color: #00000099;
+    background-color: #000000aa;
   }
 
   &.close {
@@ -19,11 +19,12 @@
   }
 
   .settings {
+    --responsive-transition: height, width, border-radius;
     height: calc(100vh - 10vmin);
     width: 90%;
     max-width: 550px;
     position: absolute;
-    background: #aaa;
+    background: $color-white;
     overflow: hidden;
     top: -50vh;
     left: 50%;
@@ -31,6 +32,8 @@
     border-radius: 0.5rem;
     transform: translate(-50%, -50%) scale(1);
     box-shadow: 0 0 1.5rem 0.3rem #000000aa;
+    transition: 0.5s ease-in-out;
+    transition-property: var(--responsive-transition);
 
     @include break($small) {
       height: calc(100vh - 5vmin);
@@ -47,7 +50,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #00000010;
+      background: #0000000f;
       padding: 1rem 1.5rem;
       $icon-color: #333;
 
@@ -107,23 +110,45 @@
     }
 
     &__form {
+      button {
+        border: 0;
+        outline: 0;
+        background: #6998aa;
+        color: $color-white;
+        padding: 0.6rem 1.8rem;
+        border-radius: 0.25rem;
+      }
+
+      &--buttons {
+        margin-top: 2rem;
+        text-align: center;
+
+        button {
+          margin: 0.5rem;
+        }
+      }
     }
   }
 
-  $responsive-transition: height, width, border-radius;
-
   &.show .settings {
-    transition: 0.5s ease-in-out;
-    transition-property: top, opacity, $responsive-transition;
     top: 50%;
     opacity: 1;
+
+    @include settingsOpenAnimation {
+      transition-property: top, opacity, var(--responsive-transition);
+    }
   }
 
   &.close .settings {
-    transition: 0.5s ease-in-out;
-    transition-property: transform, opacity, $responsive-transition;
-    transform-origin: top right;
-    transform: translate(-50%, -50%) scale(0) rotate(-100deg);
     opacity: 0;
+
+    @include settingsCloseAnimation {
+      transition-property: transform, opacity, var(--responsive-transition);
+      transform-origin: top right;
+      border-top-left-radius: 100%;
+      border-bottom-left-radius: 100%;
+      border-bottom-right-radius: 100%;
+      transform: translate(-50%, -50%) scale(0) rotate(-100deg);
+    }
   }
 }
