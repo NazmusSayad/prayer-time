@@ -8,58 +8,59 @@ import madhabList from '../../data/madhab-list.json'
 
 class Settings extends Views {
   _element = HTML(markup.replace(`{settings}`, iconSettings))
+  #form = this._element.qs('#settings-form')
 
   constructor() {
     super()
-    this.addCloseHandler()
     this.fillDropDownOptions()
   }
 
-  show(settings) {
-    const form = this._element.qs('#settings-form')
-
-    form.qs('#' + settings.madhab)?.click()
-    form.qs('#' + settings.calculationMethod)?.click()
-
-    const prayerAnimation = form.qs(`input#currentPrayerAnimation`)
-    const openAnimation = form.qs(`input#settingsOpenAnimation`)
-    const closeAnimation = form.qs(`input#settingsCloseAnimation`)
-
-    if (prayerAnimation.checked !== settings.currentPrayerAnimation) prayerAnimation.click()
-    if (openAnimation.checked !== settings.settingsOpenAnimation) openAnimation.click()
-    if (closeAnimation.checked !== settings.settingsCloseAnimation) closeAnimation.click()
-
+  show() {
     this._element.classList.add(`show`)
   }
 
+  setPreviousSettings(settings) {
+    this.#form.qs('#' + settings.madhab)?.click()
+    this.#form.qs('#' + settings.calculationMethod)?.click()
+
+    const prayerAnimation = this.#form.qs(`input#currentPrayerAnimation`)
+    const settingsAnimation = this.#form.qs(`input#settingsAnimation`)
+
+    if (prayerAnimation.checked !== settings.currentPrayerAnimation) prayerAnimation.click()
+    if (settingsAnimation.checked !== settings.settingsAnimation) settingsAnimation.click()
+  }
+
   addFormSubmitHandler(callback) {
-    const form = this._element.qs('#settings-form')
-    form.addEventListener('submit', event => {
+    this.#form.addEventListener('submit', event => {
       event.preventDefault()
-
-      const madhab = this._element.qs(`input[name='madhab']:checked`).id
-      const calculationMethod = this._element.qs(`input[name='calculationMethod']:checked`).id
-
-      const currentPrayerAnimation = !!form.qs(`input#currentPrayerAnimation:checked`)
-      const settingsOpenAnimation = !!form.qs(`input#settingsOpenAnimation:checked`)
-      const settingsCloseAnimation = !!form.qs(`input#settingsCloseAnimation:checked`)
-
-      callback({
-        madhab,
-        calculationMethod,
-        currentPrayerAnimation,
-        settingsOpenAnimation,
-        settingsCloseAnimation,
-      })
+      callback(this.getFormData())
     })
   }
 
-  addCloseHandler() {
+  getFormData() {
+    const madhab = this.#form.qs(`input[name='madhab']:checked`).id
+    const calculationMethod = this.#form.qs(`input[name='calculationMethod']:checked`).id
+
+    const currentPrayerAnimation = !!this.#form.qs(`input#currentPrayerAnimation:checked`)
+    const settingsAnimation = !!this.#form.qs(`input#settingsAnimation:checked`)
+
+    return {
+      /* NOTE: Order does matter */
+      madhab,
+      calculationMethod,
+      currentPrayerAnimation,
+      settingsAnimation,
+    }
+  }
+
+  addCloseHandler(confirmToClose) {
     const button = this._element.qs(`#settings-close-button`)
 
     button.onclick = () => {
+      if (!confirmToClose(this.getFormData())) return
+
       this._element.classList.add(`close`)
-      const settings = document.qs('html').getAttribute(`settings-settingscloseanimation`)
+      const settings = document.qs('html').getAttribute(`settings-settingsanimation`)
       if (settings === 'true') {
         setTimeout(() => (this._element.className = ''), 500)
       } else this._element.className = ''
@@ -70,9 +71,9 @@ class Settings extends Views {
     const madhabDropDown = new DropDown('madhab', madhabList)
     const calculationDropDown = new DropDown('calculationMethod', calculationMethodList)
 
-    const madhabItem = this._element.qs('#settings-item-method')
+    const madhabItem = this.#form.qs('#settings-item-method')
     madhabItem.append(madhabDropDown)
-    const calculationItem = this._element.qs('#settings-item-calculation')
+    const calculationItem = this.#form.qs('#settings-item-calculation')
     calculationItem.append(calculationDropDown)
   }
 }

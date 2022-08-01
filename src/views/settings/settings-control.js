@@ -16,16 +16,11 @@ class CurrentPrayerAnimation extends Base {
   _key = 'currentPrayerAnimation'
 }
 
-class SettingsOpenAnimation extends Base {
-  _key = 'settingsOpenAnimation'
-}
-
-class SettingsCloseAnimation extends Base {
-  _key = 'settingsCloseAnimation'
+class SettingsAnimation extends Base {
+  _key = 'settingsanimation'
 }
 
 export default {
   currentPrayerAnimation: new CurrentPrayerAnimation(),
-  settingsOpenAnimation: new SettingsOpenAnimation(),
-  settingsCloseAnimation: new SettingsCloseAnimation(),
+  settingsAnimation: new SettingsAnimation(),
 }

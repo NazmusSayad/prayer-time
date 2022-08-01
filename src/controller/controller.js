@@ -72,17 +72,26 @@ export const updateUsersConfig = () => {
     settingsControl.currentPrayerAnimation.disable()
   }
 
-  if (STATE.Settings.settingsOpenAnimation) {
-    settingsControl.settingsOpenAnimation.enable()
+  if (STATE.Settings.settingsAnimation) {
+    settingsControl.settingsAnimation.enable()
   } else {
-    settingsControl.settingsOpenAnimation.disable()
+    settingsControl.settingsAnimation.disable()
+  }
+}
+
+export const settingsClose = newSettings => {
+  const oldSettings = {
+    /* NOTE: Order does matter */
+    madhab: STATE.Settings.madhab,
+    calculationMethod: STATE.Settings.calculationMethod,
+    currentPrayerAnimation: STATE.Settings.currentPrayerAnimation,
+    settingsAnimation: STATE.Settings.settingsAnimation,
   }
 
-  if (STATE.Settings.settingsCloseAnimation) {
-    settingsControl.settingsCloseAnimation.enable()
-  } else {
-    settingsControl.settingsCloseAnimation.disable()
-  }
+  const ifNewChanges = JSON.stringify(newSettings) !== JSON.stringify(oldSettings)
+
+  if (!ifNewChanges) return true
+  if (confirm('Are yoou sure!?')) return true
 }
 
 // ----------------------------------
@@ -98,7 +107,8 @@ export const fullScreen = () => {
 }
 
 export const showSettings = () => {
-  settingsView.show(STATE.Settings)
+  settingsView.setPreviousSettings(STATE.Settings)
+  settingsView.show()
 }
 
 // ----------------------------------
