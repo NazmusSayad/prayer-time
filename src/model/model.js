@@ -3,14 +3,18 @@ import STATE from './STATE'
 
 export const saveUserConfig = () => {
   localStorage.setItem('prayer-time-settings', JSON.stringify(STATE.Settings))
+  localStorage.setItem('prayer-time-location', JSON.stringify(STATE.UserLocation))
 }
 
 export const loadUserConfig = () => {
   const localSettings = localStorage.getItem(`prayer-time-settings`)
+  const localLocation = localStorage.getItem(`prayer-time-location`)
 
   const loadedSettings = JSON.parse(localSettings) || {}
+  const loadedLocation = JSON.parse(localLocation) || {}
 
   Object.assign(STATE.Settings, loadedSettings)
+  Object.assign(STATE.UserLocation, loadedLocation)
 }
 
 const makeUniquePrayerList = (main, extra) => {
@@ -34,11 +38,9 @@ const makeUniquePrayerList = (main, extra) => {
 
 const getPrayerTime = date => {
   const coordinates = new Adhan.Coordinates(
-    STATE.Settings.location.latitude,
-    STATE.Settings.location.longitude
+    STATE.UserLocation.latitude,
+    STATE.UserLocation.longitude
   )
-
-  console.trace(STATE.Settings.calculationMethod)
 
   const params = Adhan.CalculationMethod[STATE.Settings.calculationMethod]()
   params.madhab = STATE.Settings.madhab

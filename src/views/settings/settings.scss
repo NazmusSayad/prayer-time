@@ -8,14 +8,9 @@
   background-color: transparent;
   bottom: 100vh;
 
-  &.show {
-    @include settingsOpenAnimation {
-      transition: background-color 0.5s ease-in-out;
-    }
-  }
-
+  &.show,
   &.close {
-    @include settingsCloseAnimation {
+    @include settingsAnimation {
       transition: background-color 0.5s ease-in-out;
     }
   }
@@ -36,7 +31,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 90%;
-    max-width: 600px;
+    max-width: 75rem;
     height: 90vh;
     background: rgba($color-white, 0.8);
     padding: 1.5rem 2.5rem 2rem;
@@ -51,6 +46,8 @@
     transition: 0.5s ease-in-out;
     transition-property: var(--responsive-transition);
     visibility: hidden;
+    max-height: 100vh;
+    overflow-y: auto;
 
     @include break($small) {
       height: calc(100vh - 5vmin);
@@ -80,8 +77,8 @@
           position: absolute;
           font-size: 9.6rem;
           opacity: 0.15;
-          top: -60px;
-          left: -40px;
+          top: -6rem;
+          left: -4rem;
         }
       }
 
@@ -182,7 +179,7 @@
     top: 50%;
     opacity: 1;
 
-    @include settingsOpenAnimation {
+    @include settingsAnimation {
       transition-property: top, opacity, var(--responsive-transition);
     }
   }
@@ -190,7 +187,7 @@
   &.close .settings {
     opacity: 0;
 
-    @include settingsCloseAnimation {
+    @include settingsAnimation {
       transition-property: transform, opacity, var(--responsive-transition);
       transform-origin: top right;
       border-top-left-radius: 100%;

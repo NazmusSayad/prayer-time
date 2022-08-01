@@ -1,6 +1,14 @@
 import markup from './select-dropdown.html'
 import './select-dropdown.scss'
 
+window.addEventListener('blur', () => {
+  const currentBoxs = document.qsa('.select-box__current.active')
+
+  currentBoxs.forEach(element => {
+    element.classList.remove(`active`)
+  })
+})
+
 export default function (name, options) {
   const element = HTML(markup)
   const valueContainer = element.qs('.select-box__current')
@@ -23,6 +31,13 @@ export default function (name, options) {
 
     valueContainer.innerHTML += valueMarkup
     listContainer.innerHTML += listMarkup
+  })
+
+  const currentBox = element.qs('.select-box__current')
+
+  document.addEventListener('click', () => {
+    if (currentBox === document.activeElement) document.activeElement.classList.toggle('active')
+    else currentBox.classList.remove(`active`)
   })
 
   return element

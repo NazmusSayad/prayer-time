@@ -1,15 +1,10 @@
+@mixin settingsAnimation {
+  html[settings-settingsanimation='true'] & {
+    @content;
+  }
+}
 @mixin currentPrayerAnimation {
   html[settings-currentprayeranimation='true'] & {
-    @content;
-  }
-}
-@mixin settingsOpenAnimation {
-  html[settings-settingsopenanimation='true'] & {
-    @content;
-  }
-}
-@mixin settingsCloseAnimation {
-  html[settings-settingscloseanimation='true'] & {
     @content;
   }
 }

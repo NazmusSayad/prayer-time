@@ -4,6 +4,8 @@ $padding: 1.2rem 1.8rem;
 
 .custom-select-dropdown-box {
   .select-box {
+    $transition-delay: 0.3s;
+
     position: relative;
     display: block;
     width: 100%;
@@ -18,16 +20,16 @@ $padding: 1.2rem 1.8rem;
       background-color: $color-white;
       transition: background-color 0.1s ease-in-out;
 
-      &:focus {
+      &.active {
         background-color: darken($color-white, 10%);
         border-radius: 0.5rem 0.5rem 0 0;
 
         & + .select-box__list {
           opacity: 1;
-
-          // We have to set "animation-name: none;" to make the list visible (read below how it works)
-
-          animation-name: none;
+          visibility: visible;
+          transform: scaleY(1);
+          transition: $transition-delay ease-in-out;
+          transition-property: transform, opacity;
 
           .select-box__option {
             cursor: pointer;
@@ -75,29 +77,25 @@ $padding: 1.2rem 1.8rem;
 
     &__list {
       border-radius: 0 0 0.5rem 0.5rem;
-      overflow: hidden;
       position: absolute;
       width: 100%;
       padding: 0;
       list-style: none;
-      opacity: 0;
       z-index: 1;
       background-color: $color-white;
-      /* OPTIMIZE: Spacing */
-
-      // margin-top: 1rem;
-
-      // We need to use animation with delay.
-      // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
-      // This delay will not be noticed because we set "opacity" to "0".
-      // We also use "animation-fill-mode: forwards" to make the list stay hidden.
-
-      animation-name: Animation-Hide-List-randonkadfaksdjkf;
-      animation-duration: 0.5s;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards;
-      animation-timing-function: step-start;
+      max-height: 30rem;
+      overflow: hidden;
+      overflow-y: auto;
       box-shadow: 0 1.5rem 3rem -1rem transparentize(#000, 0.9);
+      opacity: 0;
+      visibility: hidden;
+      transform: scaleY(0);
+      transform-origin: top;
+
+      transition: opacity $transition-delay, transform $transition-delay ease-in-out,
+        visibility 0s ease-in $transition-delay;
+
+      /* OPTIMIZE: Spacing top */
 
       li {
         border-bottom: 0.1rem solid $color-primary;
@@ -130,15 +128,6 @@ $padding: 1.2rem 1.8rem;
         color: #546c84;
         background-color: rgba($color-primary, 0.2);
       }
-    }
-  }
-
-  @keyframes Animation-Hide-List-randonkadfaksdjkf {
-    from {
-      transform: scaleY(1);
-    }
-    to {
-      transform: scaleY(0);
     }
   }
 }
