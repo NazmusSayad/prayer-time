@@ -56,7 +56,16 @@ export const startClock = () => {
 
 // ----------------------------------
 
-export const updateLoadedConfig = () => {
+export const formSubmitHandler = data => {
+  Object.assign(STATE.Settings, data)
+  Model.saveUserConfig()
+  updateUsersConfig()
+
+  initPrayer()
+  updateCurrentAndNextPrayer()
+}
+
+export const updateUsersConfig = () => {
   if (STATE.Settings.currentPrayerAnimation) {
     settingsControl.currentPrayerAnimation.enable()
   } else {
@@ -88,14 +97,15 @@ export const fullScreen = () => {
   }
 }
 
-export const showFullScreen = () => {
-  settingsView.show()
+export const showSettings = () => {
+  settingsView.show(STATE.Settings)
 }
 
 // ----------------------------------
 
 export const initPrayer = () => {
   const prayerTimeManager = Model.getPrayerTimesList()
+
   STATE.prayerTimes = prayerTimeManager.raw
 
   prayerTimeManager.list.forEach(({ id, time }) => {
@@ -103,7 +113,7 @@ export const initPrayer = () => {
   })
 
   prayerView.fillContainer(prayerTimeManager.list)
-  STATE.prayerLoaded = true
+  STATE.prayerLoaded = false
 }
 
 export const updateNextPrayerTime = () => {
@@ -124,4 +134,6 @@ export const updateCurrentAndNextPrayer = () => {
   STATE.prayer = { current, next }
   prayerView.updateCurrentPrayer(current)
   prayerView.updateNextPrayer(next)
+
+  STATE.prayerLoaded = true
 }

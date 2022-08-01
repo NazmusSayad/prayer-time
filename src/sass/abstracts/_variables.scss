@@ -1,12 +1,15 @@
-$color-white: #d4dae0;
+$color-primary: #5fa2bc;
+$color-white: #f2f2f2;
+$color-dark-gray: #404040;
+
 $color-dark: #272727;
 $color-blue: #6998aa;
 
 $color-today: #ececec;
 $color-extra: rgba($color-today, 0.9);
 
-$bg-color-today: rgba(#333, 0.21);
-$bg-color-extra: rgba(#666, 0.25);
+$bg-color-today: rgba(#333, 0.17);
+$bg-color-extra: rgba(#555, 0.25);
 
 $bg-color-current: rgba(#78b478, 0.65);
-$bg-color-next: rgba(#557899, 0.5);
+$bg-color-next: rgba($color-primary, 0.45);

@@ -2,11 +2,14 @@ import STATE from '../model/STATE.js'
 import * as Model from '../model/model.js'
 import * as Control from './controller.js'
 import headerView from '../views/header/header-view.js'
+import settingsView from '../views/settings/settings-view.js'
 
 // Init handlers
 {
   headerView.addFullScreenHandler(Control.fullScreen)
-  headerView.addSettingsHandler(Control.showFullScreen)
+  headerView.addSettingsHandler(Control.showSettings)
+
+  settingsView.addFormSubmitHandler(Control.formSubmitHandler)
 }
 
 // Init time
@@ -35,7 +38,7 @@ import headerView from '../views/header/header-view.js'
   ;(async () => {
     try {
       Model.loadUserConfig()
-      Control.updateLoadedConfig()
+      Control.updateUsersConfig()
 
       if (!STATE.Settings.location.latitude || !STATE.Settings.location.longitude) {
         STATE.Settings.location = await Model.getUserLocationByIp()

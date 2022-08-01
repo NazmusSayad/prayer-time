@@ -21,15 +21,14 @@ const makeUniquePrayerList = (main, extra) => {
     { id: 'asr', name: 'Asr', time: main.asr },
     { id: 'maghrib', name: 'Maghrib', time: main.maghrib },
     { id: 'isha', name: 'Isha', time: main.isha },
-
     { id: 'fajr2', name: 'Fajr', time: extra.fajr },
-    /* 
+
+    /* XXX: You can modify them */
     { id: 'sunrise2', name: 'Sunrise', time: extra.sunrise },
     { id: 'dhuhr2', name: 'Dhuhr', time: extra.dhuhr },
     { id: 'asr2', name: 'Asr', time: extra.asr },
     { id: 'maghrib2', name: 'Maghrib', time: extra.maghrib },
     { id: 'isha2', name: 'Isha', time: extra.isha },
-     */
   ]
 }
 
@@ -39,7 +38,11 @@ const getPrayerTime = date => {
     STATE.Settings.location.longitude
   )
 
-  const params = Adhan.CalculationMethod.Karachi()
+  console.trace(STATE.Settings.calculationMethod)
+
+  const params = Adhan.CalculationMethod[STATE.Settings.calculationMethod]()
+  params.madhab = STATE.Settings.madhab
+
   return new Adhan.PrayerTimes(coordinates, date, params)
 }
 

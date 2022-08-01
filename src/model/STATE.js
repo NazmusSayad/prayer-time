@@ -5,6 +5,8 @@ export default {
       longitude: 89.0238,
     },
 
+    madhab: 'hanafi',
+    calculationMethod: 'Karachi',
     currentPrayerAnimation: true,
     settingsOpenAnimation: true,
     settingsCloseAnimation: true,

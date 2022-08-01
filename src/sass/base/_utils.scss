@@ -1,6 +1,65 @@
+@use '../abstracts' as *;
+
 .-- {
   width: 100%;
   max-width: 144rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.custom-checkbox {
+  display: block;
+  background-color: #928d8d;
+  border-radius: 100vmax;
+  padding: 0.15em;
+  transition: background-color 0.2s ease-in-out;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 2em;
+    width: 2em;
+    background: $color-white;
+    border-radius: 50%;
+    margin-right: 2em;
+    transition: margin 0.2s ease-in-out;
+  }
+}
+
+[type='checkbox']:checked ~ label.custom-checkbox {
+  background-color: $color-primary;
+
+  &::after {
+    margin-right: 0;
+    margin-left: 2em;
+  }
+}
+
+.button {
+  border: 0;
+  outline: 0;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: -0.05rem;
+  transition: 0.5s ease;
+
+  &--primary {
+    background: $color-primary;
+    color: $color-white;
+    margin-left: 1.5rem;
+
+    &:hover {
+      background: darken($color-primary, 15);
+    }
+  }
+
+  &--secondary {
+    background: $color-white;
+    color: $color-dark-gray;
+
+    &:hover {
+      background: darken($color-white, 10);
+    }
+  }
 }
