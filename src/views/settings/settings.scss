@@ -11,7 +11,7 @@
   &.show,
   &.close {
     @include settingsOpenAnimation {
-      transition: background-color 0.5s ease-in-out; //*
+      transition: background-color 0.5s ease-in-out;
     }
   }
 
@@ -25,22 +25,26 @@
   }
 
   .settings {
-    --responsive-transition: height, width, border-radius;
+    /* NOTE: Main overlay --->> _app.scss > #root:background- */
+
+    $color-primary: #5fa2bc;
     height: calc(100vh - 10vmin);
     width: 90%;
     max-width: 550px;
-    position: absolute;
-    background: $color-white;
-    overflow: hidden;
-    top: -50vh;
-    left: 50%;
-    opacity: 0;
-    border-radius: 0.5rem;
-    transform: translate(-50%, -50%) scale(1);
+    background: #f0f0f0dd;
     box-shadow: 0 0 1.5rem 0.3rem #000000aa;
-    transition: 0.5s ease-in-out;
-    transition-property: var(--responsive-transition);
-    visibility: hidden;
+
+    --responsive-transition: height, width, border-radius; //*
+    position: absolute; //*
+    overflow: hidden; //*
+    top: -50vh; //*
+    left: 50%; //*
+    opacity: 0; //*
+    border-radius: 0.5rem; //*
+    transform: translate(-50%, -50%) scale(1); //*
+    transition: 0.5s ease-in-out; //*
+    transition-property: var(--responsive-transition); //*
+    visibility: hidden; //*
 
     @include break($small) {
       height: calc(100vh - 5vmin);
@@ -54,14 +58,28 @@
     }
 
     &__header {
+      color: $color-primary;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #0000000f;
       padding: 1rem 1.5rem;
-      $icon-color: #333;
+      $icon-color: $color-primary;
+      line-height: 1;
+
+      &--overlay {
+        position: absolute;
+        font-size: 8rem;
+        opacity: 0.12;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
 
       &--icon {
+        font-size: 4rem;
+        line-height: 2;
+        font-weight: 500;
+
         svg {
           height: 2rem;
           aspect-ratio: 1;
@@ -141,25 +159,25 @@
   }
 
   &.show .settings {
-    visibility: visible;
-    top: 50%;
-    opacity: 1;
+    visibility: visible; //*
+    top: 50%; //*
+    opacity: 1; //*
 
     @include settingsOpenAnimation {
-      transition-property: top, opacity, var(--responsive-transition);
+      transition-property: top, opacity, var(--responsive-transition); //*
     }
   }
 
   &.close .settings {
-    opacity: 0;
+    opacity: 0; //*
 
     @include settingsCloseAnimation {
-      transition-property: transform, opacity, var(--responsive-transition);
-      transform-origin: top right;
-      border-top-left-radius: 100%;
-      border-bottom-left-radius: 100%;
-      border-bottom-right-radius: 100%;
-      transform: translate(-50%, -50%) scale(0) rotate(-100deg);
+      transition-property: transform, opacity, var(--responsive-transition); //*
+      transform-origin: top right; //*
+      border-top-left-radius: 100%; //*
+      border-bottom-left-radius: 100%; //*
+      border-bottom-right-radius: 100%; //*
+      transform: translate(-50%, -50%) scale(0) rotate(-100deg); //*
     }
   }
 }

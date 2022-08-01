@@ -17,7 +17,9 @@ body {
   font-family: sans-serif;
 }
 
-$background-overlay: #1d1d2086;
+/* OPTIMIZE: :) */
+$background-overlay: #1d1d2065;
+
 #root {
   background-image: linear-gradient(0deg, $background-overlay, $background-overlay),
     url('../../assests/bg.jpg');
