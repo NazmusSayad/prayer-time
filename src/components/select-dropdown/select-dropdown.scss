@@ -1,0 +1,144 @@
+@use '../../sass/abstracts' as *;
+
+$padding: 1.2rem 1.8rem;
+
+.custom-select-dropdown-box {
+  .select-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+
+    &__current {
+      position: relative;
+      box-shadow: 0 1.5rem 3rem -1rem transparentize(#000, 0.9);
+      cursor: pointer;
+      outline: none;
+      border-radius: 0.5rem;
+      background-color: $color-white;
+      transition: background-color 0.1s ease-in-out;
+
+      &:focus {
+        background-color: darken($color-white, 10%);
+        border-radius: 0.5rem 0.5rem 0 0;
+
+        & + .select-box__list {
+          opacity: 1;
+
+          // We have to set "animation-name: none;" to make the list visible (read below how it works)
+
+          animation-name: none;
+
+          .select-box__option {
+            cursor: pointer;
+          }
+        }
+
+        .select-box__icon {
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      transition: 0.2s ease;
+      opacity: 0.5;
+
+      svg {
+        fill: $color-dark-gray;
+      }
+    }
+
+    &__value {
+      display: flex;
+    }
+
+    &__input {
+      display: none;
+
+      &:checked + .select-box__input-text {
+        display: block;
+      }
+    }
+
+    &__input-text {
+      display: none;
+      width: 100%;
+      margin: 0;
+      padding: $padding;
+    }
+
+    &__list {
+      border-radius: 0 0 0.5rem 0.5rem;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      padding: 0;
+      list-style: none;
+      opacity: 0;
+      z-index: 1;
+      background-color: $color-white;
+      /* OPTIMIZE: Spacing */
+
+      // margin-top: 1rem;
+
+      // We need to use animation with delay.
+      // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
+      // This delay will not be noticed because we set "opacity" to "0".
+      // We also use "animation-fill-mode: forwards" to make the list stay hidden.
+
+      animation-name: Animation-Hide-List-randonkadfaksdjkf;
+      animation-duration: 0.5s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: step-start;
+      box-shadow: 0 1.5rem 3rem -1rem transparentize(#000, 0.9);
+
+      li {
+        border-bottom: 0.1rem solid $color-primary;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      /* TODO: Add an arrow icon */
+      &::after {
+        content: '';
+        display: block;
+        background: #000;
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        top: -1rem;
+        right: 0;
+        z-index: 100;
+      }
+    }
+
+    &__option {
+      display: block;
+      padding: $padding;
+
+      &:hover,
+      &:focus {
+        color: #546c84;
+        background-color: rgba($color-primary, 0.2);
+      }
+    }
+  }
+
+  @keyframes Animation-Hide-List-randonkadfaksdjkf {
+    from {
+      transform: scaleY(1);
+    }
+    to {
+      transform: scaleY(0);
+    }
+  }
+}

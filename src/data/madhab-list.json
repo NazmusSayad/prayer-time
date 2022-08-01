@@ -1,0 +1,11 @@
+[
+  {
+    "id": "shafi",
+    "label": "Shafi"
+  },
+  {
+    "id": "hanafi",
+    "label": "Hanafi",
+    "checked": true
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "browserslist": [
+    "last 5 version",
+    "> 1%",
+    "IE 11"
+  ],
+  "scripts": {
+    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack build --config webpack.prod.js"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "babel-loader": "latest",
+    "css-loader": "latest",
+    "html-loader": "latest",
+    "html-webpack-plugin": "latest",
+    "mini-css-extract-plugin": "latest",
+    "postcss": "latest",
+    "postcss-loader": "latest",
+    "postcss-preset-env": "latest",
+    "raw-loader": "^4.0.2",
+    "sass": "latest",
+    "sass-loader": "latest",
+    "style-loader": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest"
+  },
+  "dependencies": {
+    "adhan": "^4.4.3"
+  }
+}

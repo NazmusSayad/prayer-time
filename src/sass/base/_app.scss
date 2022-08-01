@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+
+html,
+body,
+#root {
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+  user-select: none;
+  touch-action: none;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+$background-overlay: #1d1d2080;
+
+#root {
+  background-image: linear-gradient(0deg, $background-overlay, $background-overlay),
+    url('../../assests/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+button:focus-visible {
+  box-shadow: 0 0 0.2rem 0.2rem lightblue;
+}

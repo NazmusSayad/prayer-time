@@ -1,0 +1,22 @@
+@use '../' as *;
+
+#clock {
+  color: $color-white;
+  margin-bottom: 1.75rem;
+
+  .clock {
+    text-align: center;
+
+    &__time {
+      font-size: 1.73rem;
+      display: flex;
+      width: fit-content;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    &__date {
+      opacity: 0.75;
+    }
+  }
+}
