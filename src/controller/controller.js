@@ -91,7 +91,7 @@ export const settingsClose = newSettings => {
   const ifNewChanges = JSON.stringify(newSettings) !== JSON.stringify(oldSettings)
 
   if (!ifNewChanges) return true
-  if (confirm('Are yoou sure!?')) return settingsView.setPreviousSettings(STATE.Settings), true
+  if (confirm('Are you sure!?')) return settingsView.setPreviousSettings(STATE.Settings), true
 }
 
 // ----------------------------------
@@ -143,6 +143,5 @@ export const updateCurrentAndNextPrayer = () => {
   STATE.prayer = { current, next }
   prayerView.updateCurrentPrayer(current)
   prayerView.updateNextPrayer(next)
-
   STATE.prayerLoaded = true
 }
