@@ -91,7 +91,7 @@ export const settingsClose = newSettings => {
   const ifNewChanges = JSON.stringify(newSettings) !== JSON.stringify(oldSettings)
 
   if (!ifNewChanges) return true
-  if (confirm('Are yoou sure!?')) return true
+  if (confirm('Are yoou sure!?')) return settingsView.setPreviousSettings(STATE.Settings), true
 }
 
 // ----------------------------------
@@ -107,7 +107,6 @@ export const fullScreen = () => {
 }
 
 export const showSettings = () => {
-  settingsView.setPreviousSettings(STATE.Settings)
   settingsView.show()
 }
 

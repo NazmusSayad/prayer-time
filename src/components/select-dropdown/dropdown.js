@@ -1,13 +1,13 @@
 import markup from './select-dropdown.html'
 import './select-dropdown.scss'
 
-window.addEventListener('blur', () => {
+const removeAciveDropdowns = () => {
   const currentBoxs = document.qsa('.select-box__current.active')
 
   currentBoxs.forEach(element => {
     element.classList.remove(`active`)
   })
-})
+}
 
 export default function (name, options) {
   const element = HTML(markup)
@@ -34,11 +34,15 @@ export default function (name, options) {
   })
 
   const currentBox = element.qs('.select-box__current')
-
-  document.addEventListener('click', () => {
-    if (currentBox === document.activeElement) document.activeElement.classList.toggle('active')
-    else currentBox.classList.remove(`active`)
-  })
+  currentBox.onclick = () => {
+    currentBox.classList.toggle(`active`)
+  }
 
   return element
 }
+
+window.addEventListener('blur', removeAciveDropdowns)
+document.addEventListener('click', () => {
+  if (document.activeElement.matches(`.select-box__current`)) return
+  removeAciveDropdowns()
+})
