@@ -18,6 +18,10 @@
   &.show {
     bottom: 0;
     background-color: rgb(0 0 0 / 45%);
+
+    @include break($msmall) {
+      background-color: rgb(0 0 0 / 65%);
+    }
   }
 
   &.close {
