@@ -12,11 +12,19 @@ class Settings extends Views {
 
   constructor() {
     super()
-    this.fillDropDownOptions()
+    this.#fillDropDownOptions()
   }
 
   show() {
     this._element.classList.add(`show`)
+  }
+
+  close() {
+    this._element.classList.add(`close`)
+    const settings = document.qs('html').getAttribute(`settings-settingsanimation`)
+    if (settings === 'true') {
+      setTimeout(() => (this._element.className = ''), 500)
+    } else this._element.className = ''
   }
 
   setPreviousSettings(settings) {
@@ -30,14 +38,19 @@ class Settings extends Views {
     if (settingsAnimation.checked !== settings.settingsAnimation) settingsAnimation.click()
   }
 
+  addCloseHandler(callback) {
+    const button = this._element.qs(`#settings-close-button`)
+    button.onclick = () => callback(this.#getFormData())
+  }
+
   addFormSubmitHandler(callback) {
     this.#form.addEventListener('submit', event => {
       event.preventDefault()
-      callback(this.getFormData())
+      callback(this.#getFormData())
     })
   }
 
-  getFormData() {
+  #getFormData() {
     const madhab = this.#form.qs(`input[name='madhab']:checked`).id
     const calculationMethod = this.#form.qs(`input[name='calculationMethod']:checked`).id
 
@@ -53,21 +66,7 @@ class Settings extends Views {
     }
   }
 
-  addCloseHandler(confirmToClose) {
-    const button = this._element.qs(`#settings-close-button`)
-
-    button.onclick = () => {
-      if (!confirmToClose(this.getFormData())) return
-
-      this._element.classList.add(`close`)
-      const settings = document.qs('html').getAttribute(`settings-settingsanimation`)
-      if (settings === 'true') {
-        setTimeout(() => (this._element.className = ''), 500)
-      } else this._element.className = ''
-    }
-  }
-
-  fillDropDownOptions() {
+  #fillDropDownOptions() {
     const madhabDropDown = new DropDown('madhab', madhabList)
     const calculationDropDown = new DropDown('calculationMethod', calculationMethodList)
 

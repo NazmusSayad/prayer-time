@@ -5,11 +5,13 @@ import prayerView from '../views/prayer/prayer-view.js'
 import clockView from '../views/clock/clock-view.js'
 import settingsView from '../views/settings/settings-view.js'
 import settingsControl from '../views/settings/settings-control.js'
+import modalView from '../views/modal/modal-view.js'
 
 headerView.render()
 prayerView.render()
 clockView.render()
 settingsView.render()
+modalView.render()
 
 export const secUpdater = sec => {
   clockView.updateSecond(sec)
@@ -63,6 +65,8 @@ export const formSubmitHandler = data => {
 
   initPrayer()
   updateCurrentAndNextPrayer()
+
+  modalView.alert({ flag: 'green', title: 'Settings Saved!' })
 }
 
 export const updateUsersConfig = () => {
@@ -79,7 +83,7 @@ export const updateUsersConfig = () => {
   }
 }
 
-export const settingsClose = newSettings => {
+export const settingsClose = async newSettings => {
   const oldSettings = {
     /* NOTE: Order does matter */
     madhab: STATE.Settings.madhab,
@@ -88,10 +92,19 @@ export const settingsClose = newSettings => {
     settingsAnimation: STATE.Settings.settingsAnimation,
   }
 
-  const ifNewChanges = JSON.stringify(newSettings) !== JSON.stringify(oldSettings)
+  const ifNoChanges =
+    JSON.stringify(newSettings) === JSON.stringify(oldSettings)
+  if (ifNoChanges) return settingsView.close()
 
-  if (!ifNewChanges) return true
-  if (confirm('Are you sure!?')) return settingsView.setPreviousSettings(STATE.Settings), true
+  const input = await modalView.confirm({
+    flag: 'red',
+    title: 'Are you sure?',
+    message: 'You have some unsaved changes.',
+  })
+  if (input) {
+    settingsView.close()
+    settingsView.setPreviousSettings(oldSettings)
+  }
 }
 
 // ----------------------------------
