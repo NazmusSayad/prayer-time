@@ -1,8 +1,8 @@
 @use '../../sass/abstracts' as *;
 
-$padding: 1.2rem 1.8rem;
-
 .custom-select-dropdown-box {
+  --padding: 1.2rem 1.8rem;
+
   .select-box {
     $transition-delay: 0.3s;
 
@@ -22,7 +22,6 @@ $padding: 1.2rem 1.8rem;
 
       &.active {
         background-color: darken($color-white, 10%);
-        border-radius: 0.5rem 0.5rem 0 0;
 
         & + .select-box__list {
           opacity: 1;
@@ -72,30 +71,40 @@ $padding: 1.2rem 1.8rem;
       display: none;
       width: 100%;
       margin: 0;
-      padding: $padding;
+      padding: var(--padding);
     }
 
     &__list {
-      border-radius: 0 0 0.5rem 0.5rem;
       position: absolute;
-      width: 100%;
+      right: 0;
+      width: 110%;
+      min-width: max-content;
       padding: 0;
-      list-style: none;
       z-index: 1;
       background-color: $color-white;
       max-height: 30rem;
-      overflow: hidden;
-      overflow-y: auto;
+      border-radius: 0.5rem;
       box-shadow: 0 1.5rem 3rem -1rem transparentize(#000, 0.9);
       opacity: 0;
+      margin-top: 1.5rem;
       visibility: hidden;
       transform: scaleY(0);
       transform-origin: top;
-
       transition: opacity $transition-delay, transform $transition-delay ease-in-out,
         visibility 0s ease-in $transition-delay;
 
-      /* OPTIMIZE: Spacing top */
+      &--wrapper {
+        max-height: inherit;
+        border-radius: inherit;
+        overflow: hidden;
+      }
+
+      &--container {
+        list-style: none;
+        overflow: hidden;
+        overflow-y: auto;
+        max-height: inherit;
+      }
 
       li {
         border-bottom: 0.1rem solid $color-primary;
@@ -105,23 +114,24 @@ $padding: 1.2rem 1.8rem;
         }
       }
 
-      /* TODO: Add an arrow icon */
       &::after {
         content: '';
         display: block;
-        background: #000;
-        width: 1rem;
-        height: 1rem;
+        background: $color-white;
+        width: 5rem;
+        height: 5rem;
         position: absolute;
-        top: -1rem;
-        right: 0;
-        z-index: 100;
+        top: -0.1rem;
+        right: 2rem;
+        transform: rotate(45deg);
+        border-radius: 0.5rem;
+        z-index: -1;
       }
     }
 
     &__option {
       display: block;
-      padding: $padding;
+      padding: var(--padding);
 
       &:hover,
       &:focus {

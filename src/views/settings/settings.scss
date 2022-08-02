@@ -31,13 +31,16 @@
     flex-direction: column;
     justify-content: space-between;
     width: 90%;
-    max-width: 75rem;
+    max-width: 65rem;
     height: 90vh;
+    max-height: 100vh;
     background: rgba($color-white, 0.8);
     padding: 1.5rem 2.5rem 2rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     position: absolute;
+    visibility: hidden;
     overflow: hidden;
+    overflow-y: auto;
     top: -50vh;
     left: 50%;
     opacity: 0;
@@ -45,16 +48,13 @@
     transform: translate(-50%, -50%) scale(1);
     transition: 0.5s ease-in-out;
     transition-property: var(--responsive-transition);
-    visibility: hidden;
-    max-height: 100vh;
-    overflow-y: auto;
 
     @include break($small) {
       height: calc(100vh - 5vmin);
       width: 95%;
     }
 
-    @include break(31.25rem) {
+    @include break($msmall) {
       height: 100vh;
       width: 100%;
       border-radius: 0;
@@ -66,19 +66,23 @@
       align-items: center;
 
       &--title {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
         font-size: 3.75rem;
-        font-weight: bold;
         letter-spacing: -0.05rem;
         position: relative;
         color: $color-primary;
+        text-shadow: 0 0 0.11rem rgba($color-white, 0.3);
 
         &::before {
           content: 'Settigns';
           position: absolute;
           font-size: 9.6rem;
           opacity: 0.15;
-          top: -6rem;
-          left: -4rem;
+          top: -5rem;
+          left: -3rem;
+          text-shadow: none;
+          z-index: -1;
         }
       }
 
@@ -125,10 +129,8 @@
           transition: fill 0.15s ease-in-out;
         }
 
-        a:hover {
-          path {
-            fill: $color-primary;
-          }
+        a:hover path {
+          fill: $color-primary;
         }
       }
     }
@@ -142,6 +144,10 @@
       font-size: 1.5rem;
       color: $color-dark-gray;
 
+      @include break($msmall) {
+        margin-bottom: 2rem;
+      }
+
       &--content {
         flex: 3;
 
@@ -149,19 +155,35 @@
           font-size: 1.8rem;
           font-weight: 500;
           line-height: 1.2;
+
+          @include break($msmall) {
+            font-size: 1.6rem;
+          }
         }
 
         p {
           font-size: 1.35rem;
+
+          @include break($msmall) {
+            font-size: 1.2rem;
+          }
         }
       }
 
       .custom-select-dropdown-box {
         flex: 2;
+
+        @include break($msmall) {
+          --padding: 1rem 1.5rem;
+        }
       }
 
       &--checkbox {
-        font-size: 1.25rem;
+        font-size: 2rem;
+
+        @include break($msmall) {
+          font-size: 1.75rem;
+        }
 
         input {
           display: none;
