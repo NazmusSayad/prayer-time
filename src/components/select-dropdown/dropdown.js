@@ -12,7 +12,7 @@ window.addEventListener('blur', () => {
 export default function (name, options) {
   const element = HTML(markup)
   const valueContainer = element.qs('.select-box__current')
-  const listContainer = element.qs('.select-box__list')
+  const listContainer = element.qs('.select-box__list--container')
 
   options.forEach(({ id, label, checked = false }) => {
     const valueMarkup = `
