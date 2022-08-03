@@ -95,7 +95,6 @@
 
         svg {
           height: 1.5rem;
-
           fill: $color-white;
         }
       }
@@ -127,10 +126,23 @@
 
         a {
           margin-right: 0.75rem;
+          border-radius: 50%;
+          padding: 0.25rem;
+
+          &:focus {
+            outline: 0;
+            border: 0;
+            box-shadow: 0 0 0.3rem 0.1rem $color-primary;
+          }
+        }
+
+        svg {
+          border-radius: inherit;
         }
 
         path {
           transition: fill 0.15s ease-in-out;
+          border-radius: inherit;
         }
 
         a:hover path {
@@ -190,7 +202,6 @@
         }
 
         input {
-          display: none;
         }
 
         label {

@@ -1,11 +1,11 @@
 import markup from './select-dropdown.html'
 import './select-dropdown.scss'
 
-const removeAciveDropdowns = () => {
+const removeAciveDropdowns = currentEl => {
   const currentBoxs = document.qsa('.select-box__current.active')
 
   currentBoxs.forEach(element => {
-    element.classList.remove(`active`)
+    element === currentEl || element.classList.remove(`active`)
   })
 }
 
@@ -35,6 +35,8 @@ export default function (name, options) {
 
   const currentBox = element.qs('.select-box__current')
   currentBox.onclick = () => {
+    removeAciveDropdowns(currentBox)
+
     currentBox.classList.toggle(`active`)
   }
 

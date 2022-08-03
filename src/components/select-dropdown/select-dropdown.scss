@@ -15,11 +15,20 @@
       position: relative;
       box-shadow: 0 1.5rem 3rem -1rem transparentize(#000, 0.9);
       cursor: pointer;
-      outline: none;
       border-radius: 0.5rem;
       background-color: $color-white;
       transition: background-color 0.1s ease-in-out;
       padding-right: 2.4rem;
+      display: block;
+      width: 100%;
+      text-align: left;
+      outline: 0;
+      border: 0;
+
+      &:focus:not(.active) {
+        background-color: darken($color-white, 5%);
+        box-shadow: 0 0 0.5rem 0.1rem rgba($color-primary, 0.6);
+      }
 
       &.active {
         background-color: darken($color-white, 10%);
@@ -85,13 +94,14 @@
       background-color: $color-white;
       max-height: 30rem;
       border-radius: 0.5rem;
-      box-shadow: 0 1.5rem 3rem -1rem transparentize(#000, 0.9);
+      box-shadow: 0 0.5rem 3rem -1rem rgba(#000, 0.2);
       opacity: 0;
       margin-top: 1.5rem;
       visibility: hidden;
       transform: scaleY(0);
       transform-origin: top;
-      transition: opacity $transition-delay, transform $transition-delay ease-in-out,
+      transition: opacity $transition-delay,
+        transform $transition-delay ease-in-out,
         visibility 0s ease-in $transition-delay;
 
       &--wrapper {

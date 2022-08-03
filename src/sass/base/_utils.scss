@@ -11,7 +11,7 @@
   display: block;
   background-color: #928d8d;
   border-radius: 100vmax;
-  padding: 0.15em;
+  padding: 0.155em;
   transition: background-color 0.2s ease-in-out;
 
   &::after {
@@ -34,6 +34,10 @@
     margin-right: 0;
     margin-left: 1em;
   }
+}
+
+[type='checkbox']:focus-visible ~ label.custom-checkbox {
+  box-shadow: 0 0 0.3rem 0.1rem darken($color-primary, 30%);
 }
 
 .button {
@@ -63,4 +67,12 @@
       background: darken($color-white, 10);
     }
   }
+}
+
+.visually-hidden {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
 }
