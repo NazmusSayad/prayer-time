@@ -1,13 +1,12 @@
 import Views from '../Views'
 import './settings.scss'
 import markup from './settings.html'
-import iconSettings from '../../assests/icons/gear-solid.svg'
 import DropDown from '../../components/select-dropdown/dropdown.js'
 import calculationMethodList from '../../data/calculation-methods.json'
 import madhabList from '../../data/madhab-list.json'
 
 class Settings extends Views {
-  _element = HTML(markup.replace(`{settings}`, iconSettings))
+  _element = HTML(markup)
   #form = this._element.qs('#settings-form')
 
   constructor() {
@@ -21,7 +20,9 @@ class Settings extends Views {
 
   close() {
     this._element.classList.add(`close`)
-    const settings = document.qs('html').getAttribute(`settings-settingsanimation`)
+    const settings = document
+      .qs('html')
+      .getAttribute(`settings-otherAnimations`)
     if (settings === 'true') {
       setTimeout(() => (this._element.className = ''), 500)
     } else this._element.className = ''
@@ -32,10 +33,12 @@ class Settings extends Views {
     this.#form.qs('#' + settings.calculationMethod)?.click()
 
     const prayerAnimation = this.#form.qs(`input#currentPrayerAnimation`)
-    const settingsAnimation = this.#form.qs(`input#settingsAnimation`)
+    const otherAnimations = this.#form.qs(`input#otherAnimations`)
 
-    if (prayerAnimation.checked !== settings.currentPrayerAnimation) prayerAnimation.click()
-    if (settingsAnimation.checked !== settings.settingsAnimation) settingsAnimation.click()
+    prayerAnimation.checked === settings.currentPrayerAnimation ||
+      prayerAnimation.click()
+    otherAnimations.checked === settings.otherAnimations ||
+      otherAnimations.click()
   }
 
   addCloseHandler(callback) {
@@ -52,27 +55,35 @@ class Settings extends Views {
 
   #getFormData() {
     const madhab = this.#form.qs(`input[name='madhab']:checked`).id
-    const calculationMethod = this.#form.qs(`input[name='calculationMethod']:checked`).id
+    const calculationMethod = this.#form.qs(
+      `input[name='calculationMethod']:checked`
+    ).id
 
-    const currentPrayerAnimation = !!this.#form.qs(`input#currentPrayerAnimation:checked`)
-    const settingsAnimation = !!this.#form.qs(`input#settingsAnimation:checked`)
+    const currentPrayerAnimation = !!this.#form.qs(
+      `input#currentPrayerAnimation:checked`
+    )
+    const otherAnimations = !!this.#form.qs(`input#otherAnimations:checked`)
 
     return {
       /* NOTE: Order does matter */
       madhab,
       calculationMethod,
       currentPrayerAnimation,
-      settingsAnimation,
+      otherAnimations,
     }
   }
 
   #fillDropDownOptions() {
     const madhabDropDown = new DropDown('madhab', madhabList)
-    const calculationDropDown = new DropDown('calculationMethod', calculationMethodList)
+    const calculationDropDown = new DropDown(
+      'calculationMethod',
+      calculationMethodList
+    )
 
     const madhabItem = this.#form.qs('#settings-item-method')
-    madhabItem.append(madhabDropDown)
     const calculationItem = this.#form.qs('#settings-item-calculation')
+
+    madhabItem.append(madhabDropDown)
     calculationItem.append(calculationDropDown)
   }
 }

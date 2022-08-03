@@ -1,2 +1,2 @@
-import "./sass/base/index.scss"
-import "./controller"
+import './sass/base/index.scss'
+import './controller'

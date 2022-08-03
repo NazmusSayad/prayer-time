@@ -13,28 +13,27 @@ class HeaderView extends Views {
       .replace('{settings}', iconSettings)
   )
 
+  #fullScreenButton = this._element.qs('button.header__full-screen')
+  #settingsButton = this._element.qs('button.header__settings')
+
   constructor() {
     super()
   }
 
   addSettingsHandler(callback) {
-    const button = this._element.qs('button.header__settings')
-    button.onclick = callback
+    this.#settingsButton.onclick = callback
   }
 
   addFullScreenHandler(callback) {
-    const button = this._element.qs('button.header__full-screen')
-    button.onclick = callback
+    this.#fullScreenButton.onclick = callback
   }
 
   showCompressFullScreenControlButton() {
-    const fullScreenElement = this._element.qs(`.header__full-screen`)
-    fullScreenElement.setAttribute(`fullscreen`, '')
+    this.#fullScreenButton.setAttribute(`fullscreen`, '')
   }
 
   showExpandFullScreenControlButton() {
-    const fullScreenElement = this._element.qs(`.header__full-screen`)
-    fullScreenElement.removeAttribute(`fullscreen`)
+    this.#fullScreenButton.removeAttribute(`fullscreen`)
   }
 }
 

@@ -13,14 +13,14 @@ class Base {
 }
 
 class CurrentPrayerAnimation extends Base {
-  _key = 'currentPrayerAnimation'
+  _key = 'currentprayeranimation'
 }
 
-class SettingsAnimation extends Base {
-  _key = 'settingsanimation'
+class OtherAnimations extends Base {
+  _key = 'otheranimations'
 }
 
 export default {
   currentPrayerAnimation: new CurrentPrayerAnimation(),
-  settingsAnimation: new SettingsAnimation(),
+  otherAnimations: new OtherAnimations(),
 }

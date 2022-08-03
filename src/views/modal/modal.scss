@@ -1,7 +1,7 @@
 @use '../../sass/abstracts' as *;
 
 #modal {
-  @include settingsAnimation() {
+  @include otherAnimations() {
     --transition-duration: 0.1s;
   }
 

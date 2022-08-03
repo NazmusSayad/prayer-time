@@ -3,7 +3,7 @@ export default {
     madhab: 'hanafi',
     calculationMethod: 'Karachi',
     currentPrayerAnimation: true,
-    settingsAnimation: true,
+    otherAnimations: true,
   },
 
   UserLocation: {},

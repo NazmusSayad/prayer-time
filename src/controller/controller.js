@@ -70,17 +70,13 @@ export const formSubmitHandler = data => {
 }
 
 export const updateUsersConfig = () => {
-  if (STATE.Settings.currentPrayerAnimation) {
-    settingsControl.currentPrayerAnimation.enable()
-  } else {
-    settingsControl.currentPrayerAnimation.disable()
-  }
+  STATE.Settings.currentPrayerAnimation
+    ? settingsControl.currentPrayerAnimation.enable()
+    : settingsControl.currentPrayerAnimation.disable()
 
-  if (STATE.Settings.settingsAnimation) {
-    settingsControl.settingsAnimation.enable()
-  } else {
-    settingsControl.settingsAnimation.disable()
-  }
+  STATE.Settings.otherAnimations
+    ? settingsControl.otherAnimations.enable()
+    : settingsControl.otherAnimations.disable()
 }
 
 export const settingsClose = async newSettings => {
@@ -89,7 +85,7 @@ export const settingsClose = async newSettings => {
     madhab: STATE.Settings.madhab,
     calculationMethod: STATE.Settings.calculationMethod,
     currentPrayerAnimation: STATE.Settings.currentPrayerAnimation,
-    settingsAnimation: STATE.Settings.settingsAnimation,
+    otherAnimations: STATE.Settings.otherAnimations,
   }
 
   const ifNoChanges =
@@ -101,7 +97,10 @@ export const settingsClose = async newSettings => {
     title: 'Are you sure?',
     message: 'You have some unsaved changes.',
   })
+
   if (input) {
+    await Wait(150) // Waiting for the modal-view animation to finish!
+
     settingsView.close()
     settingsView.setPreviousSettings(oldSettings)
   }

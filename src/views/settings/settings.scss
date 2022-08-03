@@ -10,7 +10,7 @@
 
   &.show,
   &.close {
-    @include settingsAnimation {
+    @include otherAnimations {
       transition: background-color 0.5s ease-in-out;
     }
   }
@@ -216,7 +216,7 @@
     top: 50%;
     opacity: 1;
 
-    @include settingsAnimation {
+    @include otherAnimations {
       transition-property: top, opacity, var(--responsive-transition);
     }
   }
@@ -224,7 +224,7 @@
   &.close .settings {
     opacity: 0;
 
-    @include settingsAnimation {
+    @include otherAnimations {
       transition-property: transform, opacity, var(--responsive-transition);
       transform-origin: top right;
       border-top-left-radius: 100%;
