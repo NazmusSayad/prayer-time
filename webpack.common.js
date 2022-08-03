@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const PATH = {
   mainJS: 'src/index.js',
@@ -53,10 +52,6 @@ CONFIG.plugins = [
     filename: 'index.html',
     template: PATH.template,
     favicon: './src/assests/icon.png',
-  }),
-  new WorkboxPlugin.GenerateSW({
-    clientsClaim: true,
-    skipWaiting: true,
   }),
 ]
 
