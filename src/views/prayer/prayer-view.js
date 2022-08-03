@@ -19,7 +19,9 @@ class Prayer extends Views {
       const prayerItemElement = HTML(prayerItemMarkup)
       prayerItemElement.id = id
       prayerItemElement.qs('.name').innerHTML = name
-      prayerItemElement.qs('.time').innerHTML = time.toLocaleTimeString().replace(':00 ', ' ')
+      prayerItemElement.qs('.time').innerHTML = time
+        .toLocaleTimeString()
+        .replace(':00 ', ' ')
 
       this.#container.appendChild(prayerItemElement)
     })
@@ -47,6 +49,11 @@ class Prayer extends Views {
     const remainElement = nextPrayerElement.qs('.remain')
 
     remainElement.innerHTML = convertMstoHHMMSS(diff + 100)
+  }
+
+  addRetryButtonhandler(callback) {
+    const button = this.#container.qs('button')
+    button.onclick = () => callback()
   }
 }
 
