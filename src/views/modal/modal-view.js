@@ -15,7 +15,7 @@ class Modal extends Views {
   #title = this._element.qs('.modal__title')
   #message = this._element.qs('.modal__message')
 
-  #showMessageModal(callback, options, needConfirmation) {
+  #showMessageModal(callback, config) {
     this.#yesButton.addEventListener(
       'click',
       () => {
@@ -37,25 +37,58 @@ class Modal extends Views {
       }
     )
 
-    const { flag, message = '', title = '' } = options
+    const {
+      type,
+      needConfirmation,
+      options: { message = '', title = '' },
+    } = config
+
     this.#title.innerHTML = title
     this.#message.innerHTML = message
-    this._element.className = `${needConfirmation} ${flag} show`
+    this._element.className = `${needConfirmation} ${type} show`
   }
 
   #closeMessageModal() {
     this._element.classList.remove(`show`)
   }
 
-  alert(options = {}) {
+  redConfirm(options = {}) {
     return new Promise(resolve => {
-      this.#showMessageModal(resolve, options, false)
+      this.#showMessageModal(resolve, {
+        type: 'red',
+        needConfirmation: true,
+        options,
+      })
     })
   }
 
-  confirm(options = {}) {
+  greenConfirm(options = {}) {
     return new Promise(resolve => {
-      this.#showMessageModal(resolve, options, true)
+      this.#showMessageModal(resolve, {
+        type: 'green',
+        needConfirmation: true,
+        options,
+      })
+    })
+  }
+
+  redAlert(options = {}) {
+    return new Promise(resolve => {
+      this.#showMessageModal(resolve, {
+        type: 'red',
+        needConfirmation: false,
+        options,
+      })
+    })
+  }
+
+  greenAlert(options = {}) {
+    return new Promise(resolve => {
+      this.#showMessageModal(resolve, {
+        type: 'green',
+        needConfirmation: false,
+        options,
+      })
     })
   }
 }

@@ -1,4 +1,5 @@
 import Views from '../Views'
+import settingsUpdater from './settings-updater.js'
 import './settings.scss'
 import markup from './settings.html'
 import DropDown from '../../components/select-dropdown/dropdown.js'
@@ -8,6 +9,7 @@ import madhabList from '../../data/madhab-list.json'
 class Settings extends Views {
   _element = HTML(markup)
   #form = this._element.qs('#settings-form')
+  updater = settingsUpdater
 
   constructor() {
     super()
@@ -65,7 +67,6 @@ class Settings extends Views {
     const otherAnimations = !!this.#form.qs(`input#otherAnimations:checked`)
 
     return {
-      /* NOTE: Order does matter */
       madhab,
       calculationMethod,
       currentPrayerAnimation,

@@ -1,4 +1,4 @@
-@use '../' as *;
+@use '../../sass/abstracts/' as *;
 
 @mixin custom-flex($count, $gap) {
   flex: calc((100% / $count) - $gap) 0 1;
@@ -28,6 +28,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom: calc(15vh - 5rem);
+
+    &__button {
+      font-family: 'Roboto', sans-serif;
+      padding: 1rem 2.5rem;
+      font-size: 1.8rem;
+      box-shadow: 0 0 3rem -0.5rem #00000080;
+    }
 
     &__item {
       text-align: center;

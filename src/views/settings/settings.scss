@@ -1,4 +1,4 @@
-@use '../' as *;
+@use '../../sass/abstracts/' as *;
 
 #settings {
   position: fixed;
@@ -136,13 +136,9 @@
           }
         }
 
-        svg {
-          border-radius: inherit;
-        }
-
         path {
+          fill: $color-dark-gray;
           transition: fill 0.15s ease-in-out;
-          border-radius: inherit;
         }
 
         a:hover path {
@@ -199,13 +195,6 @@
 
         @include break($msmall) {
           font-size: 1.75rem;
-        }
-
-        input {
-        }
-
-        label {
-          cursor: pointer;
         }
       }
     }
