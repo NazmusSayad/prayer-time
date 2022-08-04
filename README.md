@@ -16,6 +16,12 @@ Assalamu Alaikum,
 - [x] Better UX than before
 - [x] Can be installed on homescreen
 
+##
+
+**Quick Tips:**
+
+- Double Click to toggle full screen
+- Right click(mouse) or Hold down(touch) to open settings
 
 ##
 
