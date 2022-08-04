@@ -1,13 +1,12 @@
 {
   "name": "Salah Time",
-  "short_name": "Salah-Time",
-  "orientation": "any",
-  "display": "standalone",
+  "short_name": "Salah Time",
   "start_url": ".",
-  "description": "An app to get accurate time for Salah from all over the world",
+  "display": "standalone",
   "background_color": "#404040",
-  "theme-color": "#5FA2BC",
-  "theme_color": "#5FA2BC",
+  "theme_color": "#404040",
+  "orientation": "any",
+  "description": "An app to get accurate time for Salah from all over the world",
   "icons": [
     {
       "src": "./icon_512x512.png",
