@@ -1,4 +1,4 @@
-import { convertMstoHHMMSS } from '../../utils/utils'
+import { convertMstoHHMMSS, convertFrom24To12Format } from '../../utils/utils'
 import Views from '../Views'
 import containerMarkup from './prayer-container.html'
 import prayerItemMarkup from './prayer.html'
@@ -17,11 +17,12 @@ class Prayer extends Views {
 
     list.forEach(({ id, name, time }) => {
       const prayerItemElement = HTML(prayerItemMarkup)
+
       prayerItemElement.id = id
       prayerItemElement.qs('.name').innerHTML = name
-      prayerItemElement.qs('.time').innerHTML = time
-        .toLocaleTimeString()
-        .replace(':00 ', ' ')
+      prayerItemElement.qs('.time').innerHTML = convertFrom24To12Format(
+        time.toString()
+      )
 
       this.#container.appendChild(prayerItemElement)
     })

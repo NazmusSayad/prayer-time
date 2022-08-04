@@ -5,7 +5,5 @@ import './controller'
 ;(async () => {
   try {
     await navigator.serviceWorker.register('./service-worker.js')
-  } catch {
-    console.warn('Service Worker failed!')
-  }
+  } catch {}
 })()
