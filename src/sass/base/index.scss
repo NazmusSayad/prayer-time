@@ -1,5 +1,7 @@
-@use "./reset";
-@use "./utils";
-@use "./fonts";
-@use "./keyframes";
-@use "./app";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto+Condensed&family=Roboto:wght@400;500&display=swap');
+// @use './fonts';
+
+@use './reset';
+@use './utils';
+@use './keyframes';
+@use './app';
