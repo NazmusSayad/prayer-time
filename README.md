@@ -14,11 +14,13 @@ Assalamu Alaikum,
 
 **Pros:**
 
-- [x] Minimalistic Clean UI
 - [x] Lightweight
 - [x] Accurate times
+- [x] Can run offline
+- [x] Minimalistic Clean UI
 - [x] Available for Android
 - [x] Better UX than before
+- [x] Can be installed on homescreen
 
 
 ##

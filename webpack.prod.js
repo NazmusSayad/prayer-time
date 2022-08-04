@@ -1,8 +1,7 @@
-const path = require('path')
 const { CONFIG } = require('./webpack.common')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
+const { GenerateSW } = require('workbox-webpack-plugin')
+const copyWebpackPlugin = require('copy-webpack-plugin')
 
 CONFIG.mode = 'production'
 CONFIG.output.clean = true
@@ -22,34 +21,19 @@ CONFIG.plugins.push(
   new MiniCssExtractPlugin({
     filename: '[name].css',
   }),
-  new WorkboxPlugin.GenerateSW({
-    clientsClaim: true,
-    skipWaiting: true,
-  }),
-  new WebpackPwaManifest({
-    name: 'Salah Time',
-    short_name: 'Salah-Time',
-    description:
-      'An app to get accurate time for Salah from all over the world',
-    background_color: '#404040',
-    'theme-color': '#5FA2BC',
-    theme_color: '#5FA2BC',
-    display: 'standalone',
-    orientation: 'any',
-    crossorigin: 'anonymous',
-    publicPath: './',
-    ios: true,
-    icons: [
+
+  new copyWebpackPlugin({
+    patterns: [
       {
-        src: path.resolve('./src/assests/icon.png'),
-        sizes: [36, 48, 72, 96, 144, 192, 512],
-      },
-      {
-        src: path.resolve('./src/assests/icon.png'),
-        sizes: [36, 48, 72, 96, 144, 192, 512],
-        purpose: 'maskable',
+        from: './src/assests/favicons',
+        to: '',
       },
     ],
+  }),
+
+  new GenerateSW({
+    clientsClaim: true,
+    skipWaiting: true,
   })
 )
 

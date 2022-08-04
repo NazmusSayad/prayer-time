@@ -51,7 +51,6 @@ CONFIG.plugins = [
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: PATH.template,
-    favicon: './src/assests/icon.png',
   }),
 ]
 
