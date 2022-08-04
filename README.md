@@ -4,12 +4,6 @@ Assalamu Alaikum,
 - [Visit Website](https://namaz.vercel.app)
 - [Download Android App](https://github.com/NazmusSayad/prayer-time/raw/master/prayer-time.apk)
 
-### Tips:
-
-- **Open Settings:** Right click anywhere(Mouse) or Hold down anywhere(Touch)
-- **Toggle Full Screen:** Double Click anywhere
-- **Toggle Cursor:** Ctrl+leftClick
-
 ##
 
 **Pros:**
