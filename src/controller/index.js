@@ -53,5 +53,10 @@ modalView.render()
   Model.loadUserConfig()
   settingsController.updateRootConfigAttributes()
   settingsView.setPreviousSettings(STATE.Settings)
-  prayerController.initPrayer()
+  prayerController.initPrayer(() => {
+    prayerView.showRetryButton()
+  })
 })()
+
+let se = 1
+console.log((se &&= 23))

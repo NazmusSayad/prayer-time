@@ -11,7 +11,7 @@ class Clock extends Views {
   #secElement = this._element.qs('.clock__time--sec')
   #minElement = this._element.qs('.clock__time--min')
   #hourElement = this._element.qs('.clock__time--hour')
-  #modifierElement = this._element.qs('.clock__time--modifier')
+  #suffixElement = this._element.qs('.clock__time--suffix')
   #dateElement = this._element.qs('.clock__date')
 
   updateSecond(sec) {
@@ -27,7 +27,7 @@ class Clock extends Views {
     hour = ((hour + 11) % 12) + 1
 
     this.#hourElement.innerHTML = hour
-    this.#modifierElement.innerHTML = suffix
+    this.#suffixElement.innerHTML = suffix
   }
 
   updateDay(day) {

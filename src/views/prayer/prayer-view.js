@@ -2,10 +2,12 @@ import { convertMstoHHMMSS, convertFrom24To12Format } from '../../utils/utils'
 import Views from '../Views'
 import containerMarkup from './prayer-container.html'
 import prayerItemMarkup from './prayer.html'
+import retryButtonMarkup from './retry-button.html'
 import './prayer.scss'
 
 class Prayer extends Views {
   _element = HTML(containerMarkup)
+  #retryButton = HTML(retryButtonMarkup)
   #container = this._element.qs('.prayer')
 
   constructor() {
@@ -52,9 +54,13 @@ class Prayer extends Views {
     remainElement.innerHTML = convertMstoHHMMSS(diff + 100)
   }
 
+  showRetryButton() {
+    this.#container.innerHTML = ''
+    this.#container.append(this.#retryButton)
+  }
+
   addRetryButtonhandler(callback) {
-    const button = this.#container.qs('button')
-    button.onclick = () => callback()
+    this.#retryButton.onclick = () => callback()
   }
 }
 

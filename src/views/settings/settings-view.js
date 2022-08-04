@@ -22,10 +22,11 @@ class Settings extends Views {
 
   close() {
     this._element.classList.add(`close`)
-    const settings = document
+    const otherAnimationSettings = document
       .qs('html')
       .getAttribute(`settings-otherAnimations`)
-    if (settings === 'true') {
+
+    if (otherAnimationSettings === 'true') {
       setTimeout(() => (this._element.className = ''), 500)
     } else this._element.className = ''
   }
@@ -61,10 +62,12 @@ class Settings extends Views {
       `input[name='calculationMethod']:checked`
     ).id
 
-    const currentPrayerAnimation = !!this.#form.qs(
-      `input#currentPrayerAnimation:checked`
+    const currentPrayerAnimation = Boolean(
+      this.#form.qs(`input#currentPrayerAnimation:checked`)
     )
-    const otherAnimations = !!this.#form.qs(`input#otherAnimations:checked`)
+    const otherAnimations = Boolean(
+      this.#form.qs(`input#otherAnimations:checked`)
+    )
 
     return {
       madhab,

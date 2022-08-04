@@ -22,13 +22,14 @@ export const startClock = () => {
   STATE.prayerLoaded && prayerController.updateNextPrayerTime()
 
   if (!sec) {
-    const fajrNext = STATE.prayerTimesList['fajr2']
-    if (fajrNext <= date) {
-      prayerController.initPrayer()
-    }
-
     const min = date.getMinutes()
     minUpdater(min)
+
+    const fajrNext = STATE.prayerTimesList['fajr2']
+
+    fajrNext <= date && // When current time is greater or equal than Fajr(Extra/Next)
+      prayerController.initPrayer() // NOTE: That means now Fajr(Extra/Next) will be current prayer, But that's impossible. So reset everything!
+
     STATE.prayerLoaded && prayerController.updateCurrentAndNextPrayer()
     STATE.prayerLoaded && prayerController.updateNextPrayerTime()
 

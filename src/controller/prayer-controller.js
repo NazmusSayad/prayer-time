@@ -4,21 +4,23 @@ import prayerView from '../views/prayer/prayer-view.js'
 import settingsView from '../views/settings/settings-view.js'
 import modalView from '../views/modal/modal-view.js'
 
-export const initPrayer = async () => {
+export const initPrayer = async (additionalErrorCallback = () => {}) => {
   try {
     if (!STATE.UserLocation.latitude || !STATE.UserLocation.longitude) {
       STATE.UserLocation = await Model.getUserLocationByIp()
       Model.saveUserConfig()
       settingsView.setPreviousSettings(STATE.Settings)
     }
-  } catch (err) {
-    return modalView.redAlert({
-      title: 'No internet connection!',
-      message: 'At least give me internet connection for the first time.',
-    })
-  }
 
-  updatePrayer()
+    updatePrayer()
+  } catch {
+    await modalView.redAlert({
+      title: 'No internet connection!',
+      message: 'I need an internet connection for this job.',
+    })
+
+    additionalErrorCallback()
+  }
 }
 
 export const updatePrayer = () => {
@@ -45,6 +47,8 @@ export const updateNextPrayerTime = () => {
 export const updateCurrentAndNextPrayer = () => {
   let { current, next } = Model.getCurrentAndNextPrayer()
 
+  // Current === none : after 12AM and before fajr
+  // Next === none : before 12AM and after isha 
   if (current === 'none' || next === 'none') {
     current = 'isha'
     next = 'fajr2'
