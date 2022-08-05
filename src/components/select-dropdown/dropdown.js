@@ -37,33 +37,55 @@ const fillDropDownContainer = (parent, name, options) => {
 }
 
 const focusToUpElement = (container, element) => {
-  if (!element) {
-    container.lastElementChild.qs('label').classList.add(`focus`)
-  } else {
+  const lastElement = container.lastElementChild.qs('label')
+
+  if (element) {
     element.classList.remove(`focus`)
     const prevElement =
       element.parentElement.previousElementSibling?.qs('label')
 
     if (prevElement) {
-      prevElement.classList.add(`focus`)
+      focusAndScrollToBeVisible(prevElement, container)
     } else {
-      container.lastElementChild.qs('label').classList.add(`focus`)
+      focusAndScrollToBeVisible(lastElement, container)
     }
+  } else {
+    focusAndScrollToBeVisible(lastElement, container)
   }
 }
 
 const focusToDownElement = (container, element) => {
-  if (!element) {
-    container.firstElementChild.qs('label').classList.add(`focus`)
-  } else {
+  const firstElement = container.firstElementChild.qs('label')
+
+  if (element) {
     element.classList.remove(`focus`)
     const nextElement = element.parentElement.nextElementSibling?.qs('label')
 
     if (nextElement) {
-      nextElement.classList.add(`focus`)
+      focusAndScrollToBeVisible(nextElement, container)
     } else {
-      container.firstElementChild.qs('label').classList.add(`focus`)
+      focusAndScrollToBeVisible(firstElement, container)
     }
+  } else {
+    focusAndScrollToBeVisible(firstElement, container)
+  }
+}
+
+const focusAndScrollToBeVisible = function (element, container) {
+  element.classList.add(`focus`)
+
+  const eleTop = element.offsetTop
+  const eleBottom = eleTop + element.clientHeight
+
+  const containerTop = container.scrollTop
+  const containerBottom = containerTop + container.clientHeight
+
+  if (eleTop < containerTop) {
+    // Scroll to the top of container
+    container.scrollTop -= containerTop - eleTop
+  } else if (eleBottom > containerBottom) {
+    // Scroll to the bottom of container
+    container.scrollTop += eleBottom - containerBottom
   }
 }
 
