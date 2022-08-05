@@ -81,11 +81,9 @@ const focusAndScrollToBeVisible = function (element, container) {
   const containerBottom = containerTop + container.clientHeight
 
   if (eleTop < containerTop) {
-    // Scroll to the top of container
-    container.scrollTop -= containerTop - eleTop
+    element.scrollIntoView(true)
   } else if (eleBottom > containerBottom) {
-    // Scroll to the bottom of container
-    container.scrollTop += eleBottom - containerBottom
+    element.scrollIntoView(false)
   }
 }
 
