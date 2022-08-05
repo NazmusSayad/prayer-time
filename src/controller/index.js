@@ -50,7 +50,6 @@ modalView.render()
 
 // Init Prayers
 ;(async () => {
-  Model.loadUserConfig()
   settingsController.updateRootConfigAttributes()
   settingsView.setPreviousSettings(STATE.Settings)
   prayerController.initPrayer(() => {

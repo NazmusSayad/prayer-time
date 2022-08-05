@@ -5,13 +5,18 @@ import modalView from '../views/modal/modal-view.js'
 import * as prayerController from './prayer-controller.js'
 import devLocation from '../data/dev-location.json'
 
-export const formSubmitHandler = async data => {
-  Object.assign(STATE.Settings, data)
-  Model.saveUserConfig()
+export const formSubmitHandler = async Settings => {
+  Object.assign(STATE.Settings, {
+    madhab: Settings.madhab,
+    calculationMethod: Settings.calculationMethod,
+    currentPrayerAnimation: Settings.currentPrayerAnimation,
+    otherAnimations: Settings.otherAnimations,
+  })
+
   updateRootConfigAttributes()
 
   try {
-    switch (data.locationMethod) {
+    switch (Settings.locationMethod) {
       case 'ip':
         STATE.UserLocation = await Model.getUserLocationByIp()
         break

@@ -7,7 +7,6 @@ export const initPrayer = async (additionalErrorCallback = () => {}) => {
   try {
     if (!STATE.UserLocation.latitude || !STATE.UserLocation.longitude) {
       STATE.UserLocation = await Model.getUserLocationByIp()
-      Model.saveUserConfig()
     }
 
     updatePrayer()

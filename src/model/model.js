@@ -1,33 +1,6 @@
 import * as Adhan from 'adhan'
 import STATE from './STATE'
 
-export const saveUserConfig = () => {
-  localStorage.setItem(
-    'prayer-time-settings',
-    JSON.stringify({
-      madhab: STATE.Settings.madhab,
-      calculationMethod: STATE.Settings.calculationMethod,
-      currentPrayerAnimation: STATE.Settings.currentPrayerAnimation,
-      otherAnimations: STATE.Settings.otherAnimations,
-    })
-  )
-  localStorage.setItem(
-    'prayer-time-location',
-    JSON.stringify(STATE.UserLocation)
-  )
-}
-
-export const loadUserConfig = () => {
-  const localSettings = localStorage.getItem(`prayer-time-settings`)
-  const localLocation = localStorage.getItem(`prayer-time-location`)
-
-  const loadedSettings = JSON.parse(localSettings) || {}
-  const loadedLocation = JSON.parse(localLocation) || {}
-
-  Object.assign(STATE.Settings, loadedSettings)
-  Object.assign(STATE.UserLocation, loadedLocation)
-}
-
 const makeUniquePrayerList = (main, extra) => {
   return [
     { id: 'fajr', name: 'Fajr', time: main.fajr },
