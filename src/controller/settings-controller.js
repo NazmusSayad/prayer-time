@@ -3,16 +3,40 @@ import * as Model from '../model/model.js'
 import settingsView from '../views/settings/settings-view.js'
 import modalView from '../views/modal/modal-view.js'
 import * as prayerController from './prayer-controller.js'
+import devLocation from '../data/dev-location.json'
 
-export const formSubmitHandler = data => {
+export const formSubmitHandler = async data => {
   Object.assign(STATE.Settings, data)
   Model.saveUserConfig()
   updateRootConfigAttributes()
 
-  prayerController.initPrayer()
-  modalView.greenAlert({
-    title: 'Settings Saved!',
-  })
+  try {
+    switch (data.locationMethod) {
+      case 'ip':
+        STATE.UserLocation = await Model.getUserLocationByIp()
+        break
+      case 'gps':
+        STATE.UserLocation = await Model.getUserLocationByGPS()
+        // Idk how to do that
+        break
+      case 'custom':
+        // STATE.UserLocation =
+        break
+      case 'dev':
+        STATE.UserLocation = devLocation
+        break
+    }
+
+    prayerController.updatePrayer()
+    modalView.greenAlert({
+      title: 'Settings Saved!',
+    })
+  } catch (err) {
+    modalView.redAlert({
+      title: 'Failed!',
+      message: err.message,
+    })
+  }
 }
 
 export const updateRootConfigAttributes = () => {

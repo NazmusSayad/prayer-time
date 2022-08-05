@@ -145,7 +145,8 @@
       padding: var(--padding);
 
       &:hover,
-      &:focus {
+      &:focus,
+      &.focus {
         color: #546c84;
         background-color: rgba($color-primary, 0.2);
       }

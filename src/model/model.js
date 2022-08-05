@@ -2,8 +2,19 @@ import * as Adhan from 'adhan'
 import STATE from './STATE'
 
 export const saveUserConfig = () => {
-  localStorage.setItem('prayer-time-settings', JSON.stringify(STATE.Settings))
-  localStorage.setItem('prayer-time-location', JSON.stringify(STATE.UserLocation))
+  localStorage.setItem(
+    'prayer-time-settings',
+    JSON.stringify({
+      madhab: STATE.Settings.madhab,
+      calculationMethod: STATE.Settings.calculationMethod,
+      currentPrayerAnimation: STATE.Settings.currentPrayerAnimation,
+      otherAnimations: STATE.Settings.otherAnimations,
+    })
+  )
+  localStorage.setItem(
+    'prayer-time-location',
+    JSON.stringify(STATE.UserLocation)
+  )
 }
 
 export const loadUserConfig = () => {
@@ -53,21 +64,28 @@ export const getUserLocationByGPS = async () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          const location = {
+          resolve({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
-          }
-          resolve(location)
+          })
         },
-        () => reject()
+        () => reject(new Error('Unable to get permission!'))
       )
-    } else reject()
+    } else reject(new Error('Unable to get permission!'))
   })
 }
 
 export const getUserLocationByIp = async () => {
-  const { longitude, latitude } = await fetchJSON('https://json.geoiplookup.io')
-  return { longitude, latitude }
+  try {
+    const { longitude, latitude } = await fetchJSON(
+      'https://get.geojs.io/v1/ip/geo.json'
+    )
+
+    return { longitude, latitude }
+  } catch (err) {
+    err.message = 'I need an internet connection for this job.'
+    throw err
+  }
 }
 
 export const getPrayerTimesList = () => {

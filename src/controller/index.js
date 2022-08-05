@@ -57,6 +57,3 @@ modalView.render()
     prayerView.showRetryButton()
   })
 })()
-
-let se = 1
-console.log((se &&= 23))

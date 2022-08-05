@@ -1,10 +1,12 @@
 import Views from '../Views'
 import settingsUpdater from './settings-updater.js'
 import './settings.scss'
+import './custom-location.scss'
 import markup from './settings.html'
 import DropDown from '../../components/select-dropdown/dropdown.js'
 import calculationMethodList from '../../data/calculation-methods.json'
 import madhabList from '../../data/madhab-list.json'
+import modalView from '../modal/modal-view.js'
 
 class Settings extends Views {
   _element = HTML(markup)
@@ -61,6 +63,9 @@ class Settings extends Views {
     const calculationMethod = this.#form.qs(
       `input[name='calculationMethod']:checked`
     ).id
+    const locationMethod = this.#form
+      .qs(`input[name='location']:checked`)
+      .id.split('-')[1]
 
     const currentPrayerAnimation = Boolean(
       this.#form.qs(`input#currentPrayerAnimation:checked`)
@@ -74,6 +79,7 @@ class Settings extends Views {
       calculationMethod,
       currentPrayerAnimation,
       otherAnimations,
+      locationMethod,
     }
   }
 
@@ -83,12 +89,47 @@ class Settings extends Views {
       'calculationMethod',
       calculationMethodList
     )
+    const locationDropDown = new DropDown('location', [
+      {
+        id: 'location-none',
+        label: 'none',
+        checked: true,
+      },
+      {
+        id: 'location-ip',
+        label: 'IP Address',
+      },
+      {
+        id: 'location-gps',
+        label: 'Geolocation API',
+      },
+      {
+        id: 'location-custom',
+        label: 'Custom',
+      },
+      {
+        id: 'location-dev',
+        label: 'Only for Developer',
+      },
+    ])
 
-    const madhabItem = this.#form.qs('#settings-item-method')
-    const calculationItem = this.#form.qs('#settings-item-calculation')
+    const madhabContainer = this.#form.qs('#settings-item-method')
+    const calculationContainer = this.#form.qs('#settings-item-calculation')
+    const locationContainer = this.#form.qs('#settings-item-location')
 
-    madhabItem.append(madhabDropDown)
-    calculationItem.append(calculationDropDown)
+    madhabContainer.append(madhabDropDown)
+    calculationContainer.append(calculationDropDown)
+    locationContainer.append(locationDropDown)
+
+    /* TODO: Add custom location support */
+    locationContainer.qs('#location-custom').onclick = async () => {
+      locationContainer.qs('label').click() /* XXX: Will be removed later */
+
+      await modalView.redAlert({
+        title: 'Not implemented yet!',
+        message: 'This feature is inside the TODO list :)',
+      })
+    }
   }
 }
 
