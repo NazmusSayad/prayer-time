@@ -72,6 +72,7 @@ export const settingsClose = async newSettings => {
   if (input) {
     await Wait(150) // Waiting for the modal-view closing animation to finish!
 
+    
     settingsView.close()
     settingsView.setPreviousSettings(oldSettings)
   }

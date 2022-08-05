@@ -29,8 +29,14 @@ class Settings extends Views {
       .getAttribute(`settings-otherAnimations`)
 
     if (otherAnimationSettings === 'true') {
-      setTimeout(() => (this._element.className = ''), 500)
-    } else this._element.className = ''
+      setTimeout(() => {
+        this._element.className = ''
+        document.qs('#location-none').click()
+      }, 500)
+    } else {
+      this._element.className = ''
+      document.qs('#location-none').click()
+    }
   }
 
   setPreviousSettings(settings) {
@@ -123,7 +129,7 @@ class Settings extends Views {
 
     /* TODO: Add custom location support */
     locationContainer.qs('#location-custom').onclick = async () => {
-      locationContainer.qs('label').click() /* XXX: Will be removed later */
+      document.qs('#location-none').click() /* XXX: Will be removed later */
 
       await modalView.redAlert({
         title: 'Not implemented yet!',
