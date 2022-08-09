@@ -1,5 +1,4 @@
 import STATE from '../model/STATE.js'
-import * as Model from '../model/model.js'
 import * as headerController from './header-controller.js'
 import * as prayerController from './prayer-controller.js'
 import * as clockController from './clock-controller.js'
@@ -9,12 +8,14 @@ import prayerView from '../views/prayer/prayer-view.js'
 import clockView from '../views/clock/clock-view.js'
 import settingsView from '../views/settings/settings-view.js'
 import modalView from '../views/modal/modal-view.js'
+import inputView from '../views/input/input-view.js'
 
 headerView.render()
 prayerView.render()
 clockView.render()
 settingsView.render()
 modalView.render()
+inputView.render()
 
 // Init handlers
 ;(() => {
