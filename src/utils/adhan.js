@@ -29,6 +29,8 @@ const audioPlayer = audio => {
 }
 
 export default (prayer, time) => {
+  if (prayer === 'sunrise') return
+
   if (prayer === 'fajr') audioPlayer(adhanFajr)
   else audioPlayer(adhanNormal)
 
