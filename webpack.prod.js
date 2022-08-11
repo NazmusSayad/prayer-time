@@ -2,6 +2,7 @@ const { CONFIG } = require('./webpack.common')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const copyWebpackPlugin = require('copy-webpack-plugin')
+const ONE_MB_IN_BYTE = 1000000
 
 CONFIG.mode = 'production'
 CONFIG.output.clean = true
@@ -34,6 +35,7 @@ CONFIG.plugins.push(
   new GenerateSW({
     clientsClaim: true,
     skipWaiting: true,
+    maximumFileSizeToCacheInBytes: ONE_MB_IN_BYTE * 5,
   })
 )
 

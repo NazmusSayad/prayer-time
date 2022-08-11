@@ -2,6 +2,7 @@ import STATE from '../model/STATE.js'
 import * as Model from '../model/model.js'
 import prayerView from '../views/prayer/prayer-view.js'
 import modalView from '../views/modal/modal-view.js'
+import Adhan from '../utils/adhan.js'
 
 export const initPrayer = async (additionalErrorCallback = () => {}) => {
   try {
@@ -41,15 +42,11 @@ export const updateNextPrayerTime = () => {
   prayerView.updateNextPrayerTime(diffMs)
 }
 
-const playAdhan = prayer => {
-  console.log(prayer)
-}
-
 export const updateCurrentAndNextPrayer = () => {
   let { current, next } = Model.getCurrentAndNextPrayer()
 
   if (STATE.prayer.current && STATE.prayer.current !== current)
-    playAdhan(current)
+    Adhan(current, STATE.prayerTimesList[current])
 
   // Current === none : after 12AM and before fajr
   // Next === none : before 12AM and after isha
@@ -63,3 +60,7 @@ export const updateCurrentAndNextPrayer = () => {
   prayerView.updateNextPrayer(next)
   STATE.prayerLoaded = true
 }
+
+document.addEventListener('dblclick', () => {
+  Adhan('fajr', Date.now())
+})
