@@ -60,7 +60,3 @@ export const updateCurrentAndNextPrayer = () => {
   prayerView.updateNextPrayer(next)
   STATE.prayerLoaded = true
 }
-
-document.addEventListener('dblclick', () => {
-  Adhan('fajr', Date.now())
-})
