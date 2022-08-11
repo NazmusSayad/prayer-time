@@ -1,4 +1,9 @@
-const adhan = new Audio(
+import {
+  convertFrom24To12Format,
+  requestNotificationPermission,
+} from './utils.js'
+
+const adhanNormal = new Audio(
   new URL(
     '../assests/adhan/non-fajr-omor-hiasham-al-arabi.webm',
     import.meta.url
@@ -25,10 +30,23 @@ const audioPlayer = audio => {
 
 export default (prayer, time) => {
   if (prayer === 'fajr') audioPlayer(adhanFajr)
-  else audioPlayer(adhan)
+  else audioPlayer(adhanNormal)
 
-  const noti = new Notification("It's time for prayer!", {
-    body: prayer + ':\n' + time.toLocaleString(),
-  })
+  const noti = new Notification(
+    `It's time for "${prayer.capitalize()}" prayer!`,
+    {
+      body: 'Starting time: ' + convertFrom24To12Format(time),
+      vibrate: [200, 100, 200],
+      requireInteraction: false,
+      icon: './icon_512x512.png',
+      image: './icon_512x512.png',
+      badge: './icon_512x512.png',
+    }
+  )
   setTimeout(() => noti.close(), 5000)
 }
+
+document.addEventListener('pointerdown', requestNotificationPermission)
+document.addEventListener('mousedown', requestNotificationPermission)
+document.addEventListener('touchstart', requestNotificationPermission)
+document.addEventListener('keydown', requestNotificationPermission)

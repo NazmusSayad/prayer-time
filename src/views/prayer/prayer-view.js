@@ -22,9 +22,7 @@ class Prayer extends Views {
 
       prayerItemElement.id = id
       prayerItemElement.qs('.name').innerHTML = name
-      prayerItemElement.qs('.time').innerHTML = convertFrom24To12Format(
-        time.toString()
-      )
+      prayerItemElement.qs('.time').innerHTML = convertFrom24To12Format(time)
 
       this.#container.appendChild(prayerItemElement)
     })
