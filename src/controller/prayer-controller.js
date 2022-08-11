@@ -41,8 +41,15 @@ export const updateNextPrayerTime = () => {
   prayerView.updateNextPrayerTime(diffMs)
 }
 
+const playAdhan = prayer => {
+  console.log(prayer)
+}
+
 export const updateCurrentAndNextPrayer = () => {
   let { current, next } = Model.getCurrentAndNextPrayer()
+
+  if (STATE.prayer.current && STATE.prayer.current !== current)
+    playAdhan(current)
 
   // Current === none : after 12AM and before fajr
   // Next === none : before 12AM and after isha

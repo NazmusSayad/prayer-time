@@ -69,6 +69,11 @@ const STATE = {
   },
 
   // Extras
+  prayer: {
+    current: null,
+    next: null,
+  },
+
   prayerTimes: {
     currentPrayer: () => {},
   },
