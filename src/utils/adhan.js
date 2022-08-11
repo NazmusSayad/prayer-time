@@ -24,7 +24,7 @@ const audioPlayer = audio => {
 }
 
 export default (prayer, time) => {
-  if (prayer === 'asr') audioPlayer(adhanFajr)
+  if (prayer === 'fajr') audioPlayer(adhanFajr)
   else audioPlayer(adhan)
 
   const noti = new Notification("It's time for prayer!", {
