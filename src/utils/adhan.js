@@ -20,7 +20,7 @@ const audioPlayer = audio => {
         clearInterval(tryToPlay)
       })
       .catch(() => {})
-  }, 10)
+  }, 250)
 }
 
 export default (prayer, time) => {
