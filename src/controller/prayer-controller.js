@@ -45,14 +45,15 @@ export const updateNextPrayerTime = () => {
 export const updateCurrentAndNextPrayer = () => {
   let { current, next } = Model.getCurrentAndNextPrayer()
 
-  if (STATE.prayer.current && STATE.prayer.current !== current)
-    Adhan(current, STATE.prayerTimesList[current])
-
   // Current === none : after 12AM and before fajr
   // Next === none : before 12AM and after isha
   if (current === 'none' || next === 'none') {
     current = 'isha'
     next = 'fajr2'
+  }
+
+  if (STATE.prayer.current && STATE.prayer.current !== current) {
+    Adhan(current, STATE.prayerTimesList[current])
   }
 
   STATE.prayer = { current, next }
