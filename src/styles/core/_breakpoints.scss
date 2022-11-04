@@ -1,0 +1,20 @@
+@mixin break-down($from) {
+  @media (width <= $from) {
+    @content;
+  }
+}
+
+@mixin break-up($from) {
+  @media (width > $from) {
+    @content;
+  }
+}
+
+// Breakpoints
+$xxs: 25em; // 400px
+$xs: 31.25em; // 500px
+$sm: 37.5em; // 600px
+$md: 48em; // 768px
+$lg: 62em; // 992px
+$xl: 75em; // 1200px
+$xxl: 120em; // 1920px

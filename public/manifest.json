@@ -1,0 +1,18 @@
+{
+  "name": "Web App",
+  "short_name": "WebApp",
+  "description": "An app to get accurate time for Salah from all over the world",
+  "start_url": "/",
+  "orientation": "any",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
