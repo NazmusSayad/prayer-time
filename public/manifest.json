@@ -1,7 +1,7 @@
 {
-  "name": "Web App",
+  "name": "Salah Time",
   "short_name": "WebApp",
-  "description": "An app to get accurate time for Salah from all over the world",
+  "description": "Assalamu Alaikum. This is will help you to get the accurate time for salah from all over the world. Jazakumullahu khayran.",
   "start_url": "/",
   "orientation": "any",
   "display": "standalone",

@@ -13,7 +13,13 @@ const config = {
   assets: 'assets',
 }
 
-const plugins = [react(), svgr.default(), vitePWA()]
+const plugins = [
+  react(),
+  svgr.default(),
+  vitePWA({
+    preCacheFilter: true,
+  }),
+]
 
 const css = {
   modules: {

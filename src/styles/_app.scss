@@ -1,12 +1,24 @@
+@use './core' as *;
+
 html {
   scroll-behavior: smooth;
-  // user-select: none;
+  user-select: none;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $clr-white;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 #Root {
   min-height: 100vh;
+}
+
+button:focus-visible {
+  box-shadow: 0 0 0.2rem 0.2rem lightblue;
 }

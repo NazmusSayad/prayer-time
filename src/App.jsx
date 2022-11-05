@@ -1,9 +1,16 @@
-import InitialApp from './_InitialApp/InitialApp'
+import css from './App.module.scss'
+import Header from '$components/Header'
+import Prayer from '$components/Prayer'
+// import Settings from '$components/Settings'
+import Clock from '$components/Clock'
 
 const App = () => {
   return (
-    <main>
-      <InitialApp />
+    <main className={css.main}>
+      <Header />
+      <Prayer />
+      {/* <Settings /> */}
+      <Clock />
     </main>
   )
 }

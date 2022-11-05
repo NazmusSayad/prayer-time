@@ -1,0 +1,129 @@
+@mixin custom-flex($count, $gap) {
+  flex: calc((100% / $count) - $gap) 0 1;
+  margin: calc($gap / 2);
+  min-width: fit-content;
+  max-width: calc($gap + 15rem);
+}
+
+.PrayerItem {
+  text-align: center;
+  padding: 1.85rem 1rem;
+  backdrop-filter: blur(0.7rem);
+  box-shadow: 0 0 0.5rem rgb(0 0 0 / 8%);
+  border-radius: 0.5rem;
+  position: relative;
+  opacity: 0.9;
+  line-height: 1;
+
+  @include custom-flex(6, 1.65rem);
+  @include break-down($xl) {
+    padding: 1.8rem 0.95rem;
+    @include custom-flex(5, 1.45rem);
+  }
+  @include break-down($lg) {
+    padding: 1.7rem 0.9rem;
+    @include custom-flex(5, 1.33rem);
+  }
+  @include break-down($md) {
+    padding: 1.6rem 0.85rem;
+    @include custom-flex(4, 1.25rem);
+  }
+  @include break-down($sm) {
+    padding: 1.5rem 0.8rem;
+    @include custom-flex(3, 1rem);
+  }
+}
+
+.mainItem {
+  color: $clr-main;
+  background-color: $clr-bg-main;
+}
+
+.extraItem {
+  color: $clr-extra;
+  background-color: $clr-bg-extra;
+}
+
+.current {
+  opacity: 1;
+  padding-block: 2rem;
+  background: transparent;
+
+  .time {
+    font-size: 1.7rem;
+  }
+
+  .name {
+    font-size: 1.55rem;
+    opacity: 0.9;
+    text-decoration: underline;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: $clr-bg-current;
+    border-radius: inherit;
+    box-shadow: inherit;
+    animation: current-prayer 2s infinite;
+  }
+}
+
+.next {
+  background: $clr-bg-next;
+
+  .time {
+    font-size: 1.7rem;
+  }
+
+  .name {
+    margin-top: 0.4em;
+    font-size: 1.55rem;
+    opacity: 0.9;
+  }
+
+  .remain {
+    margin-top: 0.5em;
+    color: paleturquoise;
+    display: block;
+  }
+}
+
+.time {
+}
+
+.label {
+  text-transform: capitalize;
+  font-size: 1.45rem;
+  margin-top: 0.4em;
+  opacity: 0.775;
+  transform: scaleX(1.1);
+}
+
+.remain {
+  display: none;
+}
+
+@keyframes current-prayer {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  10% {
+    transform: scale(1.01);
+  }
+  15% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

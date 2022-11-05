@@ -1,0 +1,21 @@
+.main {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background: #1d1d2080;
+  padding: 2rem 3rem;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('./assets/bg.jpg');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
