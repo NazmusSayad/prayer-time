@@ -5,6 +5,13 @@ const store = configureStore({
   reducer: {
     prayer: prayerReducers,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['prayer/updateDate', 'prayer/updatePrayer'],
+        ignoredPaths: ['prayer.date', 'prayer.prayerTimes'],
+      },
+    }),
 })
 
 export default store

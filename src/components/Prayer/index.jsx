@@ -1,18 +1,14 @@
+import { useSelector } from 'react-redux'
 import css from './index.module.scss'
 import PrayerItem from './PrayerItem'
-import usePrayer from '$hooks/usePrayer'
-const prayerList = ['fajr', 'duhr', 'asr', 'maghrib', 'isha']
 
-const Prayer = ({ currentDate }) => {
-  const prayer = usePrayer()
+const Prayer = () => {
+  const prayerTimes = useSelector((state) => state.prayer.prayerTimes.list)
 
   return (
     <div className={css.Prayer}>
-      {prayerList.map((p) => (
-        <PrayerItem prayer={p} key={p} typeMain />
-      ))}
-      {prayerList.map((p) => (
-        <PrayerItem prayer={p} key={p} typeExtra />
+      {prayerTimes.map((prayer) => (
+        <PrayerItem prayer={prayer} key={prayer.id} />
       ))}
     </div>
   )

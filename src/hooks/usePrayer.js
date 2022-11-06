@@ -6,6 +6,9 @@ let shouldUpdatePrayerTimes = 0
 
 const usePrayer = () => {
   const currentDate = useDate()
+  console.log(currentDate)
+
+  return
   const prevStore = useSelector((state) => state.prayer)
 
   const prayerResult = useMemo(() => {

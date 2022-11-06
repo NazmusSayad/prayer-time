@@ -4,14 +4,17 @@ import { createRoot } from 'react-dom/client'
 import './styles/index.scss'
 import store from './store'
 import App from './App'
+import PrayerTimes from './PrayerTimes'
 
 const rootElement = document.getElementById('Root')
 const root = createRoot(rootElement)
 
 root.render(
   <Provider store={store}>
-    {/* <React.StrictMode> */}
+    <React.StrictMode>
       <App />
-    {/* </React.StrictMode> */}
+    </React.StrictMode>
+
+    <PrayerTimes />
   </Provider>
 )

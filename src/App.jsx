@@ -1,29 +1,17 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { updatePrayer } from '$store/slice/prayer'
 import css from './App.module.scss'
 import Header from '$components/Header'
 import Prayer from '$components/Prayer'
-// import Settings from '$components/Settings'
+import Settings from '$components/Settings'
 import Clock from '$components/Clock'
+import { useDispatch } from 'react-redux'
+import prayer from '$store/slice/prayer'
 
 const App = () => {
-  // const dispatch = useDispatch()
-  // const startClock = () => {
-  //   dispatch(updatePrayer)
-  // }
+  const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     const ms = new Date().getMilliseconds()
-  //     if (!Math.floor(ms / 100)) {
-  //       clearInterval(interval)
-  //       startClock()
-  //       setInterval(startClock, 1000)
-  //     }
-  //   }, 10)
-  //   return () => clearInterval(interval)
-  // }, [])
+  document.onclick = () => {
+    dispatch(prayer.updateMadhab('shafi'))
+  }
 
   return (
     <main className={css.main}>

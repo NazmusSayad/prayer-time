@@ -13,18 +13,37 @@ const initialState = {
   },
 
   prayerTimes: {
-    main: {},
-    extra: {},
+    raw: {},
+    list: [],
   },
+
+  currentPrayer: undefined,
+  nextPrayer: undefined,
 }
 
 const prayer = createSlice({
   name: 'prayer',
   initialState,
   reducers: {
-    root(state, { payload = {} }) {
-      delete payload.config
-      Object.assign(state, payload)
+    updateDate(state, { payload }) {
+      state.date = payload
+    },
+    updatePrayer(state, { payload }) {
+      state.prayerTimes = payload
+    },
+    updateCurrentNext(state, { payload }) {
+      state.currentPrayer = payload.current
+      state.nextPrayer = payload.next
+    },
+
+    updateMethod(state, { payload }) {
+      state.config.method = payload
+    },
+    updateMadhab(state, { payload }) {
+      state.config.madhab = payload
+    },
+    updateCords(state, { payload }) {
+      state.config.cords = payload
     },
   },
 })
