@@ -40,6 +40,7 @@
 }
 
 .extraItem {
+  opacity: 0.8;
   color: $clr-extra;
   background-color: $clr-bg-extra;
 }
@@ -53,7 +54,7 @@
     font-size: 1.7rem;
   }
 
-  .name {
+  .label {
     font-size: 1.55rem;
     opacity: 0.9;
     text-decoration: underline;
@@ -79,7 +80,7 @@
     font-size: 1.7rem;
   }
 
-  .name {
+  .label {
     margin-top: 0.4em;
     font-size: 1.55rem;
     opacity: 0.9;

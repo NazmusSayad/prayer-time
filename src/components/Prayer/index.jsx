@@ -7,9 +7,13 @@ const Prayer = () => {
 
   return (
     <div className={css.Prayer}>
-      {prayerTimes.map((prayer) => (
-        <PrayerItem prayer={prayer} key={prayer.id} />
-      ))}
+      <div className="wrapper">
+        <div className={css.prayer}>
+          {prayerTimes.map((prayer) => (
+            <PrayerItem prayer={prayer} key={prayer.id} />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

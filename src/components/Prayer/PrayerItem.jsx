@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useSelector } from 'react-redux'
 import { convertMstoHHMMSS } from '$utils/utils'
 
-const PrayerItem = ({ prayer, typeMain, typeExtra }) => {
+const PrayerItem = ({ prayer }) => {
   const currentDate = useSelector((state) => state.prayer.date)
   const currentPrayer = useSelector((state) => state.prayer.currentPrayer)
   const nextPrayer = useSelector((state) => state.prayer.nextPrayer)

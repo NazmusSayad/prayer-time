@@ -1,7 +1,11 @@
 .Prayer {
+  padding: 2.5rem 7% 2rem;
+}
+
+.prayer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-bottom: calc((13vh + 4vw) - 5rem);
+  margin-bottom: calc((12vh + 3vw) - 5rem);
 }

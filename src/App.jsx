@@ -1,23 +1,19 @@
+import { useState } from 'react'
+
 import css from './App.module.scss'
 import Header from '$components/Header'
 import Prayer from '$components/Prayer'
 import Settings from '$components/Settings'
 import Clock from '$components/Clock'
-import { useDispatch } from 'react-redux'
-import prayer from '$store/slice/prayer'
 
 const App = () => {
-  const dispatch = useDispatch()
-
-  document.onclick = () => {
-    dispatch(prayer.updateMadhab('shafi'))
-  }
+  const [showSettings, setShowSettings] = useState(true)
 
   return (
     <main className={css.main}>
-      <Header />
+      <Header setShowSettings={setShowSettings} />
       <Prayer />
-      {/* <Settings /> */}
+      {showSettings && <Settings setShowSettings={setShowSettings} />}
       <Clock />
     </main>
   )

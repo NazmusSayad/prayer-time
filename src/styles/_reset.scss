@@ -1,3 +1,5 @@
+@use './core' as *;
+
 *,
 *::after,
 *::before {
@@ -8,6 +10,22 @@
 
 html {
   font-size: 62.5%;
+
+  @include break-down($xl) {
+    font-size: 61.5%;
+  }
+  @include break-down($lg) {
+    font-size: 60.5%;
+  }
+  @include break-down($md) {
+    font-size: 59%;
+  }
+  @include break-down($sm) {
+    font-size: 57.5%;
+  }
+  @include break-down($xs) {
+    font-size: 55.5%;
+  }
 }
 
 body {

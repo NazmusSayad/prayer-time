@@ -1,0 +1,94 @@
+.Settings {
+  inset: 0;
+  background: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  place-items: center;
+
+  &::backdrop {
+    display: none;
+  }
+
+  .backdrop,
+  .content {
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .backdrop {
+    animation-name: openSettingsBackdrop;
+  }
+  .content {
+    animation-name: openSettingsContent;
+  }
+  &.close {
+    .backdrop {
+      animation-name: closeSettingsBackdrop;
+    }
+    .content {
+      animation-name: closeSettingsContent;
+    }
+  }
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  height: 90%;
+  width: 90%;
+  max-width: 65rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  padding: 1.5rem 2.5rem 2rem;
+  background: rgba($clr-white, 0.8);
+
+  @include break-down($sm) {
+    height: calc(100vh - 7.5vmin);
+    width: 95%;
+  }
+
+  @include break-down($xs) {
+    height: 100vh;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes openSettingsBackdrop {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes closeSettingsBackdrop {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes openSettingsContent {
+  from {
+    transform: scale(0);
+    border-radius: 100vmax;
+    opacity: 0.1;
+  }
+}
+@keyframes closeSettingsContent {
+  to {
+    transform: scale(0);
+    border-radius: 100vmax;
+    opacity: 0.1;
+  }
+}

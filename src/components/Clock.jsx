@@ -1,9 +1,8 @@
-import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import css from './Clock.module.scss'
 
 const Clock = () => {
-  const currentDate = new Date(useSelector((state) => state.prayer.date))
+  const currentDate = useSelector((state) => state.prayer.date)
 
   return (
     <div className={css.Clock}>
