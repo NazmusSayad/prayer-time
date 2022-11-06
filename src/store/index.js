@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import authReducers from '$store/slice/auth'
+import { prayerReducers } from '$store/slice/prayer'
 
 const store = configureStore({
   reducer: {
-    auth: authReducers,
+    prayer: prayerReducers,
   },
 })
 

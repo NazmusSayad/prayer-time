@@ -1,10 +1,10 @@
 import css from './index.module.scss'
 import PrayerItem from './PrayerItem'
-import { getPrayerTimes } from './prayer'
+import usePrayer from '$hooks/usePrayer'
 const prayerList = ['fajr', 'duhr', 'asr', 'maghrib', 'isha']
 
-const Prayer = () => {
-  getPrayerTimes()
+const Prayer = ({ currentDate }) => {
+  const prayer = usePrayer()
 
   return (
     <div className={css.Prayer}>
