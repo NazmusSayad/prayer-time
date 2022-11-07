@@ -1,11 +1,14 @@
-export const deepClone = obj => {
+export const deepClone = (obj) => {
   return JSON.parse(JSON.stringify(obj))
 }
 
-export const convertMstoHHMMSS = durationMs => {
-  let seconds = Math.floor((durationMs / 1000) % 60),
-    minutes = Math.floor((durationMs / (1000 * 60)) % 60),
-    hours = Math.floor((durationMs / (1000 * 60 * 60)) % 24)
+export const convertMstoHHMMSS = (durationMs) => {
+  if (durationMs < 0) durationMs = 0
+  const durationSec = Math.floor(durationMs / 1000)
+
+  let seconds = durationSec % 60
+  let minutes = Math.floor((durationSec / 60) % 60)
+  let hours = Math.floor((durationSec / (60 * 60)) % 24)
 
   minutes = minutes < 10 ? '0' + minutes : minutes
   seconds = seconds < 10 ? '0' + seconds : seconds
@@ -13,7 +16,7 @@ export const convertMstoHHMMSS = durationMs => {
   return hours + ':' + minutes + ':' + seconds
 }
 
-export const convertFrom24To12Format = time24 => {
+export const convertFrom24To12Format = (time24) => {
   if (typeof time24 !== 'string') time24 = time24.toString()
 
   const [sHours, minutes] = time24.match(/([0-9]{1,2}):([0-9]{2})/).slice(1)
