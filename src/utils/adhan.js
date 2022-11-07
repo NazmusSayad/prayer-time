@@ -3,23 +3,22 @@ import {
   requestNotificationPermission,
 } from './utils.js'
 
-const adhanNormal = new Audio(
-  new URL(
-    '../assests/adhan/non-fajr-omor-hiasham-al-arabi.webm',
-    import.meta.url
-  )
+const adhanNormal = new URL(
+  '../assests/adhan/non-fajr-omor-hiasham-al-arabi.webm',
+  import.meta.url
 )
-const adhanFajr = new Audio(
-  new URL('../assests/adhan/fajr-al-afasy.webm', import.meta.url)
+const adhanFajr = new URL(
+  '../assests/adhan/fajr-al-afasy.webm',
+  import.meta.url
 )
 
-const audioPlayer = audio => {
+const audioPlayer = (audioUrl) => {
   const endTime = 1000 * 60 * 5 + Date.now()
 
   const tryToPlay = setInterval(() => {
     if (endTime < Date.now()) clearInterval(tryToPlay)
 
-    audio
+    new Audio(audioUrl)
       .play()
       .then(() => {
         clearInterval(tryToPlay)
